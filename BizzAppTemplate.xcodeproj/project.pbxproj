@@ -19,6 +19,7 @@
 		868C22F01960DF110028C5C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C22D81960DF110028C5C9 /* UIKit.framework */; };
 		868C22F81960DF110028C5C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 868C22F61960DF110028C5C9 /* InfoPlist.strings */; };
 		868C22FA1960DF110028C5C9 /* BizzAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C22F91960DF110028C5C9 /* BizzAppTemplateTests.m */; };
+		868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		868C22F51960DF110028C5C9 /* BizzAppTemplateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BizzAppTemplateTests-Info.plist"; sourceTree = "<group>"; };
 		868C22F71960DF110028C5C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		868C22F91960DF110028C5C9 /* BizzAppTemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BizzAppTemplateTests.m; sourceTree = "<group>"; };
+		868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		868C22C81960DF110028C5C9 = {
 			isa = PBXGroup;
 			children = (
+				868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */,
 				868C22DA1960DF110028C5C9 /* BizzAppTemplate */,
 				868C22F31960DF110028C5C9 /* BizzAppTemplateTests */,
 				868C22D31960DF110028C5C9 /* Frameworks */,
@@ -221,6 +224,7 @@
 			files = (
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
+				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
