@@ -20,6 +20,14 @@
 		868C22F81960DF110028C5C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 868C22F61960DF110028C5C9 /* InfoPlist.strings */; };
 		868C22FA1960DF110028C5C9 /* BizzAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C22F91960DF110028C5C9 /* BizzAppTemplateTests.m */; };
 		868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */; };
+		868C230C1960EE8B0028C5C9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C230B1960EE8B0028C5C9 /* Constants.m */; };
+		868C23131960EF7A0028C5C9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23121960EF7A0028C5C9 /* HomeViewController.m */; };
+		868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C232719611D6A0028C5C9 /* UIView+Resizing.m */; };
+		868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C2332196125020028C5C9 /* AwesomeMenu.m */; };
+		868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C2334196125020028C5C9 /* AwesomeMenuItem.m */; };
+		868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C233919612F740028C5C9 /* RNGridMenu.m */; };
+		868C233C196136220028C5C9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C233B196136220028C5C9 /* Accelerate.framework */; };
+		868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C233D196136310028C5C9 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +58,20 @@
 		868C22F71960DF110028C5C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		868C22F91960DF110028C5C9 /* BizzAppTemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BizzAppTemplateTests.m; sourceTree = "<group>"; };
 		868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		868C230A1960EE8B0028C5C9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		868C230B1960EE8B0028C5C9 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		868C23111960EF7A0028C5C9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		868C23121960EF7A0028C5C9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		868C232619611D6A0028C5C9 /* UIView+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Resizing.h"; sourceTree = "<group>"; };
+		868C232719611D6A0028C5C9 /* UIView+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Resizing.m"; sourceTree = "<group>"; };
+		868C2331196125020028C5C9 /* AwesomeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenu.h; sourceTree = "<group>"; };
+		868C2332196125020028C5C9 /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
+		868C2333196125020028C5C9 /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
+		868C2334196125020028C5C9 /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		868C233819612F740028C5C9 /* RNGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNGridMenu.h; sourceTree = "<group>"; };
+		868C233919612F740028C5C9 /* RNGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGridMenu.m; sourceTree = "<group>"; };
+		868C233B196136220028C5C9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		868C233D196136310028C5C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */,
+				868C233C196136220028C5C9 /* Accelerate.framework in Frameworks */,
 				868C22D71960DF110028C5C9 /* CoreGraphics.framework in Frameworks */,
 				868C22D91960DF110028C5C9 /* UIKit.framework in Frameworks */,
 				868C22D51960DF110028C5C9 /* Foundation.framework in Frameworks */,
@@ -99,6 +123,8 @@
 		868C22D31960DF110028C5C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868C233D196136310028C5C9 /* QuartzCore.framework */,
+				868C233B196136220028C5C9 /* Accelerate.framework */,
 				868C22D41960DF110028C5C9 /* Foundation.framework */,
 				868C22D61960DF110028C5C9 /* CoreGraphics.framework */,
 				868C22D81960DF110028C5C9 /* UIKit.framework */,
@@ -110,10 +136,12 @@
 		868C22DA1960DF110028C5C9 /* BizzAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				868C22E31960DF110028C5C9 /* AppDelegate.h */,
-				868C22E41960DF110028C5C9 /* AppDelegate.m */,
+				868C230D1960EF1B0028C5C9 /* ViewControllers */,
+				868C23051960ED3D0028C5C9 /* External */,
 				868C22E61960DF110028C5C9 /* Images.xcassets */,
 				868C22DB1960DF110028C5C9 /* Supporting Files */,
+				868C230A1960EE8B0028C5C9 /* Constants.h */,
+				868C230B1960EE8B0028C5C9 /* Constants.m */,
 			);
 			path = BizzAppTemplate;
 			sourceTree = "<group>";
@@ -121,6 +149,8 @@
 		868C22DB1960DF110028C5C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				868C22E31960DF110028C5C9 /* AppDelegate.h */,
+				868C22E41960DF110028C5C9 /* AppDelegate.m */,
 				868C22DC1960DF110028C5C9 /* BizzAppTemplate-Info.plist */,
 				868C22DD1960DF110028C5C9 /* InfoPlist.strings */,
 				868C22E01960DF110028C5C9 /* main.m */,
@@ -145,6 +175,62 @@
 				868C22F61960DF110028C5C9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		868C23051960ED3D0028C5C9 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				868C233719612F5A0028C5C9 /* RNGridMenu */,
+				868C2330196124F00028C5C9 /* AWMenu */,
+				868C232419611D440028C5C9 /* Extensions */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		868C230D1960EF1B0028C5C9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				868C23111960EF7A0028C5C9 /* HomeViewController.h */,
+				868C23121960EF7A0028C5C9 /* HomeViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		868C232419611D440028C5C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				868C232519611D4F0028C5C9 /* UIView */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		868C232519611D4F0028C5C9 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				868C232619611D6A0028C5C9 /* UIView+Resizing.h */,
+				868C232719611D6A0028C5C9 /* UIView+Resizing.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
+		868C2330196124F00028C5C9 /* AWMenu */ = {
+			isa = PBXGroup;
+			children = (
+				868C2331196125020028C5C9 /* AwesomeMenu.h */,
+				868C2332196125020028C5C9 /* AwesomeMenu.m */,
+				868C2333196125020028C5C9 /* AwesomeMenuItem.h */,
+				868C2334196125020028C5C9 /* AwesomeMenuItem.m */,
+			);
+			name = AWMenu;
+			sourceTree = "<group>";
+		};
+		868C233719612F5A0028C5C9 /* RNGridMenu */ = {
+			isa = PBXGroup;
+			children = (
+				868C233819612F740028C5C9 /* RNGridMenu.h */,
+				868C233919612F740028C5C9 /* RNGridMenu.m */,
+			);
+			name = RNGridMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,8 +329,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
+				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
+				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
+				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
+				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
+				868C23131960EF7A0028C5C9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
