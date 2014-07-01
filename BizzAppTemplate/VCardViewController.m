@@ -11,12 +11,19 @@
 #import "vCardSerialization.h"
 #import "HomeViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
+#import "CSNotificationView.h"
+
+
 
 @interface VCardViewController ()<UINavigationControllerDelegate,ABPersonViewControllerDelegate>{
    UINavigationController *navigationViewController;
    HomeViewController *root;
     
 }
+
+@property (nonatomic, strong) CSNotificationView* permanentNotification;
+
+
 @end
 
 @implementation VCardViewController
@@ -139,6 +146,7 @@
     
     
     }
+    
     // parse my emails
     /*
     ABMultiValueRef emails = ABRecordCopyValue(moi, kABPersonEmailProperty);
@@ -148,7 +156,7 @@
         NSLog(@"I have a %@ address: %@", label, value);
         CFRelease(label);
         CFRelease(value);
-    }*/
+    }
     
     
     if(moi==nil){
@@ -157,12 +165,64 @@
     
      ABAddressBookAddRecord(adbk, newPerson, nil);
       ABAddressBookSave(adbk, nil);
+    */
     
+    /*
+    [CSNotificationView showInViewController:self.navigationController
+                                       style:CSNotificationViewStyleSuccess
+                                     message:@"Great, it works."];
     
+  */
+    
+    self.permanentNotification =
+    [CSNotificationView notificationViewWithParentViewController:self.navigationController
+                                                       tintColor:[UIColor grayColor] //[UIColor colorWithRed:0.000 green:0.6 blue:1.000 alpha:1]
+                                                           image:nil message:@"Downloading / updating"];
+    
+    [self.permanentNotification setShowingActivity:YES];
+    
+    __block typeof(self) weakself = self;
+    self.permanentNotification.tapHandler = ^{
+        [weakself cancel];
+    };
+    
+    [self.permanentNotification setVisible:YES animated:YES completion:^{
+        
+        weakself.navigationItem.rightBarButtonItem =
+        [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                         style:UIBarButtonItemStyleDone
+                                        target:weakself
+                                        action:@selector(cancel)];
+        
+        double delayInSeconds = 4.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [weakself success];
+        });
+        
+    }];
     
     NSLog(@"SAVE");
     [self dismissSemiModalView];
     
+  
+}
+- (void)cancel
+{
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.permanentNotification dismissWithStyle:CSNotificationViewStyleError
+                                         message:@"Cancelled"
+                                        duration:kCSNotificationViewDefaultShowDuration animated:YES];
+    self.permanentNotification = nil;
     
+}
+
+- (void)success
+{
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.permanentNotification dismissWithStyle:CSNotificationViewStyleSuccess
+                                         message:@"Import process is complete!"
+                                        duration:kCSNotificationViewDefaultShowDuration animated:YES];
+    self.permanentNotification = nil;
 }
 @end

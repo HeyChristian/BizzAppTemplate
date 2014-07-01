@@ -12,13 +12,15 @@
 #import "BEMMinuteHand.h"
 
 @class VCardViewController;
-
+@class CompanyViewController;
 
 @interface HomeViewController : UIViewController <RNGridMenuDelegate,BEMAnalogClockDelegate,UIGestureRecognizerDelegate>{
     VCardViewController *vcardView;
+    CompanyViewController *companyView;
 }
 - (IBAction)displayGridMenu:(id)sender;
 - (IBAction)displayForDownloadVCard:(id)sender;
+- (IBAction)viewCompanyInfo:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 

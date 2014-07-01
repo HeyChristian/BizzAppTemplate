@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+KNSemiModal.h"
 #import "VCardViewController.h"
-
+#import "CompanyViewController.h"
 //for testing only
 //#import "TestViewController.h"
 
@@ -32,7 +32,7 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSLog(@"view did appear");
+    //NSLog(@"view did appear");
     
     
 }
@@ -55,6 +55,9 @@
     vcardView = [[VCardViewController alloc] initWithNibName:@"VCardViewController" bundle:nil];
     vcardView.parentVC = self;
     
+    companyView = [[CompanyViewController alloc] initWithNibName:@"CompanyViewController" bundle:nil];
+    
+    
     [self initClock];
     
     
@@ -68,7 +71,7 @@
 
 -(void)animateFunction
 {
-    NSLog(@"Timer heartbeat %i",imageCount);
+    //NSLog(@"Timer heartbeat %i",imageCount);
     
     NSString *imageName = [NSString stringWithFormat:@"bg%i.png",imageCount];
     [self.bgImage setImage:[UIImage imageNamed:imageName]];
@@ -109,6 +112,16 @@
                                                          KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
                                                          }];
 
+}
+
+- (IBAction)viewCompanyInfo:(id)sender {
+    
+    [self presentSemiViewController:companyView withOptions:@{
+                                                            KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                            KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                            KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                            }];
+    
 }
 
 

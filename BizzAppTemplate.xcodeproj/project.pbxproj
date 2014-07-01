@@ -41,6 +41,11 @@
 		868C236119622C6A0028C5C9 /* contact.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 868C236019622C6A0028C5C9 /* contact.vcf */; };
 		868C236319622D220028C5C9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C236219622D220028C5C9 /* AddressBook.framework */; };
 		868C236519622D290028C5C9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C236419622D290028C5C9 /* AddressBookUI.framework */; };
+		868C237A196274CF0028C5C9 /* CSNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C2378196274CF0028C5C9 /* CSNotificationView.m */; };
+		868C237B196274CF0028C5C9 /* CSNotificationView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868C2379196274CF0028C5C9 /* CSNotificationView.xcassets */; };
+		868C23881962820A0028C5C9 /* TicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23871962820A0028C5C9 /* TicketViewController.m */; };
+		868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C238A1962842D0028C5C9 /* CompanyViewController.m */; };
+		868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C238B1962842D0028C5C9 /* CompanyViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +111,14 @@
 		868C236019622C6A0028C5C9 /* contact.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contact.vcf; sourceTree = "<group>"; };
 		868C236219622D220028C5C9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		868C236419622D290028C5C9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		868C2377196274CF0028C5C9 /* CSNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNotificationView.h; sourceTree = "<group>"; };
+		868C2378196274CF0028C5C9 /* CSNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSNotificationView.m; sourceTree = "<group>"; };
+		868C2379196274CF0028C5C9 /* CSNotificationView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CSNotificationView.xcassets; sourceTree = "<group>"; };
+		868C23861962820A0028C5C9 /* TicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketViewController.h; sourceTree = "<group>"; };
+		868C23871962820A0028C5C9 /* TicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketViewController.m; sourceTree = "<group>"; };
+		868C23891962842D0028C5C9 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
+		868C238A1962842D0028C5C9 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
+		868C238B1962842D0028C5C9 /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +233,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				868C2376196274BF0028C5C9 /* CSNotificationView */,
 				868C235919622BCD0028C5C9 /* VCardSerialization */,
 				868C234F196212E00028C5C9 /* KNSemiModal */,
 				868C233F1961F8DA0028C5C9 /* BEMAnalogClock */,
@@ -235,6 +249,8 @@
 			children = (
 				868C23111960EF7A0028C5C9 /* HomeViewController.h */,
 				868C23121960EF7A0028C5C9 /* HomeViewController.m */,
+				868C23861962820A0028C5C9 /* TicketViewController.h */,
+				868C23871962820A0028C5C9 /* TicketViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +324,9 @@
 				868C2354196214460028C5C9 /* VCardViewController.h */,
 				868C2355196214460028C5C9 /* VCardViewController.m */,
 				868C2356196214460028C5C9 /* VCardViewController.xib */,
+				868C23891962842D0028C5C9 /* CompanyViewController.h */,
+				868C238A1962842D0028C5C9 /* CompanyViewController.m */,
+				868C238B1962842D0028C5C9 /* CompanyViewController.xib */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -328,6 +347,16 @@
 				868C235E19622C210028C5C9 /* ChristianVazquez.vcf */,
 			);
 			name = vCards;
+			sourceTree = "<group>";
+		};
+		868C2376196274BF0028C5C9 /* CSNotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				868C2377196274CF0028C5C9 /* CSNotificationView.h */,
+				868C2378196274CF0028C5C9 /* CSNotificationView.m */,
+				868C2379196274CF0028C5C9 /* CSNotificationView.xcassets */,
+			);
+			name = CSNotificationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,12 +434,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
 				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
+				868C237B196274CF0028C5C9 /* CSNotificationView.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +465,15 @@
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
+				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
+				868C237A196274CF0028C5C9 /* CSNotificationView.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
 				868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */,
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
+				868C23881962820A0028C5C9 /* TicketViewController.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
 				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,
