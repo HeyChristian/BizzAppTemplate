@@ -28,6 +28,19 @@
 		868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C233919612F740028C5C9 /* RNGridMenu.m */; };
 		868C233C196136220028C5C9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C233B196136220028C5C9 /* Accelerate.framework */; };
 		868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C233D196136310028C5C9 /* QuartzCore.framework */; };
+		868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23411961F8F00028C5C9 /* BEMAnalogClockView.m */; };
+		868C234B1961F8F00028C5C9 /* BEMHandsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23431961F8F00028C5C9 /* BEMHandsAnimation.m */; };
+		868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23451961F8F00028C5C9 /* BEMHourHand.m */; };
+		868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23471961F8F00028C5C9 /* BEMMinuteHand.m */; };
+		868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23491961F8F00028C5C9 /* BEMSecondHand.m */; };
+		868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C2351196212EE0028C5C9 /* UIViewController+KNSemiModal.m */; };
+		868C2357196214460028C5C9 /* VCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C2355196214460028C5C9 /* VCardViewController.m */; };
+		868C2358196214460028C5C9 /* VCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C2356196214460028C5C9 /* VCardViewController.xib */; };
+		868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C235B19622BE50028C5C9 /* vCardSerialization.m */; };
+		868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 868C235E19622C210028C5C9 /* ChristianVazquez.vcf */; };
+		868C236119622C6A0028C5C9 /* contact.vcf in Resources */ = {isa = PBXBuildFile; fileRef = 868C236019622C6A0028C5C9 /* contact.vcf */; };
+		868C236319622D220028C5C9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C236219622D220028C5C9 /* AddressBook.framework */; };
+		868C236519622D290028C5C9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C236419622D290028C5C9 /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +85,27 @@
 		868C233919612F740028C5C9 /* RNGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNGridMenu.m; sourceTree = "<group>"; };
 		868C233B196136220028C5C9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		868C233D196136310028C5C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		868C23401961F8F00028C5C9 /* BEMAnalogClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnalogClockView.h; sourceTree = "<group>"; };
+		868C23411961F8F00028C5C9 /* BEMAnalogClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnalogClockView.m; sourceTree = "<group>"; };
+		868C23421961F8F00028C5C9 /* BEMHandsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMHandsAnimation.h; sourceTree = "<group>"; };
+		868C23431961F8F00028C5C9 /* BEMHandsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMHandsAnimation.m; sourceTree = "<group>"; };
+		868C23441961F8F00028C5C9 /* BEMHourHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMHourHand.h; sourceTree = "<group>"; };
+		868C23451961F8F00028C5C9 /* BEMHourHand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMHourHand.m; sourceTree = "<group>"; };
+		868C23461961F8F00028C5C9 /* BEMMinuteHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMMinuteHand.h; sourceTree = "<group>"; };
+		868C23471961F8F00028C5C9 /* BEMMinuteHand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMMinuteHand.m; sourceTree = "<group>"; };
+		868C23481961F8F00028C5C9 /* BEMSecondHand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSecondHand.h; sourceTree = "<group>"; };
+		868C23491961F8F00028C5C9 /* BEMSecondHand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSecondHand.m; sourceTree = "<group>"; };
+		868C2350196212EE0028C5C9 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
+		868C2351196212EE0028C5C9 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
+		868C2354196214460028C5C9 /* VCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardViewController.h; sourceTree = "<group>"; };
+		868C2355196214460028C5C9 /* VCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardViewController.m; sourceTree = "<group>"; };
+		868C2356196214460028C5C9 /* VCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCardViewController.xib; sourceTree = "<group>"; };
+		868C235A19622BE50028C5C9 /* vCardSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vCardSerialization.h; sourceTree = "<group>"; };
+		868C235B19622BE50028C5C9 /* vCardSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vCardSerialization.m; sourceTree = "<group>"; };
+		868C235E19622C210028C5C9 /* ChristianVazquez.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChristianVazquez.vcf; sourceTree = "<group>"; };
+		868C236019622C6A0028C5C9 /* contact.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = contact.vcf; sourceTree = "<group>"; };
+		868C236219622D220028C5C9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		868C236419622D290028C5C9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C236519622D290028C5C9 /* AddressBookUI.framework in Frameworks */,
+				868C236319622D220028C5C9 /* AddressBook.framework in Frameworks */,
 				868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */,
 				868C233C196136220028C5C9 /* Accelerate.framework in Frameworks */,
 				868C22D71960DF110028C5C9 /* CoreGraphics.framework in Frameworks */,
@@ -123,6 +159,8 @@
 		868C22D31960DF110028C5C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868C236419622D290028C5C9 /* AddressBookUI.framework */,
+				868C236219622D220028C5C9 /* AddressBook.framework */,
 				868C233D196136310028C5C9 /* QuartzCore.framework */,
 				868C233B196136220028C5C9 /* Accelerate.framework */,
 				868C22D41960DF110028C5C9 /* Foundation.framework */,
@@ -136,6 +174,8 @@
 		868C22DA1960DF110028C5C9 /* BizzAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				868C235D19622C060028C5C9 /* vCards */,
+				868C23531962142B0028C5C9 /* Modals */,
 				868C230D1960EF1B0028C5C9 /* ViewControllers */,
 				868C23051960ED3D0028C5C9 /* External */,
 				868C22E61960DF110028C5C9 /* Images.xcassets */,
@@ -180,6 +220,9 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				868C235919622BCD0028C5C9 /* VCardSerialization */,
+				868C234F196212E00028C5C9 /* KNSemiModal */,
+				868C233F1961F8DA0028C5C9 /* BEMAnalogClock */,
 				868C233719612F5A0028C5C9 /* RNGridMenu */,
 				868C2330196124F00028C5C9 /* AWMenu */,
 				868C232419611D440028C5C9 /* Extensions */,
@@ -231,6 +274,60 @@
 				868C233919612F740028C5C9 /* RNGridMenu.m */,
 			);
 			name = RNGridMenu;
+			sourceTree = "<group>";
+		};
+		868C233F1961F8DA0028C5C9 /* BEMAnalogClock */ = {
+			isa = PBXGroup;
+			children = (
+				868C23401961F8F00028C5C9 /* BEMAnalogClockView.h */,
+				868C23411961F8F00028C5C9 /* BEMAnalogClockView.m */,
+				868C23421961F8F00028C5C9 /* BEMHandsAnimation.h */,
+				868C23431961F8F00028C5C9 /* BEMHandsAnimation.m */,
+				868C23441961F8F00028C5C9 /* BEMHourHand.h */,
+				868C23451961F8F00028C5C9 /* BEMHourHand.m */,
+				868C23461961F8F00028C5C9 /* BEMMinuteHand.h */,
+				868C23471961F8F00028C5C9 /* BEMMinuteHand.m */,
+				868C23481961F8F00028C5C9 /* BEMSecondHand.h */,
+				868C23491961F8F00028C5C9 /* BEMSecondHand.m */,
+			);
+			name = BEMAnalogClock;
+			sourceTree = "<group>";
+		};
+		868C234F196212E00028C5C9 /* KNSemiModal */ = {
+			isa = PBXGroup;
+			children = (
+				868C2350196212EE0028C5C9 /* UIViewController+KNSemiModal.h */,
+				868C2351196212EE0028C5C9 /* UIViewController+KNSemiModal.m */,
+			);
+			name = KNSemiModal;
+			sourceTree = "<group>";
+		};
+		868C23531962142B0028C5C9 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				868C2354196214460028C5C9 /* VCardViewController.h */,
+				868C2355196214460028C5C9 /* VCardViewController.m */,
+				868C2356196214460028C5C9 /* VCardViewController.xib */,
+			);
+			name = Modals;
+			sourceTree = "<group>";
+		};
+		868C235919622BCD0028C5C9 /* VCardSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				868C235A19622BE50028C5C9 /* vCardSerialization.h */,
+				868C235B19622BE50028C5C9 /* vCardSerialization.m */,
+			);
+			name = VCardSerialization;
+			sourceTree = "<group>";
+		};
+		868C235D19622C060028C5C9 /* vCards */ = {
+			isa = PBXGroup;
+			children = (
+				868C236019622C6A0028C5C9 /* contact.vcf */,
+				868C235E19622C210028C5C9 /* ChristianVazquez.vcf */,
+			);
+			name = vCards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,9 +405,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
+				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
+				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,13 +429,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C234B1961F8F00028C5C9 /* BEMHandsAnimation.m in Sources */,
 				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
+				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
+				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
+				868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */,
+				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
+				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
+				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,
+				868C2357196214460028C5C9 /* VCardViewController.m in Sources */,
 				868C23131960EF7A0028C5C9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

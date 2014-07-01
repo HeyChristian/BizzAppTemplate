@@ -10,9 +10,21 @@
 #import "AwesomeMenuItem.h"
 #import "AwesomeMenu.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIViewController+KNSemiModal.h"
+#import "VCardViewController.h"
 
-@interface HomeViewController ()<AwesomeMenuDelegate>
+//for testing only
+//#import "TestViewController.h"
+
+@interface HomeViewController (){
+     int imageCount;
+     
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (nonatomic,strong) NSDateFormatter *dateFormatter;
+@property (nonatomic,strong) NSCalendar *calendar;
+@property (nonatomic,strong) NSDate *date;
 
 @end
 
@@ -21,15 +33,64 @@
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     NSLog(@"view did appear");
+    
+    
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
+    
+    imageCount = 1;
+    
     [self.navigationController.navigationBar setHidden:YES];
     //[self initMenu];
+    
+    // Take note that you need to take ownership of the ViewController that is being presented
+    
+    vcardView = [[VCardViewController alloc] initWithNibName:@"VCardViewController" bundle:nil];
+    vcardView.parentVC = self;
+    
+    [self initClock];
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:10
+                                     target:self
+                                   selector:@selector(animateFunction)
+                                   userInfo:nil
+                                    repeats:YES];
+    imageCount = 1;
 }
+
+-(void)animateFunction
+{
+    NSLog(@"Timer heartbeat %i",imageCount);
+    
+    NSString *imageName = [NSString stringWithFormat:@"bg%i.png",imageCount];
+    [self.bgImage setImage:[UIImage imageNamed:imageName]];
+    
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 4.0f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionFade;
+    
+    [self.bgImage.layer addAnimation:transition forKey:nil];
+    
+    if(imageCount == BZAMaxBgImages){
+        imageCount = 1;
+    }else{
+        imageCount = imageCount + 1;
+    }
+    
+}
+
+
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
@@ -37,139 +98,17 @@
     [self showGrid];
 }
 
--(void)initMenu{
-    
-    UIImage *storyMenuItemImage = [UIImage imageNamed:@"KYICircleMenuCenterButton"];
-    UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"KYICircleMenuCenterButton"];
-    
-   // UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
-    
-    /*
-    // Default Menu
-    
-    AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem5 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem6 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem7 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem8 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    AwesomeMenuItem *starMenuItem9 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-                                                           highlightedImage:storyMenuItemImagePressed
-                                                               ContentImage:starImage
-                                                    highlightedContentImage:nil];
-    
-    NSArray *menus = [NSArray arrayWithObjects:starMenuItem1, starMenuItem2, starMenuItem3, starMenuItem4, starMenuItem5, starMenuItem6, starMenuItem7,starMenuItem8,starMenuItem9, nil];
-    
-    AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
-                                                       highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"]
-                                                           ContentImage:[UIImage imageNamed:@"icon-plus.png"]
-                                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
-    
-    AwesomeMenu *menu = [[AwesomeMenu alloc] initWithFrame:self.view.bounds startItem:startItem optionMenus:menus];
-    menu.delegate = self;
-    
-    */
-    
-    
-    
-    // Path-like customization
-     
-     AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"KYICircleMenuButton01"]     highlightedImage:storyMenuItemImagePressed
-     ContentImage:[UIImage imageNamed:@"KYICircleMenuButton04"]
-     highlightedContentImage:nil];
-    
-     AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-     highlightedImage:storyMenuItemImagePressed
-     ContentImage:[UIImage imageNamed:@"KYICircleMenuButton02"]
-     highlightedContentImage:nil];
-     AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-     highlightedImage:storyMenuItemImagePressed
-     ContentImage:[UIImage imageNamed:@"KYICircleMenuButton03"]
-     highlightedContentImage:nil];
-    
-    /*
-     AwesomeMenuItem *starMenuItem4 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-     highlightedImage:storyMenuItemImagePressed
-     ContentImage:starImage
-     highlightedContentImage:nil];
-     AwesomeMenuItem *starMenuItem5 = [[AwesomeMenuItem alloc] initWithImage:storyMenuItemImage
-     highlightedImage:storyMenuItemImagePressed
-     ContentImage:starImage
-     highlightedContentImage:nil];*/
-    
-    
-    
-     
-    NSArray *menus = [NSArray arrayWithObjects:starMenuItem1, starMenuItem2, starMenuItem3,nil];
-    
-    // starMenuItem4, starMenuItem5, nil];
-     
-     AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-menuitem.png"]
-     highlightedImage:[UIImage imageNamed:@"bg-menuitem-highlighted.png"]
-     ContentImage:[UIImage imageNamed:@"icon-plus.png"]
-     highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
-     
-     AwesomeMenu *menu = [[AwesomeMenu alloc] initWithFrame:self.view.bounds startItem:startItem optionMenus:menus];
-     menu.delegate = self;
-     
-     menu.menuWholeAngle = M_PI_2;
-     menu.farRadius = 110.0f;
-     menu.endRadius = 100.0f;
-     menu.nearRadius = 90.0f;
-     menu.animationDuration = 0.8f;
-    menu.rotateAngle=0.0f;
-     menu.startPoint = CGPointMake(50.0, 410.0);
-     
-    [self.view addSubview:menu];
-    
-}
+- (IBAction)displayForDownloadVCard:(id)sender {
 
-/* ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇ */
-/* ⬇⬇⬇⬇⬇⬇ GET RESPONSE OF MENU ⬇⬇⬇⬇⬇⬇ */
-/* ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇ */
-
-- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
-{
-    NSLog(@"Select the index : %ld",(long)idx);
-}
-- (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
-    NSLog(@"Menu was closed!");
-}
-- (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
-    NSLog(@"Menu is open!");
-}
-
--(void)AwesomeMenuItemTouchesEnd:(AwesomeMenuItem *)item{
+    // You can also present a UIViewController with complex views in it
+    // and optionally containing an explicit dismiss button for semi modal
     
-}
--(void)AwesomeMenuItemTouchesBegan:(AwesomeMenuItem *)item{
-    
+    [self presentSemiViewController:vcardView withOptions:@{
+                                                         KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                         KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                         KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                         }];
+
 }
 
 
@@ -246,5 +185,123 @@
     [av showInViewController:self center:CGPointMake(self.view.bounds.size.width/2.f, self.view.bounds.size.height/2.f)];
 }
 
+-(void)initClock{
+    
+    self.myClock1.userInteractionEnabled = NO;
+    self.myClock1.enableShadows = YES;
+    self.myClock1.realTime = YES;
+    self.myClock1.currentTime = YES;
+    self.myClock1.setTimeViaTouch = YES;
+    self.myClock1.borderColor = [UIColor whiteColor];
+    self.myClock1.borderWidth = 3;
+    self.myClock1.faceBackgroundColor = [UIColor whiteColor];
+    self.myClock1.faceBackgroundAlpha = 0.0;
+    self.myClock1.delegate = self;
+    self.myClock1.digitFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:17];
+    self.myClock1.digitColor = [UIColor whiteColor];
+    self.myClock1.enableDigit = YES;
+    
+    
+    
+    self.myClock2.setTimeViaTouch = NO;
+    self.myClock2.enableGraduations = NO;
+    self.myClock2.realTime = YES;
+    self.myClock2.currentTime = YES;
+    self.myClock2.faceBackgroundAlpha = 0;
+    self.myClock2.enableShadows = NO;
+    self.myClock2.borderColor = [UIColor whiteColor];; // [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
+    self.myClock2.hourHandColor =  [UIColor whiteColor];//[UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
+    self.myClock2.minuteHandColor = [UIColor whiteColor];  //[UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
+    self.myClock2.borderWidth = 1;
+    self.myClock2.hourHandWidth = 1.0;
+    self.myClock2.hourHandLength = 10;
+    self.myClock2.minuteHandWidth = 1.0;
+    self.myClock2.minuteHandLength = 15;
+    self.myClock2.minuteHandOffsideLength = 0;
+    self.myClock2.hourHandOffsideLength = 0;
+    self.myClock2.secondHandAlpha = 0;
+    self.myClock2.delegate = self;
+    self.myClock2.userInteractionEnabled = NO;
+   
+    //[self.myClock2 startRealTime];
+    //[self.myClock1 startRealTime];
+    
+    //[self currentTimeOnClock:self.myClock2 Hours:self.myClock2.hours  Minutes:self.myClock2.minutes Seconds:self.myClock2.seconds];
+  //  [self currentTimeOnClock:self.myClock1];
+    
+   // UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+   // panGesture.delegate = self;
+   // [panGesture setMaximumNumberOfTouches:0];
+   // [self.panView addGestureRecognizer:panGesture];
+   
+    /*
+    [NSTimer scheduledTimerWithTimeInterval:1.0
+                                     target:self
+                                   selector:@selector(currentTimeOnClock:)
+                                   userInfo:nil
+                                    repeats:YES];
+    */
+}
 
+- (void)currentTimeOnClock  {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle: NSDateFormatterShortStyle];
+
+    NSString *currentTime = [dateFormatter stringFromDate: [NSDate date]];
+    self.myLabel.text = currentTime;
+    
+    
+}
+- (void)currentTimeOnClock:(BEMAnalogClockView *)clock  {
+   
+    NSNumber *nHour = [[NSNumber alloc] initWithInteger:clock.hours];
+    NSNumber *nMin = [[NSNumber alloc] initWithInteger:clock.minutes];
+     NSNumber *nSeg = [[NSNumber alloc] initWithInteger:clock.seconds];
+    
+        int hoursInt =  [nHour intValue];
+        int minutesInt = [nMin intValue];
+        int secondsInt = [nSeg intValue];
+        self.myLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hoursInt, minutesInt, secondsInt];
+    
+}
+- (void)currentTimeOnClock:(BEMAnalogClockView *)clock Hours:(NSString *)hours Minutes:(NSString *)minutes Seconds:(NSString *)seconds {
+    if (clock.tag == 1) {
+        int hoursInt = [hours intValue];
+        int minutesInt = [minutes intValue];
+        int secondsInt = [seconds intValue];
+        self.myLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hoursInt, minutesInt, secondsInt];
+    }
+}
+
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    CGPoint translation = [recognizer locationInView:self.view];
+    //    self.myClock1.minutes = translation.x / 5.33333;
+    
+    float minutes = translation.x/2.666667;  // 320 width / 2.666667 = 120 minutes [2 hours]
+    
+    if (!_dateFormatter){
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setDateFormat:@"HH:mm:ss"];
+        _calendar = [NSCalendar currentCalendar];
+        _date = [_dateFormatter dateFromString:self.myLabel.text];
+    }
+    NSDate           *datePlusMinutes = [_date dateByAddingTimeInterval:minutes*60];
+    NSDateComponents *components      = [_calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:datePlusMinutes];
+    NSInteger hour   = [components hour];
+    NSInteger minute = [components minute];
+    
+    self.myClock1.minutes = minute;
+    self.myClock1.hours   = hour;
+    
+    [self matchHoursClock1ToClock2];
+    [self.myClock1 updateTimeAnimated:NO];
+    [self.myClock2 updateTimeAnimated:NO];
+}
+
+- (void)matchHoursClock1ToClock2 {
+    self.myClock2.hours = self.myClock1.hours;
+    self.myClock2.minutes = self.myClock1.minutes;
+    self.myClock2.seconds = self.myClock1.seconds;
+}
 @end

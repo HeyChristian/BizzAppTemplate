@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+
+
+
 #pragma mark -
+
+#pragma mark - Global
+
+#define BZAMaxBgImages    3
+
 #pragma mark - View  - prefix: KY
 
 // Button Size
