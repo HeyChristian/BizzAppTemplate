@@ -10,19 +10,27 @@
 #import "RNGridMenu.h"
 #import "BEMAnalogClockView.h"
 #import "BEMMinuteHand.h"
+#import "MapViewController.h"
 
 @class VCardViewController;
 @class CompanyViewController;
+@class MapViewController;
 
 @interface HomeViewController : UIViewController <RNGridMenuDelegate,BEMAnalogClockDelegate,UIGestureRecognizerDelegate>{
+    
     VCardViewController *vcardView;
     CompanyViewController *companyView;
+    MapViewController *mapView;
+    
 }
 - (IBAction)displayGridMenu:(id)sender;
 - (IBAction)displayForDownloadVCard:(id)sender;
 - (IBAction)viewCompanyInfo:(id)sender;
+- (IBAction)displayMap:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+
+
 
 @property (weak, nonatomic) IBOutlet BEMAnalogClockView *myClock1; // The big, main clock.
 @property (weak, nonatomic) IBOutlet BEMAnalogClockView *myClock2; // The smaller clock.

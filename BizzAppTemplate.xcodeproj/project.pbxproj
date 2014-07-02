@@ -46,6 +46,35 @@
 		868C23881962820A0028C5C9 /* TicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23871962820A0028C5C9 /* TicketViewController.m */; };
 		868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C238A1962842D0028C5C9 /* CompanyViewController.m */; };
 		868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C238B1962842D0028C5C9 /* CompanyViewController.xib */; };
+		868C23A619636A3A0028C5C9 /* FacingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239019636A3A0028C5C9 /* FacingView.m */; };
+		868C23A719636A3A0028C5C9 /* FoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239219636A3A0028C5C9 /* FoldView.m */; };
+		868C23A819636A3A0028C5C9 /* MultiFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239419636A3A0028C5C9 /* MultiFoldView.m */; };
+		868C23A919636A3A0028C5C9 /* PaperFoldNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */; };
+		868C23AA19636A3A0028C5C9 /* PaperFoldResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */; };
+		868C23AB19636A3A0028C5C9 /* PaperFoldSwipeHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */; };
+		868C23AC19636A3A0028C5C9 /* PaperFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239C19636A3A0028C5C9 /* PaperFoldView.m */; };
+		868C23AD19636A3A0028C5C9 /* swipe_guide.psd in Resources */ = {isa = PBXBuildFile; fileRef = 868C239E19636A3A0028C5C9 /* swipe_guide.psd */; };
+		868C23AE19636A3A0028C5C9 /* swipe_guide2.psd in Resources */ = {isa = PBXBuildFile; fileRef = 868C239F19636A3A0028C5C9 /* swipe_guide2.psd */; };
+		868C23AF19636A3A0028C5C9 /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A119636A3A0028C5C9 /* ShadowView.m */; };
+		868C23B019636A3A0028C5C9 /* TouchThroughUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */; };
+		868C23B119636A3A0028C5C9 /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */; };
+		868C23B6196372030028C5C9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23B4196372030028C5C9 /* MapViewController.m */; };
+		868C23B7196372030028C5C9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C23B5196372030028C5C9 /* MapViewController.xib */; };
+		868C23B9196376A20028C5C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23B8196376A20028C5C9 /* MapKit.framework */; };
+		868C23BB19638F130028C5C9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23BA19638F130028C5C9 /* Parse.framework */; };
+		868C23BD19638F440028C5C9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23BC19638F440028C5C9 /* AudioToolbox.framework */; };
+		868C23BF19638F4C0028C5C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23BE19638F4C0028C5C9 /* CFNetwork.framework */; };
+		868C23C119638F7D0028C5C9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23C019638F7D0028C5C9 /* CoreLocation.framework */; };
+		868C23C319638F870028C5C9 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23C219638F870028C5C9 /* libz.1.1.3.dylib */; };
+		868C23C519638F8F0028C5C9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23C419638F8F0028C5C9 /* MobileCoreServices.framework */; };
+		868C23C719638FA20028C5C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23C619638FA20028C5C9 /* Security.framework */; };
+		868C23C919638FAC0028C5C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23C819638FAC0028C5C9 /* StoreKit.framework */; };
+		868C23CB19638FC00028C5C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23CA19638FC00028C5C9 /* SystemConfiguration.framework */; };
+		868C23CD19639A280028C5C9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23CC19639A280028C5C9 /* Social.framework */; };
+		868C23CF19639A3E0028C5C9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23CE19639A3E0028C5C9 /* Accounts.framework */; };
+		868C23D31963DE060028C5C9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D21963DE060028C5C9 /* LoginViewController.m */; };
+		868C23D61963E2200028C5C9 /* SecurityHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */; };
+		868C23D91963E4290028C5C9 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D81963E4290028C5C9 /* CreateAccountViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +148,49 @@
 		868C23891962842D0028C5C9 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		868C238A1962842D0028C5C9 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		868C238B1962842D0028C5C9 /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
+		868C238F19636A3A0028C5C9 /* FacingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacingView.h; sourceTree = "<group>"; };
+		868C239019636A3A0028C5C9 /* FacingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacingView.m; sourceTree = "<group>"; };
+		868C239119636A3A0028C5C9 /* FoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldView.h; sourceTree = "<group>"; };
+		868C239219636A3A0028C5C9 /* FoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldView.m; sourceTree = "<group>"; };
+		868C239319636A3A0028C5C9 /* MultiFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiFoldView.h; sourceTree = "<group>"; };
+		868C239419636A3A0028C5C9 /* MultiFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiFoldView.m; sourceTree = "<group>"; };
+		868C239519636A3A0028C5C9 /* PaperFoldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldConstants.h; sourceTree = "<group>"; };
+		868C239619636A3A0028C5C9 /* PaperFoldNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldNavigationController.h; sourceTree = "<group>"; };
+		868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldNavigationController.m; sourceTree = "<group>"; };
+		868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PaperFoldResources.bundle; sourceTree = "<group>"; };
+		868C239919636A3A0028C5C9 /* PaperFoldSwipeHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldSwipeHintView.h; sourceTree = "<group>"; };
+		868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldSwipeHintView.m; sourceTree = "<group>"; };
+		868C239B19636A3A0028C5C9 /* PaperFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldView.h; sourceTree = "<group>"; };
+		868C239C19636A3A0028C5C9 /* PaperFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldView.m; sourceTree = "<group>"; };
+		868C239E19636A3A0028C5C9 /* swipe_guide.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide.psd; sourceTree = "<group>"; };
+		868C239F19636A3A0028C5C9 /* swipe_guide2.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide2.psd; sourceTree = "<group>"; };
+		868C23A019636A3A0028C5C9 /* ShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
+		868C23A119636A3A0028C5C9 /* ShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
+		868C23A219636A3A0028C5C9 /* TouchThroughUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchThroughUIView.h; sourceTree = "<group>"; };
+		868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchThroughUIView.m; sourceTree = "<group>"; };
+		868C23A419636A3A0028C5C9 /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
+		868C23B3196372030028C5C9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		868C23B4196372030028C5C9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		868C23B5196372030028C5C9 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		868C23B8196376A20028C5C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		868C23BA19638F130028C5C9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		868C23BC19638F440028C5C9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		868C23BE19638F4C0028C5C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		868C23C019638F7D0028C5C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		868C23C219638F870028C5C9 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		868C23C419638F8F0028C5C9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		868C23C619638FA20028C5C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		868C23C819638FAC0028C5C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		868C23CA19638FC00028C5C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		868C23CC19639A280028C5C9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		868C23CE19639A3E0028C5C9 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		868C23D11963DE060028C5C9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		868C23D21963DE060028C5C9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		868C23D41963E2200028C5C9 /* SecurityHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityHomeViewController.h; sourceTree = "<group>"; };
+		868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityHomeViewController.m; sourceTree = "<group>"; };
+		868C23D71963E4290028C5C9 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		868C23D81963E4290028C5C9 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +198,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C23CF19639A3E0028C5C9 /* Accounts.framework in Frameworks */,
+				868C23CD19639A280028C5C9 /* Social.framework in Frameworks */,
+				868C23CB19638FC00028C5C9 /* SystemConfiguration.framework in Frameworks */,
+				868C23C919638FAC0028C5C9 /* StoreKit.framework in Frameworks */,
+				868C23C719638FA20028C5C9 /* Security.framework in Frameworks */,
+				868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */,
+				868C23C519638F8F0028C5C9 /* MobileCoreServices.framework in Frameworks */,
+				868C23C319638F870028C5C9 /* libz.1.1.3.dylib in Frameworks */,
+				868C23C119638F7D0028C5C9 /* CoreLocation.framework in Frameworks */,
+				868C22D71960DF110028C5C9 /* CoreGraphics.framework in Frameworks */,
+				868C23BF19638F4C0028C5C9 /* CFNetwork.framework in Frameworks */,
+				868C23BD19638F440028C5C9 /* AudioToolbox.framework in Frameworks */,
+				868C23B9196376A20028C5C9 /* MapKit.framework in Frameworks */,
+				868C23BB19638F130028C5C9 /* Parse.framework in Frameworks */,
 				868C236519622D290028C5C9 /* AddressBookUI.framework in Frameworks */,
 				868C236319622D220028C5C9 /* AddressBook.framework in Frameworks */,
-				868C233E196136310028C5C9 /* QuartzCore.framework in Frameworks */,
 				868C233C196136220028C5C9 /* Accelerate.framework in Frameworks */,
-				868C22D71960DF110028C5C9 /* CoreGraphics.framework in Frameworks */,
 				868C22D91960DF110028C5C9 /* UIKit.framework in Frameworks */,
 				868C22D51960DF110028C5C9 /* Foundation.framework in Frameworks */,
 			);
@@ -172,6 +256,18 @@
 		868C22D31960DF110028C5C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868C23CE19639A3E0028C5C9 /* Accounts.framework */,
+				868C23CC19639A280028C5C9 /* Social.framework */,
+				868C23CA19638FC00028C5C9 /* SystemConfiguration.framework */,
+				868C23C819638FAC0028C5C9 /* StoreKit.framework */,
+				868C23C619638FA20028C5C9 /* Security.framework */,
+				868C23C419638F8F0028C5C9 /* MobileCoreServices.framework */,
+				868C23C219638F870028C5C9 /* libz.1.1.3.dylib */,
+				868C23C019638F7D0028C5C9 /* CoreLocation.framework */,
+				868C23BE19638F4C0028C5C9 /* CFNetwork.framework */,
+				868C23BC19638F440028C5C9 /* AudioToolbox.framework */,
+				868C23BA19638F130028C5C9 /* Parse.framework */,
+				868C23B8196376A20028C5C9 /* MapKit.framework */,
 				868C236419622D290028C5C9 /* AddressBookUI.framework */,
 				868C236219622D220028C5C9 /* AddressBook.framework */,
 				868C233D196136310028C5C9 /* QuartzCore.framework */,
@@ -233,6 +329,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				868C238E19636A3A0028C5C9 /* PaperFold */,
 				868C2376196274BF0028C5C9 /* CSNotificationView */,
 				868C235919622BCD0028C5C9 /* VCardSerialization */,
 				868C234F196212E00028C5C9 /* KNSemiModal */,
@@ -247,6 +344,7 @@
 		868C230D1960EF1B0028C5C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				868C23D01963DDDE0028C5C9 /* Security */,
 				868C23111960EF7A0028C5C9 /* HomeViewController.h */,
 				868C23121960EF7A0028C5C9 /* HomeViewController.m */,
 				868C23861962820A0028C5C9 /* TicketViewController.h */,
@@ -327,6 +425,9 @@
 				868C23891962842D0028C5C9 /* CompanyViewController.h */,
 				868C238A1962842D0028C5C9 /* CompanyViewController.m */,
 				868C238B1962842D0028C5C9 /* CompanyViewController.xib */,
+				868C23B3196372030028C5C9 /* MapViewController.h */,
+				868C23B4196372030028C5C9 /* MapViewController.m */,
+				868C23B5196372030028C5C9 /* MapViewController.xib */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -357,6 +458,56 @@
 				868C2379196274CF0028C5C9 /* CSNotificationView.xcassets */,
 			);
 			name = CSNotificationView;
+			sourceTree = "<group>";
+		};
+		868C238E19636A3A0028C5C9 /* PaperFold */ = {
+			isa = PBXGroup;
+			children = (
+				868C238F19636A3A0028C5C9 /* FacingView.h */,
+				868C239019636A3A0028C5C9 /* FacingView.m */,
+				868C239119636A3A0028C5C9 /* FoldView.h */,
+				868C239219636A3A0028C5C9 /* FoldView.m */,
+				868C239319636A3A0028C5C9 /* MultiFoldView.h */,
+				868C239419636A3A0028C5C9 /* MultiFoldView.m */,
+				868C239519636A3A0028C5C9 /* PaperFoldConstants.h */,
+				868C239619636A3A0028C5C9 /* PaperFoldNavigationController.h */,
+				868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */,
+				868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */,
+				868C239919636A3A0028C5C9 /* PaperFoldSwipeHintView.h */,
+				868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */,
+				868C239B19636A3A0028C5C9 /* PaperFoldView.h */,
+				868C239C19636A3A0028C5C9 /* PaperFoldView.m */,
+				868C239D19636A3A0028C5C9 /* Resources */,
+				868C23A019636A3A0028C5C9 /* ShadowView.h */,
+				868C23A119636A3A0028C5C9 /* ShadowView.m */,
+				868C23A219636A3A0028C5C9 /* TouchThroughUIView.h */,
+				868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */,
+				868C23A419636A3A0028C5C9 /* UIView+Screenshot.h */,
+				868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */,
+			);
+			path = PaperFold;
+			sourceTree = "<group>";
+		};
+		868C239D19636A3A0028C5C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				868C239E19636A3A0028C5C9 /* swipe_guide.psd */,
+				868C239F19636A3A0028C5C9 /* swipe_guide2.psd */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		868C23D01963DDDE0028C5C9 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				868C23D11963DE060028C5C9 /* LoginViewController.h */,
+				868C23D21963DE060028C5C9 /* LoginViewController.m */,
+				868C23D41963E2200028C5C9 /* SecurityHomeViewController.h */,
+				868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */,
+				868C23D71963E4290028C5C9 /* CreateAccountViewController.h */,
+				868C23D81963E4290028C5C9 /* CreateAccountViewController.m */,
+			);
+			name = Security;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,9 +586,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */,
+				868C23AE19636A3A0028C5C9 /* swipe_guide2.psd in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
+				868C23AD19636A3A0028C5C9 /* swipe_guide.psd in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
+				868C23AA19636A3A0028C5C9 /* PaperFoldResources.bundle in Resources */,
+				868C23B7196372030028C5C9 /* MapViewController.xib in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
 				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
@@ -466,14 +621,27 @@
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
+				868C23AB19636A3A0028C5C9 /* PaperFoldSwipeHintView.m in Sources */,
+				868C23A619636A3A0028C5C9 /* FacingView.m in Sources */,
+				868C23B119636A3A0028C5C9 /* UIView+Screenshot.m in Sources */,
+				868C23A719636A3A0028C5C9 /* FoldView.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
+				868C23AC19636A3A0028C5C9 /* PaperFoldView.m in Sources */,
 				868C237A196274CF0028C5C9 /* CSNotificationView.m in Sources */,
+				868C23D31963DE060028C5C9 /* LoginViewController.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
 				868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */,
+				868C23D61963E2200028C5C9 /* SecurityHomeViewController.m in Sources */,
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
+				868C23B019636A3A0028C5C9 /* TouchThroughUIView.m in Sources */,
+				868C23A919636A3A0028C5C9 /* PaperFoldNavigationController.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
+				868C23A819636A3A0028C5C9 /* MultiFoldView.m in Sources */,
 				868C23881962820A0028C5C9 /* TicketViewController.m in Sources */,
+				868C23D91963E4290028C5C9 /* CreateAccountViewController.m in Sources */,
+				868C23AF19636A3A0028C5C9 /* ShadowView.m in Sources */,
+				868C23B6196372030028C5C9 /* MapViewController.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
 				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,
@@ -595,6 +763,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BizzAppTemplate/BizzAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "BizzAppTemplate/BizzAppTemplate-Info.plist";
@@ -608,6 +780,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BizzAppTemplate/BizzAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "BizzAppTemplate/BizzAppTemplate-Info.plist";
