@@ -1,22 +1,24 @@
 //
-//  SecurityHomeViewController.m
+//  ConfirmAccountViewController.m
 //  BizzAppTemplate
 //
 //  Created by Christian Vazquez on 7/2/14.
 //  Copyright (c) 2014 Christian Vazquez. All rights reserved.
 //
 
-#import "SecurityHomeViewController.h"
+#import "ConfirmAccountViewController.h"
 #import <Parse/Parse.h>
-@interface SecurityHomeViewController ()
+
+@interface ConfirmAccountViewController ()<UIAlertViewDelegate>
 
 @end
 
-@implementation SecurityHomeViewController
+@implementation ConfirmAccountViewController
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,8 +44,31 @@
 }
 */
 
-- (IBAction)loginGuestAction:(id)sender {
+- (IBAction)reSendEmailVerification:(id)sender {
+      NSLog(@"Not implemented yet.");
+}
+
+- (IBAction)refresh:(id)sender {
     
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if([[currentUser objectForKey:@"emailVerified"] boolValue]){
+        
+       //  [self.navigationController popToRootViewControllerAnimated:YES];
+        [self performSegueWithIdentifier:@"homeView" sender:nil];
+        
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                            message:@"The account has not been confirmed yet. confirmed in the junk mail, to be sure."
+                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+
+
+}
+
+- (IBAction)enterByGuest:(id)sender {
     [PFUser logOut];
     [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
         if (error) {
@@ -57,14 +82,27 @@
             [alertView show];
             
             
-            
+        
         } else {
-            
+        
             [self performSegueWithIdentifier:@"homeView" sender:nil];
-            //  [self.navigationController popToRootViewControllerAnimated:YES];
-            
+         //  [self.navigationController popToRootViewControllerAnimated:YES];
+        
         }
     }];
     
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0:
+            [self performSegueWithIdentifier:@"loginView" sender:nil];
+            break;
+            
+        default:
+            break;
+    }
 }
 @end

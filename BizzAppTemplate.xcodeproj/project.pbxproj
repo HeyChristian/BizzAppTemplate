@@ -46,18 +46,6 @@
 		868C23881962820A0028C5C9 /* TicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23871962820A0028C5C9 /* TicketViewController.m */; };
 		868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C238A1962842D0028C5C9 /* CompanyViewController.m */; };
 		868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C238B1962842D0028C5C9 /* CompanyViewController.xib */; };
-		868C23A619636A3A0028C5C9 /* FacingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239019636A3A0028C5C9 /* FacingView.m */; };
-		868C23A719636A3A0028C5C9 /* FoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239219636A3A0028C5C9 /* FoldView.m */; };
-		868C23A819636A3A0028C5C9 /* MultiFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239419636A3A0028C5C9 /* MultiFoldView.m */; };
-		868C23A919636A3A0028C5C9 /* PaperFoldNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */; };
-		868C23AA19636A3A0028C5C9 /* PaperFoldResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */; };
-		868C23AB19636A3A0028C5C9 /* PaperFoldSwipeHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */; };
-		868C23AC19636A3A0028C5C9 /* PaperFoldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C239C19636A3A0028C5C9 /* PaperFoldView.m */; };
-		868C23AD19636A3A0028C5C9 /* swipe_guide.psd in Resources */ = {isa = PBXBuildFile; fileRef = 868C239E19636A3A0028C5C9 /* swipe_guide.psd */; };
-		868C23AE19636A3A0028C5C9 /* swipe_guide2.psd in Resources */ = {isa = PBXBuildFile; fileRef = 868C239F19636A3A0028C5C9 /* swipe_guide2.psd */; };
-		868C23AF19636A3A0028C5C9 /* ShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A119636A3A0028C5C9 /* ShadowView.m */; };
-		868C23B019636A3A0028C5C9 /* TouchThroughUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */; };
-		868C23B119636A3A0028C5C9 /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */; };
 		868C23B6196372030028C5C9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23B4196372030028C5C9 /* MapViewController.m */; };
 		868C23B7196372030028C5C9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C23B5196372030028C5C9 /* MapViewController.xib */; };
 		868C23B9196376A20028C5C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C23B8196376A20028C5C9 /* MapKit.framework */; };
@@ -75,6 +63,22 @@
 		868C23D31963DE060028C5C9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D21963DE060028C5C9 /* LoginViewController.m */; };
 		868C23D61963E2200028C5C9 /* SecurityHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */; };
 		868C23D91963E4290028C5C9 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23D81963E4290028C5C9 /* CreateAccountViewController.m */; };
+		868C23E51964B18E0028C5C9 /* ALPValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23DF1964B18E0028C5C9 /* ALPValidator.m */; };
+		868C23E61964B18E0028C5C9 /* ALPStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23E21964B18E0028C5C9 /* ALPStringValidator.m */; };
+		868C23E71964B18E0028C5C9 /* ALPNumericValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23E41964B18E0028C5C9 /* ALPNumericValidator.m */; };
+		868C23FA1964B1A90028C5C9 /* ALPValidatorRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23E91964B1A90028C5C9 /* ALPValidatorRule.m */; };
+		868C23FB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23EB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m */; };
+		868C23FC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23ED1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m */; };
+		868C23FD1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23EF1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m */; };
+		868C23FE1964B1A90028C5C9 /* ALPValidatorRangeRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23F11964B1A90028C5C9 /* ALPValidatorRangeRule.m */; };
+		868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23F31964B1A90028C5C9 /* ALPValidatorEqualRule.m */; };
+		868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23F51964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m */; };
+		868C24011964B1A90028C5C9 /* ALPValidatorCustomRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23F71964B1A90028C5C9 /* ALPValidatorCustomRule.m */; };
+		868C24021964B1A90028C5C9 /* ALPValidatorRemoteRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C23F91964B1A90028C5C9 /* ALPValidatorRemoteRule.m */; };
+		868C24051964B2570028C5C9 /* UIControl+ALPValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24041964B2570028C5C9 /* UIControl+ALPValidator.m */; };
+		868C24081964F2AD0028C5C9 /* ConfirmAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24071964F2AD0028C5C9 /* ConfirmAccountViewController.m */; };
+		868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C240A196515180028C5C9 /* RecoveryPasswordViewController.m */; };
+		868C240D196515190028C5C9 /* RecoveryPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C240B196515180028C5C9 /* RecoveryPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,28 +152,6 @@
 		868C23891962842D0028C5C9 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		868C238A1962842D0028C5C9 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		868C238B1962842D0028C5C9 /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
-		868C238F19636A3A0028C5C9 /* FacingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacingView.h; sourceTree = "<group>"; };
-		868C239019636A3A0028C5C9 /* FacingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacingView.m; sourceTree = "<group>"; };
-		868C239119636A3A0028C5C9 /* FoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldView.h; sourceTree = "<group>"; };
-		868C239219636A3A0028C5C9 /* FoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldView.m; sourceTree = "<group>"; };
-		868C239319636A3A0028C5C9 /* MultiFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiFoldView.h; sourceTree = "<group>"; };
-		868C239419636A3A0028C5C9 /* MultiFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiFoldView.m; sourceTree = "<group>"; };
-		868C239519636A3A0028C5C9 /* PaperFoldConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldConstants.h; sourceTree = "<group>"; };
-		868C239619636A3A0028C5C9 /* PaperFoldNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldNavigationController.h; sourceTree = "<group>"; };
-		868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldNavigationController.m; sourceTree = "<group>"; };
-		868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PaperFoldResources.bundle; sourceTree = "<group>"; };
-		868C239919636A3A0028C5C9 /* PaperFoldSwipeHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldSwipeHintView.h; sourceTree = "<group>"; };
-		868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldSwipeHintView.m; sourceTree = "<group>"; };
-		868C239B19636A3A0028C5C9 /* PaperFoldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperFoldView.h; sourceTree = "<group>"; };
-		868C239C19636A3A0028C5C9 /* PaperFoldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperFoldView.m; sourceTree = "<group>"; };
-		868C239E19636A3A0028C5C9 /* swipe_guide.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide.psd; sourceTree = "<group>"; };
-		868C239F19636A3A0028C5C9 /* swipe_guide2.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = swipe_guide2.psd; sourceTree = "<group>"; };
-		868C23A019636A3A0028C5C9 /* ShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowView.h; sourceTree = "<group>"; };
-		868C23A119636A3A0028C5C9 /* ShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowView.m; sourceTree = "<group>"; };
-		868C23A219636A3A0028C5C9 /* TouchThroughUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchThroughUIView.h; sourceTree = "<group>"; };
-		868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchThroughUIView.m; sourceTree = "<group>"; };
-		868C23A419636A3A0028C5C9 /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
-		868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
 		868C23B3196372030028C5C9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		868C23B4196372030028C5C9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		868C23B5196372030028C5C9 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +173,38 @@
 		868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityHomeViewController.m; sourceTree = "<group>"; };
 		868C23D71963E4290028C5C9 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
 		868C23D81963E4290028C5C9 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
+		868C23DE1964B18E0028C5C9 /* ALPValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidator.h; sourceTree = "<group>"; };
+		868C23DF1964B18E0028C5C9 /* ALPValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidator.m; sourceTree = "<group>"; };
+		868C23E01964B18E0028C5C9 /* ALPValidator+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALPValidator+Private.h"; sourceTree = "<group>"; };
+		868C23E11964B18E0028C5C9 /* ALPStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPStringValidator.h; sourceTree = "<group>"; };
+		868C23E21964B18E0028C5C9 /* ALPStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPStringValidator.m; sourceTree = "<group>"; };
+		868C23E31964B18E0028C5C9 /* ALPNumericValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPNumericValidator.h; sourceTree = "<group>"; };
+		868C23E41964B18E0028C5C9 /* ALPNumericValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPNumericValidator.m; sourceTree = "<group>"; };
+		868C23E81964B1A90028C5C9 /* ALPValidatorRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorRule.h; sourceTree = "<group>"; };
+		868C23E91964B1A90028C5C9 /* ALPValidatorRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorRule.m; sourceTree = "<group>"; };
+		868C23EA1964B1A90028C5C9 /* ALPValidatorRequiredRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorRequiredRule.h; sourceTree = "<group>"; };
+		868C23EB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorRequiredRule.m; sourceTree = "<group>"; };
+		868C23EC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorMinimumLengthRule.h; sourceTree = "<group>"; };
+		868C23ED1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorMinimumLengthRule.m; sourceTree = "<group>"; };
+		868C23EE1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorMaximumLengthRule.h; sourceTree = "<group>"; };
+		868C23EF1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorMaximumLengthRule.m; sourceTree = "<group>"; };
+		868C23F01964B1A90028C5C9 /* ALPValidatorRangeRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorRangeRule.h; sourceTree = "<group>"; };
+		868C23F11964B1A90028C5C9 /* ALPValidatorRangeRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorRangeRule.m; sourceTree = "<group>"; };
+		868C23F21964B1A90028C5C9 /* ALPValidatorEqualRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorEqualRule.h; sourceTree = "<group>"; };
+		868C23F31964B1A90028C5C9 /* ALPValidatorEqualRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorEqualRule.m; sourceTree = "<group>"; };
+		868C23F41964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorRegularExpressionRule.h; sourceTree = "<group>"; };
+		868C23F51964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorRegularExpressionRule.m; sourceTree = "<group>"; };
+		868C23F61964B1A90028C5C9 /* ALPValidatorCustomRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorCustomRule.h; sourceTree = "<group>"; };
+		868C23F71964B1A90028C5C9 /* ALPValidatorCustomRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorCustomRule.m; sourceTree = "<group>"; };
+		868C23F81964B1A90028C5C9 /* ALPValidatorRemoteRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPValidatorRemoteRule.h; sourceTree = "<group>"; };
+		868C23F91964B1A90028C5C9 /* ALPValidatorRemoteRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPValidatorRemoteRule.m; sourceTree = "<group>"; };
+		868C24031964B2570028C5C9 /* UIControl+ALPValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+ALPValidator.h"; sourceTree = "<group>"; };
+		868C24041964B2570028C5C9 /* UIControl+ALPValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+ALPValidator.m"; sourceTree = "<group>"; };
+		868C24061964F2AD0028C5C9 /* ConfirmAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmAccountViewController.h; sourceTree = "<group>"; };
+		868C24071964F2AD0028C5C9 /* ConfirmAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmAccountViewController.m; sourceTree = "<group>"; };
+		868C2409196515180028C5C9 /* RecoveryPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoveryPasswordViewController.h; sourceTree = "<group>"; };
+		868C240A196515180028C5C9 /* RecoveryPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoveryPasswordViewController.m; sourceTree = "<group>"; };
+		868C240B196515180028C5C9 /* RecoveryPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecoveryPasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,11 +297,11 @@
 		868C22DA1960DF110028C5C9 /* BizzAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				868C22E61960DF110028C5C9 /* Images.xcassets */,
 				868C235D19622C060028C5C9 /* vCards */,
 				868C23531962142B0028C5C9 /* Modals */,
 				868C230D1960EF1B0028C5C9 /* ViewControllers */,
 				868C23051960ED3D0028C5C9 /* External */,
-				868C22E61960DF110028C5C9 /* Images.xcassets */,
 				868C22DB1960DF110028C5C9 /* Supporting Files */,
 				868C230A1960EE8B0028C5C9 /* Constants.h */,
 				868C230B1960EE8B0028C5C9 /* Constants.m */,
@@ -329,7 +343,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				868C238E19636A3A0028C5C9 /* PaperFold */,
+				868C23DA1964B12D0028C5C9 /* APLValidator */,
 				868C2376196274BF0028C5C9 /* CSNotificationView */,
 				868C235919622BCD0028C5C9 /* VCardSerialization */,
 				868C234F196212E00028C5C9 /* KNSemiModal */,
@@ -460,43 +474,6 @@
 			name = CSNotificationView;
 			sourceTree = "<group>";
 		};
-		868C238E19636A3A0028C5C9 /* PaperFold */ = {
-			isa = PBXGroup;
-			children = (
-				868C238F19636A3A0028C5C9 /* FacingView.h */,
-				868C239019636A3A0028C5C9 /* FacingView.m */,
-				868C239119636A3A0028C5C9 /* FoldView.h */,
-				868C239219636A3A0028C5C9 /* FoldView.m */,
-				868C239319636A3A0028C5C9 /* MultiFoldView.h */,
-				868C239419636A3A0028C5C9 /* MultiFoldView.m */,
-				868C239519636A3A0028C5C9 /* PaperFoldConstants.h */,
-				868C239619636A3A0028C5C9 /* PaperFoldNavigationController.h */,
-				868C239719636A3A0028C5C9 /* PaperFoldNavigationController.m */,
-				868C239819636A3A0028C5C9 /* PaperFoldResources.bundle */,
-				868C239919636A3A0028C5C9 /* PaperFoldSwipeHintView.h */,
-				868C239A19636A3A0028C5C9 /* PaperFoldSwipeHintView.m */,
-				868C239B19636A3A0028C5C9 /* PaperFoldView.h */,
-				868C239C19636A3A0028C5C9 /* PaperFoldView.m */,
-				868C239D19636A3A0028C5C9 /* Resources */,
-				868C23A019636A3A0028C5C9 /* ShadowView.h */,
-				868C23A119636A3A0028C5C9 /* ShadowView.m */,
-				868C23A219636A3A0028C5C9 /* TouchThroughUIView.h */,
-				868C23A319636A3A0028C5C9 /* TouchThroughUIView.m */,
-				868C23A419636A3A0028C5C9 /* UIView+Screenshot.h */,
-				868C23A519636A3A0028C5C9 /* UIView+Screenshot.m */,
-			);
-			path = PaperFold;
-			sourceTree = "<group>";
-		};
-		868C239D19636A3A0028C5C9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				868C239E19636A3A0028C5C9 /* swipe_guide.psd */,
-				868C239F19636A3A0028C5C9 /* swipe_guide2.psd */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		868C23D01963DDDE0028C5C9 /* Security */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,8 +483,71 @@
 				868C23D51963E2200028C5C9 /* SecurityHomeViewController.m */,
 				868C23D71963E4290028C5C9 /* CreateAccountViewController.h */,
 				868C23D81963E4290028C5C9 /* CreateAccountViewController.m */,
+				868C24061964F2AD0028C5C9 /* ConfirmAccountViewController.h */,
+				868C24071964F2AD0028C5C9 /* ConfirmAccountViewController.m */,
+				868C2409196515180028C5C9 /* RecoveryPasswordViewController.h */,
+				868C240A196515180028C5C9 /* RecoveryPasswordViewController.m */,
+				868C240B196515180028C5C9 /* RecoveryPasswordViewController.xib */,
 			);
 			name = Security;
+			sourceTree = "<group>";
+		};
+		868C23DA1964B12D0028C5C9 /* APLValidator */ = {
+			isa = PBXGroup;
+			children = (
+				868C23DB1964B14D0028C5C9 /* Validators */,
+				868C23DC1964B1630028C5C9 /* Rules */,
+				868C23DD1964B16E0028C5C9 /* Categories */,
+			);
+			name = APLValidator;
+			sourceTree = "<group>";
+		};
+		868C23DB1964B14D0028C5C9 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				868C23DE1964B18E0028C5C9 /* ALPValidator.h */,
+				868C23DF1964B18E0028C5C9 /* ALPValidator.m */,
+				868C23E01964B18E0028C5C9 /* ALPValidator+Private.h */,
+				868C23E11964B18E0028C5C9 /* ALPStringValidator.h */,
+				868C23E21964B18E0028C5C9 /* ALPStringValidator.m */,
+				868C23E31964B18E0028C5C9 /* ALPNumericValidator.h */,
+				868C23E41964B18E0028C5C9 /* ALPNumericValidator.m */,
+			);
+			name = Validators;
+			sourceTree = "<group>";
+		};
+		868C23DC1964B1630028C5C9 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				868C23E81964B1A90028C5C9 /* ALPValidatorRule.h */,
+				868C23E91964B1A90028C5C9 /* ALPValidatorRule.m */,
+				868C23EA1964B1A90028C5C9 /* ALPValidatorRequiredRule.h */,
+				868C23EB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m */,
+				868C23EC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.h */,
+				868C23ED1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m */,
+				868C23EE1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.h */,
+				868C23EF1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m */,
+				868C23F01964B1A90028C5C9 /* ALPValidatorRangeRule.h */,
+				868C23F11964B1A90028C5C9 /* ALPValidatorRangeRule.m */,
+				868C23F21964B1A90028C5C9 /* ALPValidatorEqualRule.h */,
+				868C23F31964B1A90028C5C9 /* ALPValidatorEqualRule.m */,
+				868C23F41964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.h */,
+				868C23F51964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m */,
+				868C23F61964B1A90028C5C9 /* ALPValidatorCustomRule.h */,
+				868C23F71964B1A90028C5C9 /* ALPValidatorCustomRule.m */,
+				868C23F81964B1A90028C5C9 /* ALPValidatorRemoteRule.h */,
+				868C23F91964B1A90028C5C9 /* ALPValidatorRemoteRule.m */,
+			);
+			name = Rules;
+			sourceTree = "<group>";
+		};
+		868C23DD1964B16E0028C5C9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				868C24031964B2570028C5C9 /* UIControl+ALPValidator.h */,
+				868C24041964B2570028C5C9 /* UIControl+ALPValidator.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -586,16 +626,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */,
-				868C23AE19636A3A0028C5C9 /* swipe_guide2.psd in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
-				868C23AD19636A3A0028C5C9 /* swipe_guide.psd in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
-				868C23AA19636A3A0028C5C9 /* PaperFoldResources.bundle in Resources */,
 				868C23B7196372030028C5C9 /* MapViewController.xib in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
 				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
+				868C240D196515190028C5C9 /* RecoveryPasswordViewController.xib in Resources */,
 				868C237B196274CF0028C5C9 /* CSNotificationView.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,34 +653,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C24081964F2AD0028C5C9 /* ConfirmAccountViewController.m in Sources */,
 				868C234B1961F8F00028C5C9 /* BEMHandsAnimation.m in Sources */,
+				868C24011964B1A90028C5C9 /* ALPValidatorCustomRule.m in Sources */,
+				868C23E61964B18E0028C5C9 /* ALPStringValidator.m in Sources */,
 				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
+				868C23FB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
+				868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
-				868C23AB19636A3A0028C5C9 /* PaperFoldSwipeHintView.m in Sources */,
-				868C23A619636A3A0028C5C9 /* FacingView.m in Sources */,
-				868C23B119636A3A0028C5C9 /* UIView+Screenshot.m in Sources */,
-				868C23A719636A3A0028C5C9 /* FoldView.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
-				868C23AC19636A3A0028C5C9 /* PaperFoldView.m in Sources */,
 				868C237A196274CF0028C5C9 /* CSNotificationView.m in Sources */,
 				868C23D31963DE060028C5C9 /* LoginViewController.m in Sources */,
+				868C23FA1964B1A90028C5C9 /* ALPValidatorRule.m in Sources */,
+				868C23E51964B18E0028C5C9 /* ALPValidator.m in Sources */,
+				868C23FC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
+				868C24051964B2570028C5C9 /* UIControl+ALPValidator.m in Sources */,
 				868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */,
 				868C23D61963E2200028C5C9 /* SecurityHomeViewController.m in Sources */,
+				868C23FD1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m in Sources */,
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
-				868C23B019636A3A0028C5C9 /* TouchThroughUIView.m in Sources */,
-				868C23A919636A3A0028C5C9 /* PaperFoldNavigationController.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
-				868C23A819636A3A0028C5C9 /* MultiFoldView.m in Sources */,
+				868C24021964B1A90028C5C9 /* ALPValidatorRemoteRule.m in Sources */,
 				868C23881962820A0028C5C9 /* TicketViewController.m in Sources */,
 				868C23D91963E4290028C5C9 /* CreateAccountViewController.m in Sources */,
-				868C23AF19636A3A0028C5C9 /* ShadowView.m in Sources */,
 				868C23B6196372030028C5C9 /* MapViewController.m in Sources */,
+				868C23E71964B18E0028C5C9 /* ALPNumericValidator.m in Sources */,
+				868C23FE1964B1A90028C5C9 /* ALPValidatorRangeRule.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
+				868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */,
+				868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
 				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,
 				868C2357196214460028C5C9 /* VCardViewController.m in Sources */,

@@ -16,6 +16,10 @@
 #pragma mark - Global
 
 #define BZAMaxBgImages    3
+#define BZGood  @"green"
+#define BZBad   @"red"
+
+
 
 #pragma mark - View  - prefix: KY
 

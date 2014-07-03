@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SecurityHomeViewController : UIViewController
+- (IBAction)loginGuestAction:(id)sender;
 
 @end

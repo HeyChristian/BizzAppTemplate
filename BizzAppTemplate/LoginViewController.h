@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+
+
+@class RecoveryPasswordViewController;
+
+@interface LoginViewController : UIViewController{
+    RecoveryPasswordViewController *recoveryView;
+}
 
 
 

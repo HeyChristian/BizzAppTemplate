@@ -8,23 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+@class ALPValidator;
+
 @interface CreateAccountViewController : UIViewController
 
 
-
-@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
-
-@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
-
-
-@property (weak, nonatomic) IBOutlet UITextField *companyNameField;
-
+//IBOutlets
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
-
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField *rePasswordField;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgEmailValidator;
+@property (weak, nonatomic) IBOutlet UIImageView *imgPassValidator;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgRePassValidator;
 
 
+
+//IBAction
+- (IBAction)setValidatorRePassword:(id)sender;
 - (IBAction)createAccountAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
+
+
+
+
 
 @end

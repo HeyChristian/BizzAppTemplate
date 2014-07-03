@@ -14,7 +14,7 @@
 #import "VCardViewController.h"
 #import "CompanyViewController.h"
 #import "MapViewController.h"
-
+#import "LoginViewController.h"
 #import <Parse/Parse.h>
 
 
@@ -46,35 +46,53 @@
     [self.navigationController.navigationBar setHidden:YES];
     
 }
+
+- (void)validateUser
+{
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if(!currentUser || ![[currentUser objectForKey:@"emailVerified"] boolValue]){
+        [PFUser logOut];
+        [self performSegueWithIdentifier:@"loginHome" sender:self];
+    }
+
+
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+  
     
-    imageCount = 1;
+    [self validateUser];
     
-    [self.navigationController.navigationBar setHidden:YES];
-    //[self initMenu];
+        imageCount = 1;
+        
+        [self.navigationController.navigationBar setHidden:YES];
+        //[self initMenu];
+        
+        // Take note that you need to take ownership of the ViewController that is being presented
+        
+        vcardView = [[VCardViewController alloc] initWithNibName:@"VCardViewController" bundle:nil];
+        vcardView.parentVC = self;
+        
+        companyView = [[CompanyViewController alloc] initWithNibName:@"CompanyViewController" bundle:nil];
+        mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
+        
+        [self initClock];
+        
+        
+        [NSTimer scheduledTimerWithTimeInterval:10
+                                         target:self
+                                       selector:@selector(animateFunction)
+                                       userInfo:nil
+                                        repeats:YES];
+        imageCount = 1;
     
-    // Take note that you need to take ownership of the ViewController that is being presented
-    
-    vcardView = [[VCardViewController alloc] initWithNibName:@"VCardViewController" bundle:nil];
-    vcardView.parentVC = self;
-    
-    companyView = [[CompanyViewController alloc] initWithNibName:@"CompanyViewController" bundle:nil];
-    mapView = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-    
-    [self initClock];
     
     
-    [NSTimer scheduledTimerWithTimeInterval:10
-                                     target:self
-                                   selector:@selector(animateFunction)
-                                   userInfo:nil
-                                    repeats:YES];
-    imageCount = 1;
-    
-    
-
     
 }
 
@@ -109,6 +127,12 @@
 - (IBAction)displayGridMenu:(id)sender {
     [self showGrid];
 }
+- (IBAction)logOut:(id)sender {
+    [PFUser logOut];
+    [self validateUser];
+    
+}
+
 
 - (IBAction)displayForDownloadVCard:(id)sender {
 
