@@ -16,6 +16,8 @@
 #import "MapViewController.h"
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "MenuNavigationController.h"
+
 
 
 @interface HomeViewController ()<PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate>{
@@ -164,6 +166,25 @@
                                                             KNSemiModalOptionKeys.animationDuration : @(0.5),
                                                             KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
                                                             }];
+}
+
+- (IBAction)displaySideMenu:(id)sender {
+    
+    /*
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:(DEMONavigationController *)self.navigationController
+                                                                            action:@selector(showMenu)]; */
+    
+    
+    
+//    [(MenuNavigationController)self.navigationController showMenu];
+
+    
+   [(MenuNavigationController *)self.navigationController showMenu];
+  
+    
 }
 
 

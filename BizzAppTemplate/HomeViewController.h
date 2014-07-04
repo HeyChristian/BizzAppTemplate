@@ -27,6 +27,7 @@
 - (IBAction)displayForDownloadVCard:(id)sender;
 - (IBAction)viewCompanyInfo:(id)sender;
 - (IBAction)displayMap:(id)sender;
+- (IBAction)displaySideMenu:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 

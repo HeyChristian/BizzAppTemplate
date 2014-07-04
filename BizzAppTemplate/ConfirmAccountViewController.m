@@ -18,7 +18,15 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,7 +53,31 @@
 */
 
 - (IBAction)reSendEmailVerification:(id)sender {
-      NSLog(@"Not implemented yet.");
+   
+    NSString *email = [[PFUser currentUser] objectForKey:@"email"];
+   // NSLog(@"email: %@",email);
+    
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSLog(@"%@",[DateFormatter stringFromDate:[NSDate date]]);
+    
+    [[PFUser currentUser] setObject:@"no-replay@app.com" forKey:@"email"];
+    [[PFUser currentUser] setObject:[DateFormatter stringFromDate:[NSDate date]] forKey:@"resendVerificationAt"];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error ){
+        
+        if( succeeded ) {
+            
+            [[PFUser currentUser] setObject:email forKey:@"email"];
+            [[PFUser currentUser] saveInBackground];
+            
+        }else{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                                message:[error.userInfo objectForKey:@"error"]
+                                                               delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+        
+    }];
 }
 
 - (IBAction)refresh:(id)sender {
@@ -54,8 +86,11 @@
     
     if([[currentUser objectForKey:@"emailVerified"] boolValue]){
         
-       //  [self.navigationController popToRootViewControllerAnimated:YES];
-        [self performSegueWithIdentifier:@"homeView" sender:nil];
+       [self.navigationController popToRootViewControllerAnimated:YES];
+       // [self performSegueWithIdentifier:@"homeView" sender:nil];
+        
+        
+        
         
     }else{
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!"
@@ -85,8 +120,14 @@
         
         } else {
         
-            [self performSegueWithIdentifier:@"homeView" sender:nil];
-         //  [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            [PFUser enableAutomaticUser];
+            [[PFUser currentUser] incrementKey:@"RunCount"];
+            [[PFUser currentUser] saveInBackground];
+            
+            
+            //[self performSegueWithIdentifier:@"homeView" sender:nil];
+         [self.navigationController popToRootViewControllerAnimated:YES];
         
         }
     }];

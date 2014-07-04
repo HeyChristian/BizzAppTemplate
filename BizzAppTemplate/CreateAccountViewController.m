@@ -29,11 +29,20 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setHidden:YES];
-    
+    [self.navigationController.navigationBar setHidden:NO];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+    self.navigationItem.title  = @"Create Account";
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+   
     passValidation=false;
     
     //img validators
@@ -120,7 +129,8 @@
             newUser.username=username;
             newUser.password=password;
             newUser.email=username;
-            
+            newUser[@"role"] = @"General";
+        
         
             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded,NSError *error){
                 
@@ -132,10 +142,13 @@
                     [alertView show];
                     
                 }else{
-                    //Continue for Registration
-                    //[self dismissViewControllerAnimated:YES completion:nil];
                     
-                   // [PFUser logOut];
+                 
+                 
+               
+                    
+                
+                    
                     
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Congrats, the account was created"
                                                                         message:@"Now go to the email to confirm your account."
@@ -169,8 +182,8 @@
     }
 }
 - (IBAction)cancelAction:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+  //  [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

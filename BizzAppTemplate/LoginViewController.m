@@ -10,6 +10,11 @@
 #import <Parse/Parse.h>
 #import "RecoveryPasswordViewController.h"
 #import "UIViewController+KNSemiModal.h"
+#import "MenuNavigationController.h"
+#import "HomeViewController.h"
+#import "UIViewController+REFrostedViewController.h"
+#import "REFrostedViewController.h"
+
 
 @interface LoginViewController ()<UITextFieldDelegate>
 
@@ -17,7 +22,11 @@
 
 @implementation LoginViewController
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -73,8 +82,36 @@
                 if(![[user objectForKey:@"emailVerified"] boolValue]){
                     [self performSegueWithIdentifier:@"confirmAccount" sender:nil];
                 }else{
-                    [self performSegueWithIdentifier:@"homeView" sender:nil];
+                    
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    
+                    
+                   // [self performSegueWithIdentifier:@"homeView" sender:nil];
                   // [self.navigationController popToRootViewControllerAnimated:YES];
+                    
+                    
+                   // [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                  //  while(self.presentedViewController)
+                    //    [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+                    // [self.navigationController popToRootViewControllerAnimated:YES];
+                    
+                   
+                    //Go to Home View Controller Statement
+                   // UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard" bundle:nil];
+                    //HomeViewController *homeViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+                   // MenuNavigationController *navigationController=nil;
+                   
+                   // navigationController = [[MenuNavigationController alloc] initWithRootViewController:homeViewController];
+                
+                    
+                    //[navigationController popToRootViewControllerAnimated:YES];
+                
+                    
+                    //self.frostedViewController.contentViewController = navigationController;
+                    //[self.frostedViewController hideMenuViewController];
+                
+                
                 }
                 
             }

@@ -79,6 +79,15 @@
 		868C24081964F2AD0028C5C9 /* ConfirmAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24071964F2AD0028C5C9 /* ConfirmAccountViewController.m */; };
 		868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C240A196515180028C5C9 /* RecoveryPasswordViewController.m */; };
 		868C240D196515190028C5C9 /* RecoveryPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868C240B196515180028C5C9 /* RecoveryPasswordViewController.xib */; };
+		868C24301966397F0028C5C9 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24251966397F0028C5C9 /* RECommonFunctions.m */; };
+		868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24271966397F0028C5C9 /* REFrostedContainerViewController.m */; };
+		868C2432196639800028C5C9 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24291966397F0028C5C9 /* REFrostedViewController.m */; };
+		868C2433196639800028C5C9 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C242B1966397F0028C5C9 /* UIImage+REFrostedViewController.m */; };
+		868C2434196639800028C5C9 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C242D1966397F0028C5C9 /* UIView+REFrostedViewController.m */; };
+		868C2435196639800028C5C9 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C242F1966397F0028C5C9 /* UIViewController+REFrostedViewController.m */; };
+		868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243719663A400028C5C9 /* MenuNavigationController.m */; };
+		868C243B19663ACC0028C5C9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243A19663ACC0028C5C9 /* MenuViewController.m */; };
+		868C243E19667A9C0028C5C9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243D19667A9C0028C5C9 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +214,24 @@
 		868C2409196515180028C5C9 /* RecoveryPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoveryPasswordViewController.h; sourceTree = "<group>"; };
 		868C240A196515180028C5C9 /* RecoveryPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoveryPasswordViewController.m; sourceTree = "<group>"; };
 		868C240B196515180028C5C9 /* RecoveryPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecoveryPasswordViewController.xib; sourceTree = "<group>"; };
+		868C24241966397F0028C5C9 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		868C24251966397F0028C5C9 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		868C24261966397F0028C5C9 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		868C24271966397F0028C5C9 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		868C24281966397F0028C5C9 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		868C24291966397F0028C5C9 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		868C242A1966397F0028C5C9 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		868C242B1966397F0028C5C9 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		868C242C1966397F0028C5C9 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		868C242D1966397F0028C5C9 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		868C242E1966397F0028C5C9 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		868C242F1966397F0028C5C9 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		868C243619663A400028C5C9 /* MenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuNavigationController.h; sourceTree = "<group>"; };
+		868C243719663A400028C5C9 /* MenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuNavigationController.m; sourceTree = "<group>"; };
+		868C243919663ACC0028C5C9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		868C243A19663ACC0028C5C9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		868C243C19667A9C0028C5C9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		868C243D19667A9C0028C5C9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +370,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				868C24231966397F0028C5C9 /* REFrostedViewController */,
 				868C23DA1964B12D0028C5C9 /* APLValidator */,
 				868C2376196274BF0028C5C9 /* CSNotificationView */,
 				868C235919622BCD0028C5C9 /* VCardSerialization */,
@@ -358,11 +386,14 @@
 		868C230D1960EF1B0028C5C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				868C2418196622720028C5C9 /* Navigation */,
 				868C23D01963DDDE0028C5C9 /* Security */,
 				868C23111960EF7A0028C5C9 /* HomeViewController.h */,
 				868C23121960EF7A0028C5C9 /* HomeViewController.m */,
 				868C23861962820A0028C5C9 /* TicketViewController.h */,
 				868C23871962820A0028C5C9 /* TicketViewController.m */,
+				868C243C19667A9C0028C5C9 /* ProfileViewController.h */,
+				868C243D19667A9C0028C5C9 /* ProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -550,6 +581,36 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		868C2418196622720028C5C9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				868C243619663A400028C5C9 /* MenuNavigationController.h */,
+				868C243719663A400028C5C9 /* MenuNavigationController.m */,
+				868C243919663ACC0028C5C9 /* MenuViewController.h */,
+				868C243A19663ACC0028C5C9 /* MenuViewController.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		868C24231966397F0028C5C9 /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				868C24241966397F0028C5C9 /* RECommonFunctions.h */,
+				868C24251966397F0028C5C9 /* RECommonFunctions.m */,
+				868C24261966397F0028C5C9 /* REFrostedContainerViewController.h */,
+				868C24271966397F0028C5C9 /* REFrostedContainerViewController.m */,
+				868C24281966397F0028C5C9 /* REFrostedViewController.h */,
+				868C24291966397F0028C5C9 /* REFrostedViewController.m */,
+				868C242A1966397F0028C5C9 /* UIImage+REFrostedViewController.h */,
+				868C242B1966397F0028C5C9 /* UIImage+REFrostedViewController.m */,
+				868C242C1966397F0028C5C9 /* UIView+REFrostedViewController.h */,
+				868C242D1966397F0028C5C9 /* UIView+REFrostedViewController.m */,
+				868C242E1966397F0028C5C9 /* UIViewController+REFrostedViewController.h */,
+				868C242F1966397F0028C5C9 /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -653,16 +714,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868C2435196639800028C5C9 /* UIViewController+REFrostedViewController.m in Sources */,
 				868C24081964F2AD0028C5C9 /* ConfirmAccountViewController.m in Sources */,
+				868C24301966397F0028C5C9 /* RECommonFunctions.m in Sources */,
 				868C234B1961F8F00028C5C9 /* BEMHandsAnimation.m in Sources */,
+				868C243E19667A9C0028C5C9 /* ProfileViewController.m in Sources */,
 				868C24011964B1A90028C5C9 /* ALPValidatorCustomRule.m in Sources */,
 				868C23E61964B18E0028C5C9 /* ALPStringValidator.m in Sources */,
 				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
 				868C23FB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
+				868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */,
 				868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
+				868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
@@ -679,17 +745,21 @@
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
 				868C24021964B1A90028C5C9 /* ALPValidatorRemoteRule.m in Sources */,
+				868C2433196639800028C5C9 /* UIImage+REFrostedViewController.m in Sources */,
 				868C23881962820A0028C5C9 /* TicketViewController.m in Sources */,
 				868C23D91963E4290028C5C9 /* CreateAccountViewController.m in Sources */,
+				868C2432196639800028C5C9 /* REFrostedViewController.m in Sources */,
 				868C23B6196372030028C5C9 /* MapViewController.m in Sources */,
 				868C23E71964B18E0028C5C9 /* ALPNumericValidator.m in Sources */,
 				868C23FE1964B1A90028C5C9 /* ALPValidatorRangeRule.m in Sources */,
+				868C243B19663ACC0028C5C9 /* MenuViewController.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
 				868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */,
 				868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
 				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,
 				868C2357196214460028C5C9 /* VCardViewController.m in Sources */,
+				868C2434196639800028C5C9 /* UIView+REFrostedViewController.m in Sources */,
 				868C23131960EF7A0028C5C9 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

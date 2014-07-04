@@ -147,35 +147,10 @@
     
     }
     
-    // parse my emails
-    /*
-    ABMultiValueRef emails = ABRecordCopyValue(moi, kABPersonEmailProperty);
-    for (CFIndex ix = 0; ix < ABMultiValueGetCount(emails); ix++) {
-        CFStringRef label = ABMultiValueCopyLabelAtIndex(emails, ix);
-        CFStringRef value = ABMultiValueCopyValueAtIndex(emails, ix);
-        NSLog(@"I have a %@ address: %@", label, value);
-        CFRelease(label);
-        CFRelease(value);
-    }
-    
-    
-    if(moi==nil){
-        moi=newPerson;
-    }
-    
-     ABAddressBookAddRecord(adbk, newPerson, nil);
-      ABAddressBookSave(adbk, nil);
-    */
-    
-    /*
-    [CSNotificationView showInViewController:self.navigationController
-                                       style:CSNotificationViewStyleSuccess
-                                     message:@"Great, it works."];
-    
-  */
+
     
     self.permanentNotification =
-    [CSNotificationView notificationViewWithParentViewController:self.navigationController
+    [CSNotificationView notificationViewWithParentViewController:self.parentVC.navigationController
                                                        tintColor:[UIColor grayColor] //[UIColor colorWithRed:0.000 green:0.6 blue:1.000 alpha:1]
                                                            image:nil message:@"Downloading / updating"];
     
@@ -204,7 +179,7 @@
     
     NSLog(@"SAVE");
     [self dismissSemiModalView];
-    
+   // [self.parentVC.navigationController popToRootViewControllerAnimated:YES];
   
 }
 - (void)cancel

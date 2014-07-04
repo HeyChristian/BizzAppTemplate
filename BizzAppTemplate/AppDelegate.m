@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-
+#import "MenuNavigationController.h"
+#import "MenuViewController.h"
+#import "HomeViewController.h"
 
 @implementation AppDelegate
 
@@ -26,6 +28,39 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     
+    
+    
+    
+    
+    
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Create content and menu controllers
+    //
+    
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard" bundle:nil];
+    HomeViewController *homeViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    
+    
+    MenuNavigationController *navigationController = [[MenuNavigationController alloc] initWithRootViewController:homeViewController];
+    
+    
+    MenuViewController *menuController = [[MenuViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    // Create frosted view controller
+    //
+    REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:navigationController menuViewController:menuController];
+    frostedViewController.direction = REFrostedViewControllerDirectionLeft;
+    frostedViewController.liveBlurBackgroundStyle = REFrostedViewControllerLiveBackgroundStyleLight;
+    frostedViewController.delegate = self;
+    
+    // Make it a root controller
+    //
+    self.window.rootViewController = frostedViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

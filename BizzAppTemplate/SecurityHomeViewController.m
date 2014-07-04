@@ -8,6 +8,12 @@
 
 #import "SecurityHomeViewController.h"
 #import <Parse/Parse.h>
+#import "HomeViewController.h"
+#import "MenuNavigationController.h"
+#import "UIViewController+REFrostedViewController.h"
+#import "REFrostedViewController.h"
+
+
 @interface SecurityHomeViewController ()
 
 @end
@@ -17,10 +23,39 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setHidden:YES];
+    
+    
+   
+    
+    
+    /*
+    PFACL *roleACL = [PFACL ACL];
+    [roleACL setPublicReadAccess:YES];
+    [roleACL setPublicWriteAccess:YES];
+    PFRole *role = [PFRole roleWithName:@"Administrator" acl:roleACL];
+    [role saveInBackground];
+    
+    
+    role = [PFRole roleWithName:@"General" acl:roleACL];
+    [role saveInBackground];
+    */
+    
     
     // Do any additional setup after loading the view.
 }
@@ -60,8 +95,8 @@
             
         } else {
             
-            [self performSegueWithIdentifier:@"homeView" sender:nil];
-            //  [self.navigationController popToRootViewControllerAnimated:YES];
+         //   [self performSegueWithIdentifier:@"homeView" sender:nil];
+             [self.navigationController popToRootViewControllerAnimated:YES];
             
         }
     }];
