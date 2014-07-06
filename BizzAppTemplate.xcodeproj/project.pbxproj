@@ -88,6 +88,17 @@
 		868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243719663A400028C5C9 /* MenuNavigationController.m */; };
 		868C243B19663ACC0028C5C9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243A19663ACC0028C5C9 /* MenuViewController.m */; };
 		868C243E19667A9C0028C5C9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C243D19667A9C0028C5C9 /* ProfileViewController.m */; };
+		868C245B1968EA910028C5C9 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24431968EA910028C5C9 /* MRBlurView.m */; };
+		868C245C1968EA910028C5C9 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24451968EA910028C5C9 /* UIImage+MRImageEffects.m */; };
+		868C245D1968EA910028C5C9 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24481968EA910028C5C9 /* MRActivityIndicatorView.m */; };
+		868C245E1968EA910028C5C9 /* MRCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C244A1968EA910028C5C9 /* MRCircularProgressView.m */; };
+		868C245F1968EA910028C5C9 /* MRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C244C1968EA910028C5C9 /* MRIconView.m */; };
+		868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C244E1968EA910028C5C9 /* MRNavigationBarProgressView.m */; };
+		868C24611968EA910028C5C9 /* MRProgressOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24501968EA910028C5C9 /* MRProgressOverlayView.m */; };
+		868C24621968EA910028C5C9 /* MRStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24531968EA910028C5C9 /* MRStopButton.m */; };
+		868C24631968EA910028C5C9 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24571968EA910028C5C9 /* MRMessageInterceptor.m */; };
+		868C24641968EA910028C5C9 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C245A1968EA910028C5C9 /* MRWeakProxy.m */; };
+		868C246B196907950028C5C9 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C246A196907950028C5C9 /* Tools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +243,31 @@
 		868C243A19663ACC0028C5C9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		868C243C19667A9C0028C5C9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		868C243D19667A9C0028C5C9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		868C24421968EA910028C5C9 /* MRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBlurView.h; sourceTree = "<group>"; };
+		868C24431968EA910028C5C9 /* MRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBlurView.m; sourceTree = "<group>"; };
+		868C24441968EA910028C5C9 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
+		868C24451968EA910028C5C9 /* UIImage+MRImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MRImageEffects.m"; sourceTree = "<group>"; };
+		868C24471968EA910028C5C9 /* MRActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRActivityIndicatorView.h; sourceTree = "<group>"; };
+		868C24481968EA910028C5C9 /* MRActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRActivityIndicatorView.m; sourceTree = "<group>"; };
+		868C24491968EA910028C5C9 /* MRCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCircularProgressView.h; sourceTree = "<group>"; };
+		868C244A1968EA910028C5C9 /* MRCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCircularProgressView.m; sourceTree = "<group>"; };
+		868C244B1968EA910028C5C9 /* MRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRIconView.h; sourceTree = "<group>"; };
+		868C244C1968EA910028C5C9 /* MRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRIconView.m; sourceTree = "<group>"; };
+		868C244D1968EA910028C5C9 /* MRNavigationBarProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNavigationBarProgressView.h; sourceTree = "<group>"; };
+		868C244E1968EA910028C5C9 /* MRNavigationBarProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNavigationBarProgressView.m; sourceTree = "<group>"; };
+		868C244F1968EA910028C5C9 /* MRProgressOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressOverlayView.h; sourceTree = "<group>"; };
+		868C24501968EA910028C5C9 /* MRProgressOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRProgressOverlayView.m; sourceTree = "<group>"; };
+		868C24511968EA910028C5C9 /* MRStopableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRStopableView.h; sourceTree = "<group>"; };
+		868C24521968EA910028C5C9 /* MRStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRStopButton.h; sourceTree = "<group>"; };
+		868C24531968EA910028C5C9 /* MRStopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRStopButton.m; sourceTree = "<group>"; };
+		868C24541968EA910028C5C9 /* MRProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgress.h; sourceTree = "<group>"; };
+		868C24561968EA910028C5C9 /* MRMessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMessageInterceptor.h; sourceTree = "<group>"; };
+		868C24571968EA910028C5C9 /* MRMessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMessageInterceptor.m; sourceTree = "<group>"; };
+		868C24581968EA910028C5C9 /* MRProgressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressHelper.h; sourceTree = "<group>"; };
+		868C24591968EA910028C5C9 /* MRWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRWeakProxy.h; sourceTree = "<group>"; };
+		868C245A1968EA910028C5C9 /* MRWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWeakProxy.m; sourceTree = "<group>"; };
+		868C2469196907950028C5C9 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		868C246A196907950028C5C9 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +360,7 @@
 		868C22DA1960DF110028C5C9 /* BizzAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				868C2468196907700028C5C9 /* Commons */,
 				868C22E61960DF110028C5C9 /* Images.xcassets */,
 				868C235D19622C060028C5C9 /* vCards */,
 				868C23531962142B0028C5C9 /* Modals */,
@@ -370,6 +407,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				868C24401968EA760028C5C9 /* MRProgress */,
 				868C24231966397F0028C5C9 /* REFrostedViewController */,
 				868C23DA1964B12D0028C5C9 /* APLValidator */,
 				868C2376196274BF0028C5C9 /* CSNotificationView */,
@@ -611,6 +649,69 @@
 			path = REFrostedViewController;
 			sourceTree = "<group>";
 		};
+		868C24401968EA760028C5C9 /* MRProgress */ = {
+			isa = PBXGroup;
+			children = (
+				868C24411968EA910028C5C9 /* Blur */,
+				868C24461968EA910028C5C9 /* Components */,
+				868C24541968EA910028C5C9 /* MRProgress.h */,
+				868C24551968EA910028C5C9 /* Utils */,
+			);
+			name = MRProgress;
+			sourceTree = "<group>";
+		};
+		868C24411968EA910028C5C9 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				868C24421968EA910028C5C9 /* MRBlurView.h */,
+				868C24431968EA910028C5C9 /* MRBlurView.m */,
+				868C24441968EA910028C5C9 /* UIImage+MRImageEffects.h */,
+				868C24451968EA910028C5C9 /* UIImage+MRImageEffects.m */,
+			);
+			path = Blur;
+			sourceTree = "<group>";
+		};
+		868C24461968EA910028C5C9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				868C24471968EA910028C5C9 /* MRActivityIndicatorView.h */,
+				868C24481968EA910028C5C9 /* MRActivityIndicatorView.m */,
+				868C24491968EA910028C5C9 /* MRCircularProgressView.h */,
+				868C244A1968EA910028C5C9 /* MRCircularProgressView.m */,
+				868C244B1968EA910028C5C9 /* MRIconView.h */,
+				868C244C1968EA910028C5C9 /* MRIconView.m */,
+				868C244D1968EA910028C5C9 /* MRNavigationBarProgressView.h */,
+				868C244E1968EA910028C5C9 /* MRNavigationBarProgressView.m */,
+				868C244F1968EA910028C5C9 /* MRProgressOverlayView.h */,
+				868C24501968EA910028C5C9 /* MRProgressOverlayView.m */,
+				868C24511968EA910028C5C9 /* MRStopableView.h */,
+				868C24521968EA910028C5C9 /* MRStopButton.h */,
+				868C24531968EA910028C5C9 /* MRStopButton.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		868C24551968EA910028C5C9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				868C24561968EA910028C5C9 /* MRMessageInterceptor.h */,
+				868C24571968EA910028C5C9 /* MRMessageInterceptor.m */,
+				868C24581968EA910028C5C9 /* MRProgressHelper.h */,
+				868C24591968EA910028C5C9 /* MRWeakProxy.h */,
+				868C245A1968EA910028C5C9 /* MRWeakProxy.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		868C2468196907700028C5C9 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				868C2469196907950028C5C9 /* Tools.h */,
+				868C246A196907950028C5C9 /* Tools.m */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -723,15 +824,21 @@
 				868C23E61964B18E0028C5C9 /* ALPStringValidator.m in Sources */,
 				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
 				868C23FB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m in Sources */,
+				868C24611968EA910028C5C9 /* MRProgressOverlayView.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
+				868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */,
 				868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */,
 				868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */,
+				868C24621968EA910028C5C9 /* MRStopButton.m in Sources */,
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
+				868C24641968EA910028C5C9 /* MRWeakProxy.m in Sources */,
+				868C24631968EA910028C5C9 /* MRMessageInterceptor.m in Sources */,
 				868C22E51960DF110028C5C9 /* AppDelegate.m in Sources */,
+				868C245C1968EA910028C5C9 /* UIImage+MRImageEffects.m in Sources */,
 				868C237A196274CF0028C5C9 /* CSNotificationView.m in Sources */,
 				868C23D31963DE060028C5C9 /* LoginViewController.m in Sources */,
 				868C23FA1964B1A90028C5C9 /* ALPValidatorRule.m in Sources */,
@@ -739,10 +846,13 @@
 				868C23FC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
 				868C24051964B2570028C5C9 /* UIControl+ALPValidator.m in Sources */,
+				868C246B196907950028C5C9 /* Tools.m in Sources */,
 				868C234C1961F8F00028C5C9 /* BEMHourHand.m in Sources */,
 				868C23D61963E2200028C5C9 /* SecurityHomeViewController.m in Sources */,
 				868C23FD1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m in Sources */,
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
+				868C245F1968EA910028C5C9 /* MRIconView.m in Sources */,
+				868C245D1968EA910028C5C9 /* MRActivityIndicatorView.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
 				868C24021964B1A90028C5C9 /* ALPValidatorRemoteRule.m in Sources */,
 				868C2433196639800028C5C9 /* UIImage+REFrostedViewController.m in Sources */,
@@ -752,8 +862,10 @@
 				868C23B6196372030028C5C9 /* MapViewController.m in Sources */,
 				868C23E71964B18E0028C5C9 /* ALPNumericValidator.m in Sources */,
 				868C23FE1964B1A90028C5C9 /* ALPValidatorRangeRule.m in Sources */,
+				868C245B1968EA910028C5C9 /* MRBlurView.m in Sources */,
 				868C243B19663ACC0028C5C9 /* MenuViewController.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
+				868C245E1968EA910028C5C9 /* MRCircularProgressView.m in Sources */,
 				868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */,
 				868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
