@@ -21,20 +21,30 @@
 
 @implementation MenuViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.opaque = NO;
-    self.tableView.backgroundColor = [UIColor clearColor];
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"profile2"];
+        
+        
+        PFFile *imageFile = [[PFUser currentUser] objectForKey:@"Image"];
+        NSLog(@"Image Data URL: %@",imageFile.url);
+        if(imageFile.url != nil){
+            
+            NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
+            NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
+             imageView.image = [UIImage imageWithData:imageData];
+            
+        }else{
+             imageView.image=[UIImage imageNamed:@"profile2"];
+        }
+        
+        
+        //imageView.image = [UIImage imageNamed:@"profile2"];
+        
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -44,11 +54,11 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-       
+        
         PFUser *user  = [PFUser currentUser];
         
-        NSString *name = user[@"name"];
-        NSString *last = user[@"lastn"];
+        NSString *name = [[PFUser currentUser] objectForKey:@"Firstname"];
+        NSString *last = [[PFUser currentUser] objectForKey:@"LastName"];
         
         NSString *displayName;
         
@@ -69,7 +79,18 @@
         [view addSubview:label];
         view;
     });
+
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.opaque = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    }
 
 #pragma mark -
 #pragma mark UITableView Delegate

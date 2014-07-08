@@ -20,7 +20,7 @@
 
 
 
-@interface HomeViewController ()<PFLogInViewControllerDelegate,PFSignUpViewControllerDelegate>{
+@interface HomeViewController (){
      int imageCount;
      
 }

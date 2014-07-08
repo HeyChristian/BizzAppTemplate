@@ -25,4 +25,15 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
++(NSString *)clearText:(UITextField *)field{
+  
+    return [field.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
++(id) getSessionObject:(NSString *)key{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+}
++(void)setSessionObject:(NSString *)key andValue:(id)value{
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end

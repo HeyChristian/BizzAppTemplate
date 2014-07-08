@@ -11,10 +11,15 @@
 #import <Parse/Parse.h>
 #import "MRProgress.h"
 #import "Tools.h"
+#import "UIViewController+KNSemiModal.h"
+#import "InstructionsProfileViewController.h"
+#import "ChangePasswordViewController.h"
 
 @interface ProfileViewController ()<UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UITextFieldDelegate>{
+    
     bool updateProfileImage;
-     MRProgressOverlayView *activityIndicatorView;
+    MRProgressOverlayView *activityIndicatorView;
+    bool firstLoad;
 }
 
 @property (nonatomic,strong) PFFile *file;
@@ -53,20 +58,22 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(update)];
+    
+    
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self loadUser];
     
     updateProfileImage=false;
     
     
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
-   
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     activityIndicatorView = [MRProgressOverlayView new];
-    activityIndicatorView.titleLabelText = @"";
+    activityIndicatorView.titleLabelText = @"updating...";
     [self.tableView addSubview:activityIndicatorView];
     
     //activityIndicatorView.modeView = self.view;
@@ -80,7 +87,18 @@
     self.profileImageView.layer.shouldRasterize = YES;
     self.profileImageView.clipsToBounds = YES;
     
-   
+ 
+    
+    self.nameField.delegate=self;
+    self.lastNameField.delegate=self;
+    self.companyField.delegate=self;
+    self.mobileField.delegate=self;
+    self.workField.delegate=self;
+    self.extensionField.delegate=self;
+    
+    instructionView = [[InstructionsProfileViewController alloc] initWithNibName:@"InstructionsProfileViewController" bundle:nil];
+    changePasswordView = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+    
 }
 
 #pragma mark - IBActions
@@ -97,6 +115,17 @@
 }
 
 - (IBAction)changePasswordAction:(id)sender {
+    
+    
+   // ChangePasswordViewController *semiview = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+    
+    
+    [self presentSemiViewController:changePasswordView withOptions:@{
+                                                               KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                               KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                               KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                               }];
+    
 }
 -(void) promptForSource{
     UIActionSheet *actionSheed = [[UIActionSheet alloc] initWithTitle:@"Image Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Photo Roll", nil];
@@ -147,7 +176,7 @@
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     
-    UIImage *original =  info[UIImagePickerControllerOriginalImage];
+    UIImage *original = info[UIImagePickerControllerEditedImage]; //info[UIImagePickerControllerOriginalImage];
   
     
     self.profileImageView.image = [Tools imageWithImage:original scaledToWidth:200];
@@ -171,26 +200,32 @@
     [activityIndicatorView show:YES];
     
     
-    NSString *firstname = [nameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *lastname = [lastNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *company= [companyField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *firstname = [self.nameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *lastname = [self.lastNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *company= [self.companyField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    NSString *mobile= [mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *work= [mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *ext= [mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *mobile= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *work= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *ext= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
    // NSString *email= [mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     
-    
+   /*
     PFUser *user = [PFUser currentUser];
-    
     user[@"Firstname"]=firstname;
     user[@"LastName"]=lastname;
     user[@"Company"]=company;
     user[@"Mobile"]=mobile;
     user[@"Work"]=work;
     user[@"WorkExt"]=ext;
+    */
     
+    [[PFUser currentUser] setObject:firstname forKey:@"Firstname"];
+    [[PFUser currentUser] setObject:lastname forKey:@"LastName"];
+    [[PFUser currentUser] setObject:company forKey:@"Company"];
+    [[PFUser currentUser] setObject:mobile forKey:@"Mobile"];
+    [[PFUser currentUser] setObject:work forKey:@"Work"];
+    [[PFUser currentUser] setObject:ext forKey:@"WorkExt"];
     
     
     if (updateProfileImage){
@@ -200,14 +235,16 @@
         
         self.file = [PFFile fileWithName:@"Image.png" data:imageData];
         [self.file save];
+   
+        [[PFUser currentUser] setObject:self.file forKey:@"Image"];
         
-        user[@"Image"]=self.file;
+       // user[@"Image"]=self.file;
         
     }
     
     
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-       // [MRProgressOverlayView dismissAllOverlaysForView:self.view animated:YES];
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+       
         [activityIndicatorView hide:YES];
         
         if(error){
@@ -217,6 +254,8 @@
             [alertView show];
             
         }else{
+            
+            [[PFUser currentUser] refresh];
             updateProfileImage=false;
         }
         
@@ -224,21 +263,80 @@
   
 }
 
+- (void)loadUser {
+    PFUser *user = [PFUser currentUser];
+    
+    PFFile *imageFile = [user objectForKey:@"Image"];
+    NSLog(@"Image Data URL: %@",imageFile.url);
+    
+    
+    NSLog(@"Object ID: %@",user.objectId);
+    
+    self.nameField.text = [user objectForKey:@"Firstname"];
+    self.lastNameField.text = [user objectForKey:@"LastName"];
+    self.companyField.text = [user objectForKey:@"Company"];
+    self.mobileField.text = [user objectForKey:@"Mobile"];
+    self.workField.text = [user objectForKey:@"Work"];
+    self.extensionField.text = [user objectForKey:@"WorkExt"];
+    self.emailField.text = [user objectForKey:@"email"];
+
+    
+    if([self.nameField.text length]==0 || [self.lastNameField.text length]==0 || [self.companyField.text length]==0){
+        [self presentSemiViewController:instructionView withOptions:@{
+                                                                   KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                                   KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                                   KNSemiModalOptionKeys.shadowOpacity     : @(1.0),
+                                                                   }];
+    }
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"objectId" equalTo:user.objectId];
+    
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            
+            PFUser *u = objects[0];
+            
+            PFFile *imageFile = [u objectForKey:@"Image"];
+            NSLog(@"Image Data URL: %@",imageFile.url);
+            if(imageFile.url != nil){
+                
+                NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
+                NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
+                self.profileImageView.image = [UIImage imageWithData:imageData];
+             
+            }else{
+                self.profileImageView.image=[UIImage imageNamed:@"profile2"];
+            }
+            
+            
+            self.nameField.text = [user objectForKey:@"Firstname"];
+            self.lastNameField.text = [user objectForKey:@"LastName"];
+            self.companyField.text = [user objectForKey:@"Company"];
+            self.mobileField.text = [user objectForKey:@"Mobile"];
+            self.workField.text = [user objectForKey:@"Work"];
+            self.extensionField.text = [user objectForKey:@"WorkExt"];
+            self.emailField.text = [user objectForKey:@"email"];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 #pragma mark UITextFieldDelegate
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    return YES;
-}
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    return YES;
-}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.view endEditing:YES];
+    [textField resignFirstResponder];
     return YES;
 }
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+   
+    [self.view endEditing:YES];
+}
+
 @end

@@ -99,6 +99,10 @@
 		868C24631968EA910028C5C9 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C24571968EA910028C5C9 /* MRMessageInterceptor.m */; };
 		868C24641968EA910028C5C9 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C245A1968EA910028C5C9 /* MRWeakProxy.m */; };
 		868C246B196907950028C5C9 /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 868C246A196907950028C5C9 /* Tools.m */; };
+		86E0FBAE196B629400D83489 /* InstructionsProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBAC196B629400D83489 /* InstructionsProfileViewController.m */; };
+		86E0FBAF196B629400D83489 /* InstructionsProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBAD196B629400D83489 /* InstructionsProfileViewController.xib */; };
+		86E0FBB3196B653F00D83489 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBB1196B653F00D83489 /* ChangePasswordViewController.m */; };
+		86E0FBB4196B653F00D83489 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBB2196B653F00D83489 /* ChangePasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +272,12 @@
 		868C245A1968EA910028C5C9 /* MRWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWeakProxy.m; sourceTree = "<group>"; };
 		868C2469196907950028C5C9 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 		868C246A196907950028C5C9 /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		86E0FBAB196B629400D83489 /* InstructionsProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsProfileViewController.h; sourceTree = "<group>"; };
+		86E0FBAC196B629400D83489 /* InstructionsProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsProfileViewController.m; sourceTree = "<group>"; };
+		86E0FBAD196B629400D83489 /* InstructionsProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstructionsProfileViewController.xib; sourceTree = "<group>"; };
+		86E0FBB0196B653F00D83489 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		86E0FBB1196B653F00D83489 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		86E0FBB2196B653F00D83489 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,8 +370,8 @@
 		868C22DA1960DF110028C5C9 /* BizzAppTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				868C2468196907700028C5C9 /* Commons */,
 				868C22E61960DF110028C5C9 /* Images.xcassets */,
+				868C2468196907700028C5C9 /* Commons */,
 				868C235D19622C060028C5C9 /* vCards */,
 				868C23531962142B0028C5C9 /* Modals */,
 				868C230D1960EF1B0028C5C9 /* ViewControllers */,
@@ -424,14 +434,13 @@
 		868C230D1960EF1B0028C5C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				86E0FBAA196B625F00D83489 /* Profile */,
 				868C2418196622720028C5C9 /* Navigation */,
 				868C23D01963DDDE0028C5C9 /* Security */,
 				868C23111960EF7A0028C5C9 /* HomeViewController.h */,
 				868C23121960EF7A0028C5C9 /* HomeViewController.m */,
 				868C23861962820A0028C5C9 /* TicketViewController.h */,
 				868C23871962820A0028C5C9 /* TicketViewController.m */,
-				868C243C19667A9C0028C5C9 /* ProfileViewController.h */,
-				868C243D19667A9C0028C5C9 /* ProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -712,6 +721,21 @@
 			name = Commons;
 			sourceTree = "<group>";
 		};
+		86E0FBAA196B625F00D83489 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				868C243C19667A9C0028C5C9 /* ProfileViewController.h */,
+				868C243D19667A9C0028C5C9 /* ProfileViewController.m */,
+				86E0FBAB196B629400D83489 /* InstructionsProfileViewController.h */,
+				86E0FBAC196B629400D83489 /* InstructionsProfileViewController.m */,
+				86E0FBAD196B629400D83489 /* InstructionsProfileViewController.xib */,
+				86E0FBB0196B653F00D83489 /* ChangePasswordViewController.h */,
+				86E0FBB1196B653F00D83489 /* ChangePasswordViewController.m */,
+				86E0FBB2196B653F00D83489 /* ChangePasswordViewController.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -790,12 +814,14 @@
 				868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
+				86E0FBAF196B629400D83489 /* InstructionsProfileViewController.xib in Resources */,
 				868C22E71960DF110028C5C9 /* Images.xcassets in Resources */,
 				868C23B7196372030028C5C9 /* MapViewController.xib in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
 				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
 				868C240D196515190028C5C9 /* RecoveryPasswordViewController.xib in Resources */,
+				86E0FBB4196B653F00D83489 /* ChangePasswordViewController.xib in Resources */,
 				868C237B196274CF0028C5C9 /* CSNotificationView.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +854,7 @@
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
 				868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */,
+				86E0FBB3196B653F00D83489 /* ChangePasswordViewController.m in Sources */,
 				868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */,
 				868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */,
 				868C24621968EA910028C5C9 /* MRStopButton.m in Sources */,
@@ -866,6 +893,7 @@
 				868C243B19663ACC0028C5C9 /* MenuViewController.m in Sources */,
 				868C230C1960EE8B0028C5C9 /* Constants.m in Sources */,
 				868C245E1968EA910028C5C9 /* MRCircularProgressView.m in Sources */,
+				86E0FBAE196B629400D83489 /* InstructionsProfileViewController.m in Sources */,
 				868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */,
 				868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
@@ -1077,6 +1105,7 @@
 				868C22FF1960DF110028C5C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		868C23001960DF110028C5C9 /* Build configuration list for PBXNativeTarget "BizzAppTemplateTests" */ = {
 			isa = XCConfigurationList;
@@ -1085,6 +1114,7 @@
 				868C23021960DF110028C5C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

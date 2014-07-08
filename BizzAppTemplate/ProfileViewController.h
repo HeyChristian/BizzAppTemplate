@@ -8,17 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@class InstructionsProfileViewController,ChangePasswordViewController;
+
 @interface ProfileViewController : UITableViewController{
     
-    __weak IBOutlet UITextField *nameField;
-    __weak IBOutlet UITextField *lastNameField;
-    __weak IBOutlet UITextField *companyField;
-    __weak IBOutlet UITextField *mobileField;
-    __weak IBOutlet UITextField *workField;
-    __weak IBOutlet UITextField *extensionField;
-    __weak IBOutlet UITextField *emailField;
+    InstructionsProfileViewController *instructionView;
+    ChangePasswordViewController *changePasswordView;
     
 }
+
+
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UITextField *companyField;
+@property (weak, nonatomic) IBOutlet UITextField *mobileField;
+@property (weak, nonatomic) IBOutlet UITextField *workField;
+@property (weak, nonatomic) IBOutlet UITextField *extensionField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 

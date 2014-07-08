@@ -84,33 +84,7 @@
                 }else{
                     
                     [self.navigationController popToRootViewControllerAnimated:YES];
-                    
-                    
-                   // [self performSegueWithIdentifier:@"homeView" sender:nil];
-                  // [self.navigationController popToRootViewControllerAnimated:YES];
-                    
-                    
-                   // [self dismissViewControllerAnimated:YES completion:nil];
-                    
-                  //  while(self.presentedViewController)
-                    //    [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
-                    // [self.navigationController popToRootViewControllerAnimated:YES];
-                    
-                   
-                    //Go to Home View Controller Statement
-                   // UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"iPhoneStoryboard" bundle:nil];
-                    //HomeViewController *homeViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-                   // MenuNavigationController *navigationController=nil;
-                   
-                   // navigationController = [[MenuNavigationController alloc] initWithRootViewController:homeViewController];
-                
-                    
-                    //[navigationController popToRootViewControllerAnimated:YES];
-                
-                    
-                    //self.frostedViewController.contentViewController = navigationController;
-                    //[self.frostedViewController hideMenuViewController];
-                
+            
                 
                 }
                 

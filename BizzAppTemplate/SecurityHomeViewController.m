@@ -39,25 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-   
-    
-    
-    /*
-    PFACL *roleACL = [PFACL ACL];
-    [roleACL setPublicReadAccess:YES];
-    [roleACL setPublicWriteAccess:YES];
-    PFRole *role = [PFRole roleWithName:@"Administrator" acl:roleACL];
-    [role saveInBackground];
-    
-    
-    role = [PFRole roleWithName:@"General" acl:roleACL];
-    [role saveInBackground];
-    */
-    
-    
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning

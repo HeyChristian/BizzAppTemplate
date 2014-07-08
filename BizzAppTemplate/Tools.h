@@ -11,5 +11,7 @@
 @interface Tools : NSObject
 
 +(UIImage*)imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width;
-
++(NSString *)clearText:(UITextField *)field;
++(id) getSessionObject:(NSString *)key;
++(void)setSessionObject:(NSString *)key andValue:(id)value;
 @end
