@@ -103,6 +103,10 @@
 		86E0FBAF196B629400D83489 /* InstructionsProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBAD196B629400D83489 /* InstructionsProfileViewController.xib */; };
 		86E0FBB3196B653F00D83489 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBB1196B653F00D83489 /* ChangePasswordViewController.m */; };
 		86E0FBB4196B653F00D83489 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBB2196B653F00D83489 /* ChangePasswordViewController.xib */; };
+		86E0FBB8196CAD7900D83489 /* TimeCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBB7196CAD7900D83489 /* TimeCardViewController.m */; };
+		86E0FBBB196CD2B900D83489 /* TimeCardMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBBA196CD2B900D83489 /* TimeCardMasterViewController.m */; };
+		86E0FBBE196CD2E600D83489 /* TimeCardCellViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBBD196CD2E600D83489 /* TimeCardCellViewCell.m */; };
+		86E0FBC1196D01C400D83489 /* TCEmptyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBC0196D01C400D83489 /* TCEmptyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +282,14 @@
 		86E0FBB0196B653F00D83489 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		86E0FBB1196B653F00D83489 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		86E0FBB2196B653F00D83489 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		86E0FBB6196CAD7900D83489 /* TimeCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCardViewController.h; sourceTree = "<group>"; };
+		86E0FBB7196CAD7900D83489 /* TimeCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCardViewController.m; sourceTree = "<group>"; };
+		86E0FBB9196CD2B900D83489 /* TimeCardMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCardMasterViewController.h; sourceTree = "<group>"; };
+		86E0FBBA196CD2B900D83489 /* TimeCardMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCardMasterViewController.m; sourceTree = "<group>"; };
+		86E0FBBC196CD2E600D83489 /* TimeCardCellViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCardCellViewCell.h; sourceTree = "<group>"; };
+		86E0FBBD196CD2E600D83489 /* TimeCardCellViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCardCellViewCell.m; sourceTree = "<group>"; };
+		86E0FBBF196D01C400D83489 /* TCEmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCEmptyCell.h; sourceTree = "<group>"; };
+		86E0FBC0196D01C400D83489 /* TCEmptyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEmptyCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +446,7 @@
 		868C230D1960EF1B0028C5C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				86E0FBB5196CAD4C00D83489 /* Administrative */,
 				86E0FBAA196B625F00D83489 /* Profile */,
 				868C2418196622720028C5C9 /* Navigation */,
 				868C23D01963DDDE0028C5C9 /* Security */,
@@ -736,6 +749,21 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		86E0FBB5196CAD4C00D83489 /* Administrative */ = {
+			isa = PBXGroup;
+			children = (
+				86E0FBBF196D01C400D83489 /* TCEmptyCell.h */,
+				86E0FBC0196D01C400D83489 /* TCEmptyCell.m */,
+				86E0FBB6196CAD7900D83489 /* TimeCardViewController.h */,
+				86E0FBB7196CAD7900D83489 /* TimeCardViewController.m */,
+				86E0FBB9196CD2B900D83489 /* TimeCardMasterViewController.h */,
+				86E0FBBA196CD2B900D83489 /* TimeCardMasterViewController.m */,
+				86E0FBBC196CD2E600D83489 /* TimeCardCellViewCell.h */,
+				86E0FBBD196CD2E600D83489 /* TimeCardCellViewCell.m */,
+			);
+			name = Administrative;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -850,9 +878,12 @@
 				868C23E61964B18E0028C5C9 /* ALPStringValidator.m in Sources */,
 				868C2335196125020028C5C9 /* AwesomeMenu.m in Sources */,
 				868C23FB1964B1A90028C5C9 /* ALPValidatorRequiredRule.m in Sources */,
+				86E0FBBE196CD2E600D83489 /* TimeCardCellViewCell.m in Sources */,
+				86E0FBB8196CAD7900D83489 /* TimeCardViewController.m in Sources */,
 				868C24611968EA910028C5C9 /* MRProgressOverlayView.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
+				86E0FBC1196D01C400D83489 /* TCEmptyCell.m in Sources */,
 				868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */,
 				86E0FBB3196B653F00D83489 /* ChangePasswordViewController.m in Sources */,
 				868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */,
@@ -861,6 +892,7 @@
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
+				86E0FBBB196CD2B900D83489 /* TimeCardMasterViewController.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				868C24641968EA910028C5C9 /* MRWeakProxy.m in Sources */,
 				868C24631968EA910028C5C9 /* MRMessageInterceptor.m in Sources */,

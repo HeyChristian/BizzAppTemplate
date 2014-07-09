@@ -9,11 +9,13 @@
 #import "MenuViewController.h"
 #import "HomeViewController.h"
 #import "ProfileViewController.h"
-
+#import "TimeCardViewController.h"
 
 #import "MenuNavigationController.h"
 #import "UIViewController+REFrostedViewController.h"
 #import <Parse/Parse.h>
+#import "Tools.h"
+#import "TimeCardMasterViewController.h"
 
 @interface MenuViewController ()
 
@@ -24,26 +26,41 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self addHeaderViewInfo];
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.opaque = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self addHeaderViewInfo];
+
+}
+-(void)addHeaderViewInfo{
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
-        
+        /*
         PFFile *imageFile = [[PFUser currentUser] objectForKey:@"Image"];
         NSLog(@"Image Data URL: %@",imageFile.url);
         if(imageFile.url != nil){
             
             NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
             NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
-             imageView.image = [UIImage imageWithData:imageData];
+            imageView.image = [UIImage imageWithData:imageData];
             
         }else{
-             imageView.image=[UIImage imageNamed:@"profile2"];
-        }
+            imageView.image=[UIImage imageNamed:@"profile2"];
+        }*/
         
         
-        //imageView.image = [UIImage imageNamed:@"profile2"];
+        imageView.image =  [Tools getProfileImage]; //[UIImage imageNamed:@"profile2"];
         
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
@@ -81,16 +98,6 @@
     });
 
 }
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.opaque = NO;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    }
 
 #pragma mark -
 #pragma mark UITableView Delegate
@@ -159,6 +166,8 @@
         
     }else if (indexPath.section == 1 && indexPath.row == 0) {
         //Time Card
+        TimeCardMasterViewController *timecard = [mystoryboard instantiateViewControllerWithIdentifier:@"TimeCardMasterViewController"];
+         navigationController = [[MenuNavigationController alloc] initWithRootViewController:timecard];
         
     }else if (indexPath.section == 1 && indexPath.row == 1) {
         //Shared Locations

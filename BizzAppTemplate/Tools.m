@@ -7,6 +7,7 @@
 //
 
 #import "Tools.h"
+#import <Parse/Parse.h>
 
 @implementation Tools
 
@@ -30,10 +31,47 @@
     return [field.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 +(id) getSessionObject:(NSString *)key{
-    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+   
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:key];
+
 }
 +(void)setSessionObject:(NSString *)key andValue:(id)value{
-    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setValue:value forKey:key];
+    
+}
++(void)setCurrentUserImageData{
+    
+    PFFile *imageFile = [[PFUser currentUser] objectForKey:@"Image"];
+    NSLog(@"Image Data URL: %@",imageFile.url);
+    if(imageFile.url != nil){
+        
+        NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
+        
+        [Tools setSessionObject:@"ProfileImage" andValue:imageData]; //[UIImage imageWithData:imageData]];
+        
+    }else{
+        UIImage *img = [UIImage imageNamed:@"profile2"];
+        [Tools setSessionObject:@"ProfileImage" andValue:UIImagePNGRepresentation(img)];
+
+    }
+}
++(UIImage *)getProfileImage{
+    
+    UIImage *img = [UIImage imageWithData:[Tools getSessionObject:@"ProfileImage"]];
+    
+    return img;
+}
++(NSString *) formatDate:(NSDate *)date{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM d, yyyy"];
+    
+    return [dateFormatter stringFromDate:date];
+    
 }
 @end

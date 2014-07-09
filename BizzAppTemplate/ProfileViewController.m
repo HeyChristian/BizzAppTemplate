@@ -72,9 +72,9 @@
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
-    activityIndicatorView = [MRProgressOverlayView new];
-    activityIndicatorView.titleLabelText = @"updating...";
-    [self.tableView addSubview:activityIndicatorView];
+  //  activityIndicatorView = [MRProgressOverlayView new];
+   // activityIndicatorView.titleLabelText = @"updating...";
+    //[self.tableView addSubview:activityIndicatorView];
     
     //activityIndicatorView.modeView = self.view;
    //[MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
@@ -196,8 +196,15 @@
 
 -(void)update{
    
+    [self.view endEditing:YES];
+    
    // [MRProgressOverlayView showOverlayAddedTo:self.view animated:YES];
+    activityIndicatorView = [MRProgressOverlayView new];
+    activityIndicatorView.titleLabelText = @"updating...";
+    [activityIndicatorView setOpaque:NO];
+    [self.tableView addSubview:activityIndicatorView];
     [activityIndicatorView show:YES];
+    
     
     
     NSString *firstname = [self.nameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -205,20 +212,9 @@
     NSString *company= [self.companyField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     NSString *mobile= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *work= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *ext= [self.mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-   // NSString *email= [mobileField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    
-   /*
-    PFUser *user = [PFUser currentUser];
-    user[@"Firstname"]=firstname;
-    user[@"LastName"]=lastname;
-    user[@"Company"]=company;
-    user[@"Mobile"]=mobile;
-    user[@"Work"]=work;
-    user[@"WorkExt"]=ext;
-    */
+    NSString *work= [self.workField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *ext= [self.extensionField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     
     [[PFUser currentUser] setObject:firstname forKey:@"Firstname"];
     [[PFUser currentUser] setObject:lastname forKey:@"LastName"];
@@ -256,10 +252,17 @@
         }else{
             
             [[PFUser currentUser] refresh];
+            [Tools setCurrentUserImageData];
             updateProfileImage=false;
+            
+            
+            [self showMessage:@"Update Complete" andMessage:nil];
+            
         }
         
     }];
+    
+    
   
 }
 
@@ -299,29 +302,17 @@
             
             PFUser *u = objects[0];
             
-            PFFile *imageFile = [u objectForKey:@"Image"];
-            NSLog(@"Image Data URL: %@",imageFile.url);
-            if(imageFile.url != nil){
-                
-                NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
-                NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
-                self.profileImageView.image = [UIImage imageWithData:imageData];
-             
-            }else{
-                self.profileImageView.image=[UIImage imageNamed:@"profile2"];
-            }
-            
-            
-            self.nameField.text = [user objectForKey:@"Firstname"];
-            self.lastNameField.text = [user objectForKey:@"LastName"];
-            self.companyField.text = [user objectForKey:@"Company"];
-            self.mobileField.text = [user objectForKey:@"Mobile"];
-            self.workField.text = [user objectForKey:@"Work"];
-            self.extensionField.text = [user objectForKey:@"WorkExt"];
-            self.emailField.text = [user objectForKey:@"email"];
+           
+            self.profileImageView.image=[Tools getProfileImage];
+            self.nameField.text = [u objectForKey:@"Firstname"];
+            self.lastNameField.text = [u objectForKey:@"LastName"];
+            self.companyField.text = [u objectForKey:@"Company"];
+            self.mobileField.text = [u objectForKey:@"Mobile"];
+            self.workField.text = [u objectForKey:@"Work"];
+            self.extensionField.text = [u objectForKey:@"WorkExt"];
+            self.emailField.text = [u objectForKey:@"email"];
             
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
@@ -338,5 +329,10 @@
    
     [self.view endEditing:YES];
 }
-
+-(void)showMessage:(NSString *)title andMessage:(NSString *)message{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
 @end

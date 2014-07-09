@@ -14,4 +14,10 @@
 +(NSString *)clearText:(UITextField *)field;
 +(id) getSessionObject:(NSString *)key;
 +(void)setSessionObject:(NSString *)key andValue:(id)value;
+
++(UIImage *)getProfileImage;
++(void)setCurrentUserImageData;
+
+
++(NSString *) formatDate:(NSDate *)date;
 @end

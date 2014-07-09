@@ -11,6 +11,7 @@
 #import "MenuNavigationController.h"
 #import "MenuViewController.h"
 #import "HomeViewController.h"
+#import "Tools.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,8 @@
 {
  
     
+    
+    
     [Parse setApplicationId:@"nTQTX4JCxB3VDm7vtvTQLGdCMKKKYfjAVeUBmreA"
                   clientKey:@"xa82QfjvKm4E9bKO3HQG5XtWjWSSA9qslsMEHUwU"];
     
@@ -27,8 +30,7 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    
-    
+    [Tools setCurrentUserImageData];
     
     
     
