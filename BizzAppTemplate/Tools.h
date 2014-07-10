@@ -19,5 +19,6 @@
 +(void)setCurrentUserImageData;
 
 
-+(NSString *) formatDate:(NSDate *)date;
++ (NSString *) formatDate:(NSDate *)date;
++ (NSString*)timeIntervalWithStartDate:(NSDate*)d1;
 @end

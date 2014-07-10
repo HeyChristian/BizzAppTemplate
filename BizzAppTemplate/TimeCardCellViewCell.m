@@ -13,7 +13,7 @@
 
 -(void)configureCellForEntry:(NSMutableDictionary *)row{
         
-    self.clientNameLabel.text = [row objectForKey:@"client"];
+    self.clientNameLabel.text = [[row objectForKey:@"client"] capitalizedString];
     self.addressLabel.text =[NSString stringWithFormat:@"%@ \n%@ \n%@",[row objectForKey:@"line1"],[row objectForKey:@"line2"],[row objectForKey:@"line3"]];
     self.timeInLabel.text = [row objectForKey:@"time_in"];
     self.timeOutLabel.text = @"Not Yet";

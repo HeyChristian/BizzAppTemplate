@@ -168,8 +168,10 @@
 
     
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    timeFormatter.dateFormat = @"HH:mm:ss";
+    timeFormatter.dateFormat = @"hh:mm a";
     tc[@"time_in"] = [timeFormatter stringFromDate: localDate];
+    
+   
     
    // tc[@"date_out"]=@"";
     //tc[@"time_out"]=@"";

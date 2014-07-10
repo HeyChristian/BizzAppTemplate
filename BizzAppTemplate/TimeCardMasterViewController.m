@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "TCEmptyCell.h"
 #import "TimeCardCellViewCell.h"
+#import "Tools.h"
 
 #define rowHeight   105
 
@@ -52,17 +53,55 @@
      target:self
      action:@selector(update)];*/
     
+
+    [self bindTimeCardTableSource];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"checkin" ascending:FALSE];
+    [self.source sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self groupByTimeAgo];
+    [self.tableView reloadData];
   
+    
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self bindTimeCardTableSource];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"checkin" ascending:FALSE];
-    [self.source sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [self setupDataSource];
+    
 }
 
+
+-(void)groupByTimeAgo{
+    NSMutableArray *headersUnSorted = [[NSMutableArray alloc] init];
+    for(NSMutableDictionary *row in self.source){
+        NSLog(@"Row: %@", row);
+        [headersUnSorted addObject:[row objectForKey:@"elapse"]];
+    }
+    
+    self.tableViewSections = [NSMutableArray arrayWithCapacity:0];
+    self.tableViewCells = [NSMutableDictionary dictionaryWithCapacity:0];
+    NSMutableArray* tableViewCellsForSection = nil;
+    
+    NSMutableArray *headers = [[NSMutableArray alloc] init];
+    bool exist=false;
+    for(NSString *title in headersUnSorted){
+        exist=false;
+        if([headers count]!=0){
+            for(NSString *temp in headers){
+                if([temp isEqualToString:title]){
+                    exist=true;
+                }
+            }
+          
+        }
+        if(!exist){
+            tableViewCellsForSection = [NSMutableArray arrayWithCapacity:0];
+            [self.tableViewSections addObject:title];
+            [self.tableViewCells setObject:tableViewCellsForSection forKey:title];
+            [headers addObject:title];
+        }
+        [tableViewCellsForSection addObject:title];
+    }
+    
+}
 - (void) setupDataSource
 {
     NSMutableArray *unsortedDates = [[NSMutableArray alloc] init]; // [self.sections allKeys];
@@ -179,25 +218,26 @@
     PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     NSArray *objects = [query findObjects];
-    //NSLog(@"Successfully retrieved %lu time cards.", (unsigned long)objects.count);
-     for (PFObject *object in objects) {
+    for (PFObject *object in objects) {
                
                 row = [[NSMutableDictionary alloc] init];
+                [row setValue:object.objectId forKey:@"objectId"];
                 [row setValue:object[@"date_in"] forKey:@"date_in"];
                 [row setValue:object[@"time_in"] forKey:@"time_in"];
-                
-                [row setValue:object[@"date_out"] forKey:@"date_out"];
-                [row setValue:object[@"time_out"] forKey:@"time_out"];
+                //[row setValue:object[@"date_out"] forKey:@"date_out"];
+                //[row setValue:object[@"time_out"] forKey:@"time_out"];
                 [row setValue:object[@"client"] forKey:@"client"];
                 [row setValue:object[@"line1"] forKey:@"line1"];
                 [row setValue:object[@"line2"] forKey:@"line2"];
                 [row setValue:object[@"line3"] forKey:@"line3"];
-                
+                [row setValue:object.createdAt forKey:@"createdAt"];
                 [row setValue:object[@"checkin"] forKey:@"checkin"];
-                [row setValue:object[@"checkout"] forKey:@"checkout"];
+                [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
+                //[row setValue:object[@"checkout"] forKey:@"checkout"];
                 
                 [self.source addObject:row];
     }
     
 }
+
 @end
