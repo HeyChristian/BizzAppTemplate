@@ -166,7 +166,7 @@
         
     }else if (indexPath.section == 1 && indexPath.row == 0) {
         //Time Card
-        TimeCardMasterViewController *timecard = [mystoryboard instantiateViewControllerWithIdentifier:@"TimeCardMasterViewController"];
+      TimeCardMasterViewController *timecard = [mystoryboard instantiateViewControllerWithIdentifier:@"TimeCardMasterViewController"];
          navigationController = [[MenuNavigationController alloc] initWithRootViewController:timecard];
         
     }else if (indexPath.section == 1 && indexPath.row == 1) {

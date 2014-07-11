@@ -13,8 +13,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
 #import "Tools.h"
+#import "TaskNotesViewController.h"
 
-@interface TimeCardViewController ()<CLLocationManagerDelegate>{
+@interface TimeCardViewController ()<CLLocationManagerDelegate,TaskNoteDelegate>{
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     bool locationAvailable;
@@ -46,6 +47,7 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
     
+    self.notes = [[NSMutableArray alloc] init];
     
 }
 
@@ -65,6 +67,11 @@
     self.navigationItem.title  = @"Time Card";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
+    
+  
+    self.countTaskNotesLabel.text = [NSString stringWithFormat:@" %lu entries",(unsigned long)[self.notes count]];
+    
+    
     /*
     
     self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu48"]
@@ -82,6 +89,22 @@
                                                                              action:@selector(cancel)];
     
        */
+}
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"taskNotes"]){
+    
+        TaskNotesViewController  *tasknotes = (TaskNotesViewController *) segue.destinationViewController;
+        tasknotes.delegate = self;
+        tasknotes.notes = self.notes;
+        
+    }
+    
+}
+-(void)updateNotes:(NSMutableArray *)notes{
+    self.notes = [[NSMutableArray alloc] initWithArray:notes];
+    self.countTaskNotesLabel.text = [NSString stringWithFormat:@"%lu entries",(unsigned long)[self.notes count]];
 }
 -(void)cancel{
     
@@ -153,7 +176,7 @@
         double latitude = currentLocation.coordinate.latitude;
         tc[@"latitude"] = [NSNumber numberWithDouble:latitude];
         double longitude = currentLocation.coordinate.longitude;
-        tc[@"latitude"] = [NSNumber numberWithDouble:longitude];
+        tc[@"longitude"] = [NSNumber numberWithDouble:longitude];
         tc[@"line1"]=line1;
         tc[@"line2"]=line2;
         tc[@"line3"]=line3;
@@ -172,14 +195,21 @@
     tc[@"time_in"] = [timeFormatter stringFromDate: localDate];
     
    
-    
-   // tc[@"date_out"]=@"";
-    //tc[@"time_out"]=@"";
-    //tc[@"check_out"]=@"";
+   
     
     
     [tc saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded){
+            
+            for(NSDictionary *row in self.notes){
+            
+                PFObject *note = [PFObject objectWithClassName:@"TaskNote"];
+                note[@"TimeCard"] = tc;
+                note[@"note"] = [row objectForKey:@"note"];
+                note[@"date"] = [row objectForKey:@"date"];
+                [note save];
+            }
+            
             [self showMessage:@"Check In Complete" andMessage:nil];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
@@ -188,6 +218,17 @@
     }];
     
     
+}
+
+- (IBAction)addNoteAction:(id)sender {
+   
+    /*
+      *add = [[AddTaskViewController alloc] init];
+    add.delegate =  self;
+    
+    
+    [self.navigationController pushViewController:add animated:YES];
+ */
 }
 -(void)showMessage:(NSString *)title andMessage:(NSString *)message{
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title

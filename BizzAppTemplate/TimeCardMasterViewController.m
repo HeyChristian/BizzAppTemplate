@@ -12,6 +12,7 @@
 #import "TCEmptyCell.h"
 #import "TimeCardCellViewCell.h"
 #import "Tools.h"
+#import "TimeCardEditViewViewController.h"
 
 #define rowHeight   105
 
@@ -32,6 +33,7 @@
     
 }
 -(void)viewDidAppear:(BOOL)animated{
+    
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -54,8 +56,9 @@
      action:@selector(update)];*/
     
 
+    [super viewDidLoad];
     [self bindTimeCardTableSource];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"checkin" ascending:FALSE];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:FALSE];
     [self.source sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [self groupByTimeAgo];
     [self.tableView reloadData];
@@ -64,10 +67,22 @@
 }
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+   
 }
 
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+   if([segue.identifier isEqualToString:@"detailTimeCard"]){
+        UITableViewCell *cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        TimeCardEditViewViewController  *edit = (TimeCardEditViewViewController *) segue.destinationViewController;
+        edit.timeCard = [self.source objectAtIndex:indexPath.row];
+        
+    }
+    
+}
 
 -(void)groupByTimeAgo{
     NSMutableArray *headersUnSorted = [[NSMutableArray alloc] init];

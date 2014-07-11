@@ -20,5 +20,6 @@
 
 
 + (NSString *) formatDate:(NSDate *)date;
++ (NSString *) formatDateTime:(NSDate *)date;
 + (NSString*)timeIntervalWithStartDate:(NSDate*)d1;
 @end

@@ -74,7 +74,14 @@
     return [dateFormatter stringFromDate:date];
     
 }
-
++(NSString *) formatDateTime:(NSDate *)date{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MMMM d, yyyy - hh:mm a"];
+    
+    return [dateFormatter stringFromDate:date];
+    
+}
 
 //Constants
 #define SECOND 1

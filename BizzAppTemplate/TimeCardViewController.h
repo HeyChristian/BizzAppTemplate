@@ -12,12 +12,15 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *currentLocationLabel;
-
 @property (weak, nonatomic) IBOutlet UITextField *clientField;
-
 @property (weak, nonatomic) IBOutlet UITextView *taskDescriptionsField;
 
+@property (weak, nonatomic) IBOutlet UILabel *countTaskNotesLabel;
+
+
+@property (nonatomic) NSMutableArray *notes;
 
 - (IBAction)checkInAction:(id)sender;
+- (IBAction)addNoteAction:(id)sender;
 
 @end
