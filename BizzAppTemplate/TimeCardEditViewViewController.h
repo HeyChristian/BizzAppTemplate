@@ -11,10 +11,11 @@
 @interface TimeCardEditViewViewController : UITableViewController
 
 
-@property(nonatomic)NSMutableArray  *timeCard;
+@property(nonatomic)NSMutableDictionary  *timeCard;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *clientNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *taskDescription;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *checkinLabel;
 @property (weak, nonatomic) IBOutlet UILabel *checkoutLabel;

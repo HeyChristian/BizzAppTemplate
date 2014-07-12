@@ -112,7 +112,6 @@
 		86E0FBCC196F4C8C00D83489 /* TaskNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBCB196F4C8C00D83489 /* TaskNoteCell.m */; };
 		86E0FBD1196F56F200D83489 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBCF196F56F200D83489 /* AddTaskViewController.m */; };
 		86E0FBD2196F56F200D83489 /* AddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBD0196F56F200D83489 /* AddTaskViewController.xib */; };
-		86E0FBD5196FCBB400D83489 /* UILabel+DynamicHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBD4196FCBB400D83489 /* UILabel+DynamicHeight.m */; };
 		86E0FBD8196FCCBA00D83489 /* UILabel+AutoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */; };
 /* End PBXBuildFile section */
 
@@ -306,8 +305,6 @@
 		86E0FBCE196F56F200D83489 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
 		86E0FBCF196F56F200D83489 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 		86E0FBD0196F56F200D83489 /* AddTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaskViewController.xib; sourceTree = "<group>"; };
-		86E0FBD3196FCBB400D83489 /* UILabel+DynamicHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynamicHeight.h"; sourceTree = "<group>"; };
-		86E0FBD4196FCBB400D83489 /* UILabel+DynamicHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynamicHeight.m"; sourceTree = "<group>"; };
 		86E0FBD6196FCCBA00D83489 /* UILabel+AutoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoSize.h"; sourceTree = "<group>"; };
 		86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -750,8 +747,6 @@
 			children = (
 				868C2469196907950028C5C9 /* Tools.h */,
 				868C246A196907950028C5C9 /* Tools.m */,
-				86E0FBD3196FCBB400D83489 /* UILabel+DynamicHeight.h */,
-				86E0FBD4196FCBB400D83489 /* UILabel+DynamicHeight.m */,
 				86E0FBD6196FCCBA00D83489 /* UILabel+AutoSize.h */,
 				86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */,
 			);
@@ -932,7 +927,6 @@
 				868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */,
 				86E0FBB3196B653F00D83489 /* ChangePasswordViewController.m in Sources */,
 				868C2431196639800028C5C9 /* REFrostedContainerViewController.m in Sources */,
-				86E0FBD5196FCBB400D83489 /* UILabel+DynamicHeight.m in Sources */,
 				868C23FF1964B1A90028C5C9 /* ALPValidatorEqualRule.m in Sources */,
 				86E0FBD8196FCCBA00D83489 /* UILabel+AutoSize.m in Sources */,
 				868C24621968EA910028C5C9 /* MRStopButton.m in Sources */,

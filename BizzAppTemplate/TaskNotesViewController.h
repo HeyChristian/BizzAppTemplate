@@ -22,6 +22,9 @@
 
 
 @property (nonatomic, assign) id<TaskNoteDelegate>delegate; //create a delegate
+@property(retain) NSMutableArray* tableViewSections;
+@property(retain) NSMutableDictionary* tableViewCells;
+
 
 @property (nonatomic) NSString *objectId;
 @property (nonatomic) NSMutableArray *notes;

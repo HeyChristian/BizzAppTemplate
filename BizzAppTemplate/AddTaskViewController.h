@@ -14,7 +14,9 @@
 - (void) updateTaskNoteList:(NSDate *)date andNote:(NSString *)note;
 @end
 
-@interface AddTaskViewController : UIViewController
+@interface AddTaskViewController : UIViewController{
+    BOOL isNew;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView *noteField;
 @property (nonatomic, assign) id<AddTaskDelegate>delegate; //create a delegate
@@ -23,7 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-@property (nonatomic)bool isNew;
+@property BOOL isNew;
+@property (strong,nonatomic)NSString *note;
 
 - (IBAction)AddAction:(id)sender;
 - (IBAction)CancelAction:(id)sender;

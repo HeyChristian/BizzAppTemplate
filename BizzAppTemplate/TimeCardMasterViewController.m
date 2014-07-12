@@ -78,7 +78,16 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         
         TimeCardEditViewViewController  *edit = (TimeCardEditViewViewController *) segue.destinationViewController;
-        edit.timeCard = [self.source objectAtIndex:indexPath.row];
+       
+       NSInteger rowNumber = 0;
+       
+       for (NSInteger i = 0; i < indexPath.section; i++) {
+           rowNumber += [self tableView:self.tableView numberOfRowsInSection:i];
+       }
+       
+       rowNumber += indexPath.row;
+       
+       edit.timeCard = [self.source objectAtIndex:rowNumber];
         
     }
     
@@ -87,7 +96,7 @@
 -(void)groupByTimeAgo{
     NSMutableArray *headersUnSorted = [[NSMutableArray alloc] init];
     for(NSMutableDictionary *row in self.source){
-        NSLog(@"Row: %@", row);
+       // NSLog(@"Row: %@", row);
         [headersUnSorted addObject:[row objectForKey:@"elapse"]];
     }
     
@@ -165,7 +174,10 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return self.tableViewSections.count;
+   // NSLog(@"Section: %lu",(unsigned long)self.tableViewSections.count);
+    
+    return  self.tableViewSections.count == 0 ? 1:self.tableViewSections.count;
+    
 }
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -175,6 +187,7 @@
     if(tableViewCellsForSection.count == 0){
         return 1;
     }else{
+      //  NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
         return tableViewCellsForSection.count;
     }
 }
@@ -200,12 +213,22 @@
         
     }else{
         
+        NSInteger rowNumber = 0;
+        
+        for (NSInteger i = 0; i < indexPath.section; i++) {
+            rowNumber += [self tableView:tableView numberOfRowsInSection:i];
+        }
+        
+        rowNumber += indexPath.row;
         
         self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        [cell configureCellForEntry:[self.source objectAtIndex:indexPath.row]];
+        [cell configureCellForEntry:[self.source objectAtIndex:rowNumber]];
         
-        NSLog(@"index path %lu",indexPath.row);
+      //  NSLog(@"index path %lu",indexPath.section);
+     
+    //    NSLog(@"index row number: %lu",rowNumber);
+        
         
         
         UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, rowHeight, 320, .5)];
@@ -239,8 +262,8 @@
                 [row setValue:object.objectId forKey:@"objectId"];
                 [row setValue:object[@"date_in"] forKey:@"date_in"];
                 [row setValue:object[@"time_in"] forKey:@"time_in"];
-                //[row setValue:object[@"date_out"] forKey:@"date_out"];
-                //[row setValue:object[@"time_out"] forKey:@"time_out"];
+                [row setValue:object[@"date_out"] forKey:@"date_out"];
+                [row setValue:object[@"tasks"] forKey:@"description"];
                 [row setValue:object[@"client"] forKey:@"client"];
                 [row setValue:object[@"line1"] forKey:@"line1"];
                 [row setValue:object[@"line2"] forKey:@"line2"];
@@ -249,6 +272,10 @@
                 [row setValue:object[@"checkin"] forKey:@"checkin"];
                 [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
                 //[row setValue:object[@"checkout"] forKey:@"checkout"];
+        
+                [row setValue:object[@"date_out"] forKey:@"date_out"];
+                [row setValue:object[@"time_out"] forKey:@"time_out"];
+        
                 
                 [self.source addObject:row];
     }

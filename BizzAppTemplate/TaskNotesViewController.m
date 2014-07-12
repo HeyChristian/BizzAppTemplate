@@ -13,6 +13,7 @@
 #import "AddTaskViewController.h"
 #import "UIViewController+KNSemiModal.h"
 #import "AddTaskViewController.h"
+#import "Tools.h"
 
 @interface TaskNotesViewController ()<AddTaskDelegate>
 
@@ -31,6 +32,17 @@
     addTaskView.delegate=self;
   
     
+    if(self.objectId != nil){
+        [self bindTaskSource];
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
+    [self.notes sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self groupByTimeAgo];
+    
+    if(self.notes == nil){
+        self.notes = [[NSMutableArray alloc] init];
+    }
 
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -42,10 +54,7 @@
     self.navigationItem.title  = @"Task Notes";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
-    
-    if(self.objectId != nil){
-        [self bindTaskSource];
-    }
+  
     
     NSLog(@"Appear with %lu Records ",(unsigned long)[self.notes count]);
     [self.tableView reloadData];
@@ -56,13 +65,32 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-    return 1;
+    return  self.tableViewSections.count == 0 ? 1:self.tableViewSections.count;
+   // return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return ([self.notes count]==0?1:[self.notes count]);
+    //return ([self.notes count]==0?1:[self.notes count]);
+    
+    //id key = [self.tableViewSections objectAtIndex:section];
+    //NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
+    
+    
+    if([self.notes count] == 0){
+     
+        return 1;
+    
+    }else{
+    
+        id key = [self.tableViewSections objectAtIndex:section];
+        NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
+        
+        NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
+        return tableViewCellsForSection.count;
+    
+    }
+    
 }
 
 
@@ -83,18 +111,20 @@
     }else{
         
         
+        NSInteger rowNumber = 0;
+        
+        for (NSInteger i = 0; i < indexPath.section; i++) {
+            rowNumber += [self tableView:tableView numberOfRowsInSection:i];
+        }
+        
+        rowNumber += indexPath.row;
+        
+        
         self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-        [cell configureCellForEntry:[self.notes objectAtIndex:indexPath.row]];
-        /*
-       
-        NSMutableDictionary *row = [self.notes objectAtIndex:indexPath.row];
-        NSString *detailString = [row objectForKey:@"note"];
+        [cell configureCellForEntry:[self.notes objectAtIndex:rowNumber]];
+      
         
-        CGSize detailSize = [detailString sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-        
-        float h= detailSize.height+50.0f;
-        */
         UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(0, 92, 320, .5)];
         line.backgroundColor = [UIColor lightGrayColor];
         [cell addSubview:line];
@@ -108,23 +138,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if([self.notes count] > 0){
-    
-        /*
-        NSMutableDictionary *row = [self.notes objectAtIndex:indexPath.row];
-        //CGFloat heightOfcell = [self height:[row objectForKey:@"note"]];
-        //NSLog(@"%f",heightOfcell);
-        //return heightOfcell;
-        
-     // return  [TaskNoteCell heightForEntry:[self.notes objectAtIndex:indexPath.row]];
-       
-        NSString *detailString = [row objectForKey:@"note"];
-     
-        CGSize detailSize = [detailString sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-        
-        return detailSize.height+50.0f;
-        */
         return 92;
-        
     }else{
         return 203;
     }
@@ -150,16 +164,16 @@
     self.notes = [[NSMutableArray alloc] init];
     __block NSMutableDictionary *row = nil;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"TaskNotes"];
-    [query whereKey:@"TaskNotes"
-            equalTo:[PFObject objectWithoutDataWithClassName:@"TaskNotes" objectId:self.objectId]];
+    PFQuery *query = [PFQuery queryWithClassName:@"TaskNote"];
+    [query whereKey:@"TimeCard"
+            equalTo:[PFObject objectWithoutDataWithClassName:@"TimeCard" objectId:self.objectId]];
     NSArray *objects = [query findObjects];
     
     for (PFObject *object in objects) {
         
         row = [[NSMutableDictionary alloc] init];
         [row setValue:object.objectId forKey:@"objectId"];
-        [row setValue:object.createdAt forKey:@"createdAt"];
+        [row setValue:object.createdAt forKey:@"date"];
         [row setValue:object[@"note"] forKey:@"note"];
         
         [self.notes addObject:row];
@@ -168,6 +182,8 @@
 }
 - (IBAction)addTaskAction:(id)sender {
     
+    addTaskView = [[AddTaskViewController alloc] initWithNibName:@"AddTaskViewController" bundle:nil];
+    addTaskView.delegate=self;
     addTaskView.isNew=YES;
     addTaskView.titleLabel.text = @"New task note:";
     [addTaskView.addButton setHidden:NO];
@@ -183,12 +199,14 @@
 
 - (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
 
-    addTaskView.isNew=NO;
+    //addTaskView = [[AddTaskViewController alloc] initWithNibName:@"AddTaskViewController" bundle:nil];
+    addTaskView.isNew=false;
     addTaskView.titleLabel.text = @"Task note:";
     [addTaskView.addButton setHidden:YES];
     NSMutableDictionary *row = [self.notes objectAtIndex:indexPath.row];
     
     addTaskView.noteField.text = [row objectForKey:@"note"];
+    addTaskView.note = [row objectForKey:@"note"];
     [self presentSemiViewController:addTaskView withOptions:@{
                                                               KNSemiModalOptionKeys.pushParentBack    : @(YES),
                                                               KNSemiModalOptionKeys.animationDuration : @(0.5),
@@ -197,19 +215,82 @@
 
 
 }
+- (NSString*) tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.tableViewSections count]==0?@"":[self.tableViewSections objectAtIndex:section];
+}
 -(void)updateTaskNoteList:(NSDate *)date andNote:(NSString *)note{
     
-    NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
-    [row setObject:date forKey:@"date"];
-    [row setObject:note forKey:@"note"];
-    [self.notes addObject:row];
     
-    [self.tableView reloadData];
+    if(self.objectId == nil){
     
-    
-    [self.delegate updateNotes:self.notes];
+        NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
+        [row setObject:date forKey:@"date"];
+        [row setObject:note forKey:@"note"];
+        [self.notes addObject:row];
+        
+        
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
+        [self.notes sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        [self groupByTimeAgo];
+        [self.tableView reloadData];
+        
+        [self.delegate updateNotes:self.notes];
+    }else{
+        PFQuery *timec = [PFQuery queryWithClassName:@"TimeCard"];
+        [timec whereKey:@"objectId" equalTo:self.objectId];
+        
+        
+        
+        PFObject *tnote = [PFObject objectWithClassName:@"TaskNote"];
+        tnote[@"TimeCard"] = [[timec findObjects] objectAtIndex:0];
+        tnote[@"note"] = note;
+        tnote[@"date"] = date;
+        [tnote save];
+        
+        [self bindTaskSource];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:FALSE];
+        [self.notes sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        [self groupByTimeAgo];
+        [self.tableView reloadData];
+    }
    
 }
 
-
+-(void)groupByTimeAgo{
+    NSMutableArray *headersUnSorted = [[NSMutableArray alloc] init];
+    NSString *elapse=[[NSString alloc] init];
+    for(NSMutableDictionary *row in self.notes){
+        NSLog(@"Row: %@", row);
+        
+        elapse = [Tools timeIntervalWithStartDate:[row objectForKey:@"date"]];
+        [headersUnSorted addObject:elapse];
+    }
+    
+    self.tableViewSections = [NSMutableArray arrayWithCapacity:0];
+    self.tableViewCells = [NSMutableDictionary dictionaryWithCapacity:0];
+    NSMutableArray* tableViewCellsForSection = nil;
+    
+    NSMutableArray *headers = [[NSMutableArray alloc] init];
+    bool exist=false;
+    for(NSString *title in headersUnSorted){
+        exist=false;
+        if([headers count]!=0){
+            for(NSString *temp in headers){
+                if([temp isEqualToString:title]){
+                    exist=true;
+                }
+            }
+            
+        }
+        if(!exist){
+            tableViewCellsForSection = [NSMutableArray arrayWithCapacity:0];
+            [self.tableViewSections addObject:title];
+            [self.tableViewCells setObject:tableViewCellsForSection forKey:title];
+            [headers addObject:title];
+        }
+        [tableViewCellsForSection addObject:title];
+    }
+    
+}
 @end

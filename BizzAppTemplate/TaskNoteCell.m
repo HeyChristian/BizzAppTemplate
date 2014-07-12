@@ -9,7 +9,7 @@
 #import "TaskNoteCell.h"
 #import "Tools.h"
 #import "UILabel+AutoSize.h"
-#import "UILabel+DynamicHeight.h"
+
 @implementation TaskNoteCell
 
 
@@ -21,26 +21,6 @@
     self.dateLabel.text =strdate;
     self.task.text = strdetail;
 
-   // [self.task autosizeForWidth:308.0f];
-   // self.task.numberOfLines=200;
-    
-   /*
-    // CGRect newFrame = self.task.frame;
-    //newFrame.size.height = [TaskNoteCell heightForEntry:row];
-    //self.task.frame = newFrame;
-    
-    CGSize size = [str sizeWithFont:self.task.font constrainedToSize:CGSizeMake(318.0, 10000.0) lineBreakMode:self.task.lineBreakMode];
-    
-    CGRect newFrame = self.task.frame;
-    newFrame.size.height = size.height;
-    self.task.frame = newFrame;*/
-    
-    /*
-    self.task.text = strdetail;
-	self.task.font = [UIFont systemFontOfSize:14];
-	self.task.numberOfLines = ceilf([strdetail sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap].height/20.0);
-    
-    */
     
     
 }

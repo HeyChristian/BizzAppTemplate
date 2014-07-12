@@ -16,6 +16,8 @@
 
 @implementation AddTaskViewController
 
+@synthesize isNew;
+
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -24,19 +26,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    if(self.isNew){
+    
+    NSLog(@"Status View: %id", isNew);
+    if(isNew){
         [self.noteField becomeFirstResponder];
         [self.noteField setEditable:YES];
         [self.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     }else{
         [self.noteField setEditable:NO];
-        
+        [self.titleLabel setText:@"Task note:"];
+        [self.addButton setHidden:YES];
+        [self.noteField setText:self.note];
         [self.cancelButton setTitle:@"Close" forState:UIControlStateNormal];
     }
+    
+    // Do any additional setup after loading the view from its nib.
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+   
 }
 - (IBAction)AddAction:(id)sender {
 
