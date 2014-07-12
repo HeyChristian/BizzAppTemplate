@@ -43,6 +43,12 @@
     if(self.notes == nil){
         self.notes = [[NSMutableArray alloc] init];
     }
+    
+    if(self.isClose){
+        [self.addTaskViewButton setHidden:YES];
+    }else{
+        [self.addTaskViewButton setHidden:NO];
+    }
 
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -58,6 +64,9 @@
     
     NSLog(@"Appear with %lu Records ",(unsigned long)[self.notes count]);
     [self.tableView reloadData];
+    
+  
+    
 }
 
 

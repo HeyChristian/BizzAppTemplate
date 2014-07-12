@@ -13,6 +13,7 @@
 
 @interface TimeCardMasterViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
 @property(nonatomic)NSMutableArray *source;
 @property(retain) NSMutableArray* tableViewSections;

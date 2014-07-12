@@ -16,7 +16,7 @@
     self.clientNameLabel.text = [[row objectForKey:@"client"] capitalizedString];
     self.addressLabel.text =[NSString stringWithFormat:@"%@ \n%@ \n%@",[row objectForKey:@"line1"],[row objectForKey:@"line2"],[row objectForKey:@"line3"]];
     self.timeInLabel.text = [row objectForKey:@"time_in"];
-    self.timeOutLabel.text = @"Not Yet";
+    self.timeOutLabel.text =  [[row objectForKey:@"time_out"] length]==0?@"Not Yet":[row objectForKey:@"time_out"];
     self.dateLabel.text = [NSString stringWithFormat:@"Date: %@",[Tools formatDate:[row objectForKey:@"checkin"]]];
     
 }

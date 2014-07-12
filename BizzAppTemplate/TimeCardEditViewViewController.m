@@ -53,11 +53,17 @@
     
         self.checkoutLabel.text =[NSString stringWithFormat:@"%@  %@",[self.timeCard objectForKey:@"time_out"],[self.timeCard objectForKey:@"date_out"]];
         self.checkoutLabel.textColor = [UIColor blackColor];
+       
+        self.tableView.scrollsToTop = YES;
+        self.tableView.scrollEnabled = NO;
+       // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+        //[self.tableView cellForRowAtIndexPath:indexPath].hidden = YES;
     }else{
         self.checkoutLabel.text  = @"In Progress";
         
         self.checkoutLabel.textColor = [UIColor redColor];
-        
+        self.tableView.scrollsToTop = YES;
+        self.tableView.scrollEnabled = YES;
     }
     
     self.taskDescription.text = [[self.timeCard objectForKey:@"description"] capitalizedString];
@@ -96,7 +102,11 @@
         TaskNotesViewController  *tasks = (TaskNotesViewController *) segue.destinationViewController;
         tasks.delegate =  self;
         tasks.objectId = [self.timeCard objectForKey:@"objectId"];
-     
+        if([self.checkoutLabel.text isEqualToString:@"In Progress"]){
+            tasks.isClose=false;
+        }else{
+            tasks.isClose=true;
+        }
     }
     
 }
@@ -125,8 +135,60 @@
     self.countTaskNoteLabel.text = [NSString stringWithFormat:@" %lu entries",(unsigned long)[self.notes count]];
     
 }
-
+- (NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
+{
+   if([self.checkoutLabel.text isEqualToString:@"In Progress"])
+    {
+        return 2;
+    }
+   else
+    {
+        return 1;
+    }
+}
 - (IBAction)checkOutAction:(id)sender {
     
+    if([self.notes count]>0){
+    
+    
+    NSString *parentId =[self.timeCard objectForKey:@"objectId"];
+    
+    //PFQuery *timec = [PFQuery queryWithClassName:@"TimeCard"];
+    //[timec whereKey:@"objectId" equalTo:parentId];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
+    [query getObjectInBackgroundWithId:parentId block:^(PFObject *timecard, NSError *error) {
+        
+        NSLog(@"%@", timecard);
+    
+        NSDate *localDate = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+        dateFormatter.dateFormat = @"MM/dd/yy";
+        timecard[@"date_out"] = [dateFormatter stringFromDate: localDate];
+        
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+        timeFormatter.dateFormat = @"hh:mm a";
+        timecard[@"time_out"] = [timeFormatter stringFromDate: localDate];
+        
+        timecard[@"checkout"] = [NSDate date];
+        [timecard saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(succeeded){
+                [self showMessage:@"Check Out Complete" andMessage:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+        
+      
+    }];
+    }else{
+        [self showMessage:@"Oops!" andMessage:@"You need at least one note before you check out."];
+    }
+    
+}
+-(void)showMessage:(NSString *)title andMessage:(NSString *)message{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 @end

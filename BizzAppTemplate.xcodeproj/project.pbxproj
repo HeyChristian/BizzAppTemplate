@@ -113,6 +113,7 @@
 		86E0FBD1196F56F200D83489 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBCF196F56F200D83489 /* AddTaskViewController.m */; };
 		86E0FBD2196F56F200D83489 /* AddTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBD0196F56F200D83489 /* AddTaskViewController.xib */; };
 		86E0FBD8196FCCBA00D83489 /* UILabel+AutoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */; };
+		86E0FBDA1970EBB200D83489 /* bayPr.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FBD91970EBB200D83489 /* bayPr.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +308,7 @@
 		86E0FBD0196F56F200D83489 /* AddTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTaskViewController.xib; sourceTree = "<group>"; };
 		86E0FBD6196FCCBA00D83489 /* UILabel+AutoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoSize.h"; sourceTree = "<group>"; };
 		86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoSize.m"; sourceTree = "<group>"; };
+		86E0FBD91970EBB200D83489 /* bayPr.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bayPr.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 		868C22C81960DF110028C5C9 = {
 			isa = PBXGroup;
 			children = (
+				86E0FBD91970EBB200D83489 /* bayPr.gpx */,
 				868C23031960DF6D0028C5C9 /* iPhoneStoryboard.storyboard */,
 				868C22DA1960DF110028C5C9 /* BizzAppTemplate */,
 				868C22F31960DF110028C5C9 /* BizzAppTemplateTests */,
@@ -878,6 +881,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E0FBDA1970EBB200D83489 /* bayPr.gpx in Resources */,
 				868C238D1962842D0028C5C9 /* CompanyViewController.xib in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,

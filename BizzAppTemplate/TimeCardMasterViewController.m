@@ -17,7 +17,7 @@
 #define rowHeight   105
 
 @interface TimeCardMasterViewController (){
-    
+    bool allInCheckout;
 }
 
 @end
@@ -33,6 +33,7 @@
     
 }
 -(void)viewDidAppear:(BOOL)animated{
+   
     
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
@@ -248,8 +249,8 @@
     return rowHeight;
 }
 -(void) bindTimeCardTableSource{
-    
-    
+     allInCheckout=true;
+    NSObject *checkout = nil;
     self.source = [[NSMutableArray alloc] init];
    __block NSMutableDictionary *row = nil;
     
@@ -271,13 +272,23 @@
                 [row setValue:object.createdAt forKey:@"createdAt"];
                 [row setValue:object[@"checkin"] forKey:@"checkin"];
                 [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
-                //[row setValue:object[@"checkout"] forKey:@"checkout"];
         
+                [row setValue:object[@"checkout"] forKey:@"checkout"];
                 [row setValue:object[@"date_out"] forKey:@"date_out"];
                 [row setValue:object[@"time_out"] forKey:@"time_out"];
         
+                checkout = object[@"checkout"];
+                if(checkout==nil){
+                    allInCheckout=false;
+                }
                 
                 [self.source addObject:row];
+    }
+    
+    if(allInCheckout){
+        [self.checkInButton setHidden:NO];
+    }else{
+        [self.checkInButton setHidden:YES];
     }
     
 }

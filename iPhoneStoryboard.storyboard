@@ -358,6 +358,9 @@
                     </tableView>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="checkInButton" destination="k3X-uT-7nq" id="3FY-1h-XwH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfq-bz-zxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1330,6 +1333,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="checkOutButton" destination="1j7-4n-a1W" id="xKz-L6-jSv"/>
                         <outlet property="checkinLabel" destination="cGG-uZ-EPQ" id="W4E-4n-Wbh"/>
                         <outlet property="checkoutLabel" destination="56S-1h-T5S" id="c2q-gA-5VF"/>
                         <outlet property="clientNameLabel" destination="Tna-y5-w1j" id="bR1-sc-PBp"/>
@@ -1437,6 +1441,9 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="SlJ-bY-mxQ"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="addTaskViewButton" destination="Kok-EP-BIb" id="nn9-V9-wJS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QG1-dN-VsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

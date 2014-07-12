@@ -167,6 +167,14 @@
 
 - (IBAction)checkInAction:(id)sender {
     
+    if([self.clientField.text length]==0 || [self.taskDescriptionsField.text length]==0){
+        
+        [self showMessage:@"Oops!" andMessage:@"You need to identify the client and the job description prior to check-in."];
+        return;
+    }
+    
+    
+    
     PFObject *tc = [PFObject objectWithClassName:@"TimeCard"];
     tc[@"user"] = [PFUser currentUser];
     tc[@"client"] = [Tools clearText:self.clientField];

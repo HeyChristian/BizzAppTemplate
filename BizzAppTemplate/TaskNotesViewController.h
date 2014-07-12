@@ -25,8 +25,10 @@
 @property(retain) NSMutableArray* tableViewSections;
 @property(retain) NSMutableDictionary* tableViewCells;
 
+@property (weak, nonatomic) IBOutlet UIView *addTaskViewButton;
 
 @property (nonatomic) NSString *objectId;
+@property (nonatomic) bool isClose;
 @property (nonatomic) NSMutableArray *notes;
 
 - (IBAction)addTaskAction:(id)sender;

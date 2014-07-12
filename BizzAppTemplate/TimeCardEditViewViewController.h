@@ -13,6 +13,7 @@
 
 @property(nonatomic)NSMutableDictionary  *timeCard;
 
+@property (weak, nonatomic) IBOutlet UIButton *checkOutButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *clientNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *taskDescription;
