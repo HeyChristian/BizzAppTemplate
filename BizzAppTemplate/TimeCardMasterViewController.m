@@ -13,6 +13,9 @@
 #import "TimeCardCellViewCell.h"
 #import "Tools.h"
 #import "TimeCardEditViewViewController.h"
+#import "TimeFilterViewController.h"
+#import "UIViewController+KNSemiModal.h"
+
 
 #define rowHeight   105
 
@@ -49,12 +52,12 @@
                                                                             target:(MenuNavigationController *)self.navigationController
                                                                             action:@selector(showMenu)];
     
-    /*
+    
      
-     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save"
-     style:UIBarButtonItemStylePlain
-     target:self
-     action:@selector(update)];*/
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"calendar48"]
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(showFilter)];
     
 
     [super viewDidLoad];
@@ -66,9 +69,8 @@
   
     
 }
-- (void)viewDidLoad
-{
-   
+-(void)viewDidLoad{
+     filterView = [[TimeFilterViewController alloc] initWithNibName:@"TimeFilterViewController" bundle:nil];
 }
 
 #pragma mark - Navigation
@@ -276,6 +278,7 @@
                 [row setValue:object[@"checkout"] forKey:@"checkout"];
                 [row setValue:object[@"date_out"] forKey:@"date_out"];
                 [row setValue:object[@"time_out"] forKey:@"time_out"];
+                [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
         
                 checkout = object[@"checkout"];
                 if(checkout==nil){
@@ -292,5 +295,11 @@
     }
     
 }
-
+-(void)showFilter{
+    
+    [self presentSemiViewController:filterView withOptions:@{ KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                              KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                              KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                            }];
+}
 @end

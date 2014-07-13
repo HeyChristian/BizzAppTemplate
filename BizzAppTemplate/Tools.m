@@ -140,5 +140,34 @@
     }
 }
 
++ (NSDate *)addDays:(NSInteger)days toDate:(NSDate *)originalDate {
+   // NSDateComponents *components= [[NSDateComponents alloc] init];
+   // [components setDay:days];
+   // NSCalendar *calendar = [NSCalendar currentCalendar];
+   // return [calendar dateByAddingComponents:components toDate:originalDate options:0];
+    
+    //NSDate *tomorrow =
+    return [NSDate dateWithTimeInterval:86400 sinceDate:originalDate];
+    
+}
++(int)getDatesBetweenDates:(NSDate *)startDate andEnd:(NSDate *)endDate{
+    
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"yyyy-MM-ddHH:mm:ss ZZZ"];
+   /*
+    NSDate *startDate = [NSDate date];
+    NSLog(@"%@",startDate);
+    NSDate *endDate = [f dateFromString:end];
+    NSLog(@"%@",endDate);
+    */
+    
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:startDate
+                                                          toDate:endDate
+                                                         options:0];
+    return (int)components.day;
+    
+}
 
 @end

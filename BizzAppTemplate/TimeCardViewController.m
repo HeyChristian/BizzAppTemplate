@@ -148,7 +148,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
+ //   NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
@@ -158,7 +158,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"didUpdateToLocation: %@", newLocation);
+   // NSLog(@"didUpdateToLocation: %@", newLocation);
     currentLocation = newLocation;
     locationAvailable=YES;
     [locationManager stopUpdatingLocation];
@@ -185,6 +185,10 @@
         tc[@"latitude"] = [NSNumber numberWithDouble:latitude];
         double longitude = currentLocation.coordinate.longitude;
         tc[@"longitude"] = [NSNumber numberWithDouble:longitude];
+        
+        PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:latitude longitude:longitude];
+        tc[@"geoPoint"]=point;
+        
         tc[@"line1"]=line1;
         tc[@"line2"]=line2;
         tc[@"line3"]=line3;

@@ -22,4 +22,6 @@
 + (NSString *) formatDate:(NSDate *)date;
 + (NSString *) formatDateTime:(NSDate *)date;
 + (NSString*)timeIntervalWithStartDate:(NSDate*)d1;
++ (NSDate *)addDays:(NSInteger)days toDate:(NSDate *)originalDate;
++ (int)getDatesBetweenDates:(NSDate *)startDate andEnd:(NSDate *)endDate;
 @end

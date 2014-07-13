@@ -10,8 +10,13 @@
 
 
 
+@class TimeFilterViewController;
 
-@interface TimeCardMasterViewController : UITableViewController
+@interface TimeCardMasterViewController : UITableViewController{
+    
+    TimeFilterViewController *filterView;
+    
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 

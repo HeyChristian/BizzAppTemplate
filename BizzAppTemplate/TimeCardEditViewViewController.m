@@ -10,8 +10,21 @@
 #import "TaskNotesViewController.h"
 #import "Tools.h"
 #import <Parse/Parse.h>
+#import <CoreLocation/CLGeocoder.h>
+#import <CoreLocation/CLPlacemark.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface TimeCardEditViewViewController ()<TaskNoteDelegate>
+
+@interface TimeCardEditViewViewController ()<TaskNoteDelegate,CLLocationManagerDelegate,UIAlertViewDelegate>{
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
+    bool locationAvailable;
+    bool locationCheckOutWarning;
+    PFGeoPoint *point;
+    NSString *line1;
+    NSString *line2;
+    NSString *line3;
+}
 
 @end
 
@@ -25,7 +38,14 @@
 {
     [super viewDidLoad];
     [self bindTimeCard];
-  
+    locationCheckOutWarning=false;
+    
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:NO];
@@ -40,6 +60,62 @@
 
     
 }
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+   // NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+    
+    locationAvailable=NO;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+   // NSLog(@"didUpdateToLocation: %@", newLocation);
+    currentLocation = newLocation;
+    locationAvailable=YES;
+    [locationManager stopUpdatingLocation];
+    [self setGeoName];
+}
+-(void) setGeoName{
+    
+    NSArray *defaultLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    NSArray *languages = [NSArray arrayWithObject:@"en"];
+    [[NSUserDefaults standardUserDefaults] setObject:languages forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = placemarks[0];
+        
+       /*
+        self.currentLocationLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@, %@\n%@",
+                                          placemark.subThoroughfare, placemark.thoroughfare,
+                                          placemark.postalCode, placemark.locality,
+                                          placemark.administrativeArea,
+                                          placemark.country];*/
+        
+        line1 = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
+        line2 = [NSString stringWithFormat:@"%@ %@, %@", placemark.postalCode, placemark.locality,placemark.administrativeArea];
+        line3 = [NSString stringWithFormat:@"%@", placemark.country];
+        
+        
+        double latitude = currentLocation.coordinate.latitude;
+        double longitude = currentLocation.coordinate.longitude;
+        point = [PFGeoPoint geoPointWithLatitude:latitude longitude:longitude];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:defaultLanguages forKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }];
+    
+}
 -(void)bindTimeCard{
     
     
@@ -49,22 +125,22 @@
     
     self.checkinLabel.text =[NSString stringWithFormat:@"%@ - %@",[self.timeCard objectForKey:@"time_in"],[self.timeCard objectForKey:@"date_in"]];
     
+    
     if([[self.timeCard objectForKey:@"date_out"] length]>0){
     
         self.checkoutLabel.text =[NSString stringWithFormat:@"%@  %@",[self.timeCard objectForKey:@"time_out"],[self.timeCard objectForKey:@"date_out"]];
         self.checkoutLabel.textColor = [UIColor blackColor];
-       
         self.tableView.scrollsToTop = YES;
         self.tableView.scrollEnabled = NO;
-       // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-        //[self.tableView cellForRowAtIndexPath:indexPath].hidden = YES;
+       
     }else{
+    
         self.checkoutLabel.text  = @"In Progress";
-        
         self.checkoutLabel.textColor = [UIColor redColor];
         self.tableView.scrollsToTop = YES;
         self.tableView.scrollEnabled = YES;
     }
+    
     
     self.taskDescription.text = [[self.timeCard objectForKey:@"description"] capitalizedString];
     [self bindNotes:[self.timeCard objectForKey:@"objectId"]];
@@ -81,15 +157,7 @@
     
     self.countTaskNoteLabel.text = [NSString stringWithFormat:@" %lu entries",(unsigned long)[self.notes count]];
     
-    
-    //[[NSMutableArray alloc] init];
-    
-    /*
-    NSArray *objects = [qrynotes findObjects];
-    for (PFObject *object in objects) {
-    
-    }*/
-    
+  
     
     
 }
@@ -148,40 +216,29 @@
 }
 - (IBAction)checkOutAction:(id)sender {
     
-    if([self.notes count]>0){
-    
-    
-    NSString *parentId =[self.timeCard objectForKey:@"objectId"];
-    
-    //PFQuery *timec = [PFQuery queryWithClassName:@"TimeCard"];
-    //[timec whereKey:@"objectId" equalTo:parentId];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
-    [query getObjectInBackgroundWithId:parentId block:^(PFObject *timecard, NSError *error) {
+    PFGeoPoint *firstPoint = [self.timeCard objectForKey:@"geoPoint"];
+  
+    if(firstPoint != nil){
         
-        NSLog(@"%@", timecard);
-    
-        NSDate *localDate = [NSDate date];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"MM/dd/yy";
-        timecard[@"date_out"] = [dateFormatter stringFromDate: localDate];
+        CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:firstPoint.latitude longitude:firstPoint.longitude];
+        double distance = [loc1 distanceFromLocation:currentLocation];
+        if(distance <= 10){
+            
+            locationCheckOutWarning=false;
+            [self saveCheckOut];
+        }else{
+            
+            locationCheckOutWarning=true;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                                message:@"The location where the checkout is being perfomed is different from the location where the check in was recorded. Are you aware of this?"
+                                                               delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save Anyway",nil];
+            [alertView show];
+        }
         
-        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-        timeFormatter.dateFormat = @"hh:mm a";
-        timecard[@"time_out"] = [timeFormatter stringFromDate: localDate];
-        
-        timecard[@"checkout"] = [NSDate date];
-        [timecard saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if(succeeded){
-                [self showMessage:@"Check Out Complete" andMessage:nil];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-        }];
-        
-      
-    }];
     }else{
-        [self showMessage:@"Oops!" andMessage:@"You need at least one note before you check out."];
+        
+        locationCheckOutWarning=false;
+        [self saveCheckOut];
     }
     
 }
@@ -190,5 +247,80 @@
                                                         message:message
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
+}
+-(void)saveCheckOut{
+    if([self.notes count]>0){
+        
+        
+        NSString *parentId =[self.timeCard objectForKey:@"objectId"];
+        
+        
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
+        [query getObjectInBackgroundWithId:parentId block:^(PFObject *timecard, NSError *error) {
+            
+            NSLog(@"%@", timecard);
+            
+            NSDate *localDate = [NSDate date];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+            dateFormatter.dateFormat = @"MM/dd/yy";
+            timecard[@"date_out"] = [dateFormatter stringFromDate: localDate];
+            
+            NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+            timeFormatter.dateFormat = @"hh:mm a";
+            timecard[@"time_out"] = [timeFormatter stringFromDate: localDate];
+            
+            timecard[@"checkout"] = [NSDate date];
+            
+            if(locationCheckOutWarning){
+                timecard[@"locationCheckOutWarning"]= @YES;
+            }
+            
+            [timecard saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(succeeded){
+                    
+                    if(locationCheckOutWarning){
+                        PFObject *warn = [PFObject objectWithClassName:@"warningCheckOut"];
+                        warn[@"TimeCard"]=timecard;
+                        warn[@"geoPoint"]=[PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
+                        warn[@"line1"]=line1;
+                        warn[@"line2"]=line2;
+                        warn[@"line3"]=line3;
+                        [warn saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if(succeeded){
+                                [self showMessage:@"Check Out Complete" andMessage:nil];
+                                [self.navigationController popViewControllerAnimated:YES];
+                            }
+                        }];
+                        
+                    }else{
+                        [self showMessage:@"Check Out Complete" andMessage:nil];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                }
+            }];
+            
+            
+        }];
+    }else{
+        [self showMessage:@"Oops!" andMessage:@"You need, at least, one task note before you check out."];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            //NSLog(@">>>>0");
+            break;
+        case 1:
+            locationCheckOutWarning=true;
+            [self saveCheckOut];
+            break;
+        case 2:
+           // NSLog(@">>>>2");
+            break;
+        default:
+            break;
+    }
 }
 @end
