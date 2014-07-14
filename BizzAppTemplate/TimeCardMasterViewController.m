@@ -19,7 +19,7 @@
 
 #define rowHeight   105
 
-@interface TimeCardMasterViewController (){
+@interface TimeCardMasterViewController ()<TimeFilterDelegate>{
     bool allInCheckout;
 }
 
@@ -45,7 +45,8 @@
     self.navigationItem.title  = @"Time Card History";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
-    
+    [self.tableView.tableHeaderView setHidden:YES];
+     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu48"]
                                                                              style:UIBarButtonItemStylePlain
@@ -72,6 +73,17 @@
 -(void)viewDidLoad{
      filterView = [[TimeFilterViewController alloc] initWithNibName:@"TimeFilterViewController" bundle:nil];
 }
+
+-(void)ApplyTimeRangeFilter:(NSDate *)startDate andEndDate:(NSDate *)endDate{
+    
+    [self bindTimeCardTableSource:startDate andToDate:endDate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:FALSE];
+    [self.source sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self groupByTimeAgo];
+    [self.tableView reloadData];
+    
+}
+
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -251,41 +263,56 @@
     return rowHeight;
 }
 -(void) bindTimeCardTableSource{
-     allInCheckout=true;
+    
+    [self bindTimeCardTableSource:nil andToDate:nil];
+}
+
+-(void)bindTimeCardTableSource:(NSDate *)fromDate andToDate:(NSDate *)toDate{
+    allInCheckout=true;
     NSObject *checkout = nil;
     self.source = [[NSMutableArray alloc] init];
-   __block NSMutableDictionary *row = nil;
+    __block NSMutableDictionary *row = nil;
     
     PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    
+    if(fromDate != nil && toDate != nil){
+        //Incluir la hora maxima en las fechas para no perder rastros.
+        
+        [query whereKey:@"checkin" greaterThanOrEqualTo:fromDate];
+        [query whereKey:@"checkin" lessThanOrEqualTo:toDate];
+        
+       // [query whereKey:@"checkout" greaterThanOrEqualTo:fromDate];
+        //[query whereKey:@"checkout" lessThanOrEqualTo:toDate];
+    }
     NSArray *objects = [query findObjects];
     for (PFObject *object in objects) {
-               
-                row = [[NSMutableDictionary alloc] init];
-                [row setValue:object.objectId forKey:@"objectId"];
-                [row setValue:object[@"date_in"] forKey:@"date_in"];
-                [row setValue:object[@"time_in"] forKey:@"time_in"];
-                [row setValue:object[@"date_out"] forKey:@"date_out"];
-                [row setValue:object[@"tasks"] forKey:@"description"];
-                [row setValue:object[@"client"] forKey:@"client"];
-                [row setValue:object[@"line1"] forKey:@"line1"];
-                [row setValue:object[@"line2"] forKey:@"line2"];
-                [row setValue:object[@"line3"] forKey:@"line3"];
-                [row setValue:object.createdAt forKey:@"createdAt"];
-                [row setValue:object[@"checkin"] forKey:@"checkin"];
-                [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
         
-                [row setValue:object[@"checkout"] forKey:@"checkout"];
-                [row setValue:object[@"date_out"] forKey:@"date_out"];
-                [row setValue:object[@"time_out"] forKey:@"time_out"];
-                [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
+        row = [[NSMutableDictionary alloc] init];
+        [row setValue:object.objectId forKey:@"objectId"];
+        [row setValue:object[@"date_in"] forKey:@"date_in"];
+        [row setValue:object[@"time_in"] forKey:@"time_in"];
+        [row setValue:object[@"date_out"] forKey:@"date_out"];
+        [row setValue:object[@"tasks"] forKey:@"description"];
+        [row setValue:object[@"client"] forKey:@"client"];
+        [row setValue:object[@"line1"] forKey:@"line1"];
+        [row setValue:object[@"line2"] forKey:@"line2"];
+        [row setValue:object[@"line3"] forKey:@"line3"];
+        [row setValue:object.createdAt forKey:@"createdAt"];
+        [row setValue:object[@"checkin"] forKey:@"checkin"];
+        [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
         
-                checkout = object[@"checkout"];
-                if(checkout==nil){
-                    allInCheckout=false;
-                }
-                
-                [self.source addObject:row];
+        [row setValue:object[@"checkout"] forKey:@"checkout"];
+        [row setValue:object[@"date_out"] forKey:@"date_out"];
+        [row setValue:object[@"time_out"] forKey:@"time_out"];
+        [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
+        
+        checkout = object[@"checkout"];
+        if(checkout==nil){
+            allInCheckout=false;
+        }
+        
+        [self.source addObject:row];
     }
     
     if(allInCheckout){
@@ -293,10 +320,11 @@
     }else{
         [self.checkInButton setHidden:YES];
     }
-    
 }
+
 -(void)showFilter{
     
+    filterView.delegate=self;
     [self presentSemiViewController:filterView withOptions:@{ KNSemiModalOptionKeys.pushParentBack    : @(YES),
                                                               KNSemiModalOptionKeys.animationDuration : @(0.5),
                                                               KNSemiModalOptionKeys.shadowOpacity     : @(0.9),

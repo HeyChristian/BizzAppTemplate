@@ -55,14 +55,13 @@
 }
 
 - (IBAction)viewAllAction:(id)sender {
-    
+    [self.delegate ApplyTimeRangeFilter:nil andEndDate:nil];
     [self dismissSemiModalView];
 }
 
 - (IBAction)selectTimeFrameAction:(id)sender {
-    //Colocar el delegate...
-   [self dismissSemiModalView];
-
+    [self.delegate ApplyTimeRangeFilter:fromDate andEndDate:toDate];
+    [self dismissSemiModalView];
 }
 
 #pragma mark - DSLCalendarViewDelegate methods
