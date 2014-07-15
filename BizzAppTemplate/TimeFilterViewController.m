@@ -156,4 +156,24 @@
     
     return  [calendar components: NSYearCalendarUnit | NSMonthCalendarUnit fromDate:[self endOfMonth]];
 }
+
+
+
+-(NSDate *) getMinDate:(NSDate *)date{
+    //Gives us the current date
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit fromDate:[NSDate date]];
+    [components setHour:12];
+    [components setMinute:0];
+    return [gregorian dateFromComponents:components];
+}
+
+-(NSDate *) getMaxDate:(NSDate *)date{
+    //Gives us the current date
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit fromDate:[NSDate date]];
+    [components setHour:23];
+    [components setMinute:59];
+    return [gregorian dateFromComponents:components];
+}
 @end

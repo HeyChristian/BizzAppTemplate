@@ -152,6 +152,8 @@
 		86E0FC3E1972579500D83489 /* DSLCalendarDaySelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC261972579500D83489 /* DSLCalendarDaySelection.png */; };
 		86E0FC3F1972579500D83489 /* DSLCalendarDaySelection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC271972579500D83489 /* DSLCalendarDaySelection@2x.png */; };
 		86E0FC401972579500D83489 /* NSDate+DSLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC291972579500D83489 /* NSDate+DSLCalendarView.m */; };
+		86E0FC441974D8E800D83489 /* WarningCheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC421974D8E800D83489 /* WarningCheckOutViewController.m */; };
+		86E0FC451974D8E800D83489 /* WarningCheckOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC431974D8E800D83489 /* WarningCheckOutViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,6 +409,9 @@
 		86E0FC271972579500D83489 /* DSLCalendarDaySelection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DSLCalendarDaySelection@2x.png"; sourceTree = "<group>"; };
 		86E0FC281972579500D83489 /* NSDate+DSLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DSLCalendarView.h"; sourceTree = "<group>"; };
 		86E0FC291972579500D83489 /* NSDate+DSLCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DSLCalendarView.m"; sourceTree = "<group>"; };
+		86E0FC411974D8E800D83489 /* WarningCheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WarningCheckOutViewController.h; sourceTree = "<group>"; };
+		86E0FC421974D8E800D83489 /* WarningCheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WarningCheckOutViewController.m; sourceTree = "<group>"; };
+		86E0FC431974D8E800D83489 /* WarningCheckOutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningCheckOutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -903,6 +908,9 @@
 				86E0FBDB1972040C00D83489 /* TimeFilterViewController.h */,
 				86E0FBDC1972040C00D83489 /* TimeFilterViewController.m */,
 				86E0FBDD1972040C00D83489 /* TimeFilterViewController.xib */,
+				86E0FC411974D8E800D83489 /* WarningCheckOutViewController.h */,
+				86E0FC421974D8E800D83489 /* WarningCheckOutViewController.m */,
+				86E0FC431974D8E800D83489 /* WarningCheckOutViewController.xib */,
 			);
 			name = TimeCard;
 			sourceTree = "<group>";
@@ -1094,6 +1102,7 @@
 				86E0FC3E1972579500D83489 /* DSLCalendarDaySelection.png in Resources */,
 				868C23041960DF6D0028C5C9 /* iPhoneStoryboard.storyboard in Resources */,
 				868C235F19622C210028C5C9 /* ChristianVazquez.vcf in Resources */,
+				86E0FC451974D8E800D83489 /* WarningCheckOutViewController.xib in Resources */,
 				86E0FC351972579500D83489 /* DSLCalendar-previousMonth@2x.png in Resources */,
 				86E0FC391972579500D83489 /* DSLCalendarDaySelection-left@2x.png in Resources */,
 				868C2358196214460028C5C9 /* VCardViewController.xib in Resources */,
@@ -1204,6 +1213,7 @@
 				868C240C196515180028C5C9 /* RecoveryPasswordViewController.m in Sources */,
 				86E0FBC4196F469E00D83489 /* TimeCardEditViewViewController.m in Sources */,
 				868C24001964B1A90028C5C9 /* ALPValidatorRegularExpressionRule.m in Sources */,
+				86E0FC441974D8E800D83489 /* WarningCheckOutViewController.m in Sources */,
 				868C234E1961F8F00028C5C9 /* BEMSecondHand.m in Sources */,
 				86E0FBF619720BEE00D83489 /* MNCalendarViewLayout.m in Sources */,
 				868C235C19622BE50028C5C9 /* vCardSerialization.m in Sources */,

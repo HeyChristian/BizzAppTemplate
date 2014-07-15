@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeInLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeOutLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *InProgressLabel;
+@property (weak, nonatomic) IBOutlet UIView *workingFrameView;
+
 -(void)configureCellForEntry:(NSMutableDictionary *)dictionary;
 
 @end

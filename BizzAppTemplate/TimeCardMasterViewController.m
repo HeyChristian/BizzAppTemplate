@@ -45,8 +45,6 @@
     self.navigationItem.title  = @"Time Card History";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
-    [self.tableView.tableHeaderView setHidden:YES];
-     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu48"]
                                                                              style:UIBarButtonItemStylePlain
@@ -264,10 +262,6 @@
 }
 -(void) bindTimeCardTableSource{
     
-    [self bindTimeCardTableSource:nil andToDate:nil];
-}
-
--(void)bindTimeCardTableSource:(NSDate *)fromDate andToDate:(NSDate *)toDate{
     allInCheckout=true;
     NSObject *checkout = nil;
     self.source = [[NSMutableArray alloc] init];
@@ -275,16 +269,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"TimeCard"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    
-    if(fromDate != nil && toDate != nil){
-        //Incluir la hora maxima en las fechas para no perder rastros.
-        
-        [query whereKey:@"checkin" greaterThanOrEqualTo:fromDate];
-        [query whereKey:@"checkin" lessThanOrEqualTo:toDate];
-        
-       // [query whereKey:@"checkout" greaterThanOrEqualTo:fromDate];
-        //[query whereKey:@"checkout" lessThanOrEqualTo:toDate];
-    }
+  
     NSArray *objects = [query findObjects];
     for (PFObject *object in objects) {
         
@@ -306,6 +291,9 @@
         [row setValue:object[@"date_out"] forKey:@"date_out"];
         [row setValue:object[@"time_out"] forKey:@"time_out"];
         [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
+        [row setValue:[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]] forKey:@"working_time"];
+        
+        //NSLog(@"Working Hours: %@",[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]]);
         
         checkout = object[@"checkout"];
         if(checkout==nil){
@@ -317,8 +305,90 @@
     
     if(allInCheckout){
         [self.checkInButton setHidden:NO];
+        [self.tableView.tableHeaderView setHidden:NO];
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        
     }else{
         [self.checkInButton setHidden:YES];
+        [self.tableView.tableHeaderView setHidden:YES];
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+    }
+
+}
+
+-(void)bindTimeCardTableSource:(NSDate *)fromDate andToDate:(NSDate *)toDate{
+    
+  
+    if(fromDate == nil && toDate == nil){
+        [self bindTimeCardTableSource];
+    }
+    
+    
+    allInCheckout=true;
+    NSObject *checkout = nil;
+    self.source = [[NSMutableArray alloc] init];
+    __block NSMutableDictionary *row = nil;
+    
+  
+    
+    PFQuery *greeterQuery = [PFQuery queryWithClassName:@"TimeCard"];
+    [greeterQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [greeterQuery whereKey:@"checkin" greaterThanOrEqualTo:fromDate];
+    
+    
+    PFQuery *lessQuery = [PFQuery queryWithClassName:@"TimeCard"];
+    [lessQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+    [lessQuery whereKey:@"checkout" greaterThanOrEqualTo:toDate];
+    
+   
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[greeterQuery,lessQuery]];
+   
+    
+    
+    NSArray *objects = [query findObjects];
+    for (PFObject *object in objects) {
+        
+        row = [[NSMutableDictionary alloc] init];
+        [row setValue:object.objectId forKey:@"objectId"];
+        [row setValue:object[@"date_in"] forKey:@"date_in"];
+        [row setValue:object[@"time_in"] forKey:@"time_in"];
+        [row setValue:object[@"date_out"] forKey:@"date_out"];
+        [row setValue:object[@"tasks"] forKey:@"description"];
+        [row setValue:object[@"client"] forKey:@"client"];
+        [row setValue:object[@"line1"] forKey:@"line1"];
+        [row setValue:object[@"line2"] forKey:@"line2"];
+        [row setValue:object[@"line3"] forKey:@"line3"];
+        [row setValue:object.createdAt forKey:@"createdAt"];
+        [row setValue:object[@"checkin"] forKey:@"checkin"];
+        [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
+        
+        [row setValue:object[@"checkout"] forKey:@"checkout"];
+        [row setValue:object[@"date_out"] forKey:@"date_out"];
+        [row setValue:object[@"time_out"] forKey:@"time_out"];
+        [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
+        [row setValue:[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]] forKey:@"working_time"];
+        
+        //NSLog(@"Working Hours: %@",[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]]);
+        
+        checkout = object[@"checkout"];
+        if(checkout==nil){
+            allInCheckout=false;
+        }
+        
+        [self.source addObject:row];
+    }
+    
+    if(allInCheckout){
+        [self.checkInButton setHidden:NO];
+        [self.tableView.tableHeaderView setHidden:NO];
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        
+    }else{
+        [self.checkInButton setHidden:YES];
+        [self.tableView.tableHeaderView setHidden:YES];
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
     }
 }
 
@@ -330,4 +400,38 @@
                                                               KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
                                                             }];
 }
+
+-(NSMutableDictionary *)getTimeBetween:(NSDate *)fromDate andTo:(NSDate *)toDate{
+    /*
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"HH:mm"];
+    NSDate *date1 = fromDate;
+    NSDate *date2 = toDate;
+    NSTimeInterval interval = [date2 timeIntervalSinceDate:date1];
+    int hours = (int)interval / 3600;             // integer division to get the hours part
+    int minutes = (interval - (hours*3600)) / 60; // interval minus hours part (in seconds) divided by 60 yields minutes
+    return  [NSString stringWithFormat:@"%d:%02d", hours, minutes];
+    */
+    
+    // Get the system calendar
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    // Get conversion to months, days, hours, minutes
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:fromDate  toDate:toDate  options:0];
+    
+    NSLog(@"Break down: %ld min : %ld hours : %ld days : %ld months",(long)[breakdownInfo minute], (long)[breakdownInfo hour], (long)[breakdownInfo day], (long)[breakdownInfo month]);
+
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    long totalHours = ((long)[breakdownInfo day] * 24) + (long)[breakdownInfo hour];
+    
+    [dic setValue:[NSNumber numberWithLong:totalHours] forKey:@"hour"];
+    [dic setValue:[NSNumber numberWithLong:[breakdownInfo minute]] forKey:@"minutes"];
+    //[dic setValue:[NSNumber numberWithLong:[breakdownInfo day]] forKey:@"day"];
+    //[dic setValue:[NSNumber numberWithLong:[breakdownInfo month]] forKey:@"month"];
+    
+    return dic;
+}
+
 @end

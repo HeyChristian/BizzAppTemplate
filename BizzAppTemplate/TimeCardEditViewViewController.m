@@ -13,7 +13,7 @@
 #import <CoreLocation/CLGeocoder.h>
 #import <CoreLocation/CLPlacemark.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "WarningCheckOutViewController.h"
 
 @interface TimeCardEditViewViewController ()<TaskNoteDelegate,CLLocationManagerDelegate,UIAlertViewDelegate>{
     CLLocationManager *locationManager;
@@ -45,7 +45,8 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
     
-    
+     warningView = [[WarningCheckOutViewController alloc] initWithNibName:@"WarningCheckOutViewController" bundle:nil];
+   
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:NO];
@@ -145,6 +146,10 @@
     self.taskDescription.text = [[self.timeCard objectForKey:@"description"] capitalizedString];
     [self bindNotes:[self.timeCard objectForKey:@"objectId"]];
     
+    
+    [self bindWarnings:[self.timeCard objectForKey:@"objectId"]];
+    
+    
   
 }
 -(void)bindNotes:(NSString *)objectId{
@@ -161,7 +166,22 @@
     
     
 }
-
+-(void)bindWarnings:(NSString *)objectId{
+    
+    PFQuery *qry = [PFQuery queryWithClassName:@"warningCheckOut"];
+    [qry whereKey:@"TimeCard"
+               equalTo:[PFObject objectWithoutDataWithClassName:@"TimeCard" objectId:objectId]];
+    
+    NSArray *warns = [[NSArray alloc] initWithArray:[qry findObjects]];
+    if([warns count]>0){
+        [self.timeCard setObject:[warns objectAtIndex:0] forKey:@"warnings"];
+        [self.warningCell setHidden:NO];
+    }else{
+        [self.warningCell setHidden:YES];
+    }
+    
+    
+}
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -222,7 +242,7 @@
         
         CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:firstPoint.latitude longitude:firstPoint.longitude];
         double distance = [loc1 distanceFromLocation:currentLocation];
-        if(distance <= 10){
+        if(distance <= 100){
             
             locationCheckOutWarning=false;
             [self saveCheckOut];
@@ -240,6 +260,17 @@
         locationCheckOutWarning=false;
         [self saveCheckOut];
     }
+    
+}
+
+- (IBAction)viewWarningGeoLocationAction:(id)sender {
+    
+    warningView.timeCard = self.timeCard;
+    [self presentSemiViewController:warningView withOptions:@{ KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                              KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                              KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                              }];
+    
     
 }
 -(void)showMessage:(NSString *)title andMessage:(NSString *)message{
