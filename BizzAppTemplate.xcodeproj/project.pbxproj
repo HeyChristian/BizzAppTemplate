@@ -157,6 +157,8 @@
 		86E0FC4A1977736500D83489 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC491977736500D83489 /* Pin.m */; };
 		86E0FC4E1978C87000D83489 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC4D1978C87000D83489 /* LocationCell.m */; };
 		86E0FC511978C94B00D83489 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC501978C94B00D83489 /* LocationTableViewController.m */; };
+		86E0FC551979E20800D83489 /* MapSharedDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC531979E20800D83489 /* MapSharedDetails.m */; };
+		86E0FC561979E20800D83489 /* MapSharedDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC541979E20800D83489 /* MapSharedDetails.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +423,9 @@
 		86E0FC4D1978C87000D83489 /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		86E0FC4F1978C94B00D83489 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
 		86E0FC501978C94B00D83489 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
+		86E0FC521979E20800D83489 /* MapSharedDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSharedDetails.h; sourceTree = "<group>"; };
+		86E0FC531979E20800D83489 /* MapSharedDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSharedDetails.m; sourceTree = "<group>"; };
+		86E0FC541979E20800D83489 /* MapSharedDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSharedDetails.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1028,6 +1033,9 @@
 				86E0FC4D1978C87000D83489 /* LocationCell.m */,
 				86E0FC4F1978C94B00D83489 /* LocationTableViewController.h */,
 				86E0FC501978C94B00D83489 /* LocationTableViewController.m */,
+				86E0FC521979E20800D83489 /* MapSharedDetails.h */,
+				86E0FC531979E20800D83489 /* MapSharedDetails.m */,
+				86E0FC541979E20800D83489 /* MapSharedDetails.xib */,
 			);
 			name = SharedLocations;
 			sourceTree = "<group>";
@@ -1116,6 +1124,7 @@
 				86E0FC2E1972579500D83489 /* DSLCalendarMonthSelectorView.xib in Resources */,
 				868C236119622C6A0028C5C9 /* contact.vcf in Resources */,
 				868C22DF1960DF110028C5C9 /* InfoPlist.strings in Resources */,
+				86E0FC561979E20800D83489 /* MapSharedDetails.xib in Resources */,
 				86E0FC361972579500D83489 /* DSLCalendarDayCallout.png in Resources */,
 				86E0FC341972579500D83489 /* DSLCalendar-previousMonth.png in Resources */,
 				86E0FBD2196F56F200D83489 /* AddTaskViewController.xib in Resources */,
@@ -1224,6 +1233,7 @@
 				868C23FD1964B1A90028C5C9 /* ALPValidatorMaximumLengthRule.m in Sources */,
 				868C234A1961F8F00028C5C9 /* BEMAnalogClockView.m in Sources */,
 				868C245F1968EA910028C5C9 /* MRIconView.m in Sources */,
+				86E0FC551979E20800D83489 /* MapSharedDetails.m in Sources */,
 				868C245D1968EA910028C5C9 /* MRActivityIndicatorView.m in Sources */,
 				868C232819611D6A0028C5C9 /* UIView+Resizing.m in Sources */,
 				86E0FBD1196F56F200D83489 /* AddTaskViewController.m in Sources */,

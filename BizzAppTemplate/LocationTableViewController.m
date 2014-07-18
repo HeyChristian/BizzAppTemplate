@@ -12,14 +12,14 @@
 #import "MenuNavigationController.h"
 #import "TCEmptyCell.h"
 #import "LocationCell.h"
-
+#import "Tools.h"
 @interface LocationTableViewController ()
 
 @end
 
 @implementation LocationTableViewController
 
-#define rowHeight   92
+#define rowHeight   122
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
@@ -60,11 +60,33 @@
     
     self.source = [[NSMutableArray alloc] init];
     PFQuery *query = [PFQuery queryWithClassName:@"SharedLocation"];
-    if(isRead){
-    //    [query whereKey:@"isOpen" equalTo:@NO];
+    if(!isRead){
+       [query whereKey:@"isOpen" equalTo:@NO];
     }
     [query orderByAscending:@"createdAt"];
-    self.source = [[NSMutableArray alloc] initWithArray:[query findObjects]];
+    //self.source = [[NSMutableArray alloc] initWithArray:[query findObjects]];
+    
+    
+  //  NSDate *createdAt;
+   // PFObject *userObjId;
+    NSArray *list;
+    for(PFObject *dic in [query findObjects]){
+      
+        NSLog(@"************************ created At: %@",dic.createdAt);
+        
+        [dic setObject:[Tools timeIntervalWithStartDate:dic.createdAt] forKey:@"elapse"];
+        
+        NSString *uid = [[dic objectForKey:@"sendUser"] objectId];
+       
+        PFQuery *qry = [PFUser query];
+        [qry whereKey:@"objectId" equalTo:uid];
+        
+        list =[qry findObjects];
+        if([list count]>0){
+            [dic setObject:[list objectAtIndex:0] forKey:@"user"];
+        }
+        [self.source addObject:dic];
+    }
     
     
 }
@@ -115,18 +137,35 @@
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id key = [self.tableViewSections objectAtIndex:section];
+    /*id key = [self.tableViewSections objectAtIndex:section];
     NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
     if(tableViewCellsForSection.count == 0){
         return 1;
     }else{
         //  NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
         return tableViewCellsForSection.count;
+    }*/
+    
+    
+    if([self.source count] == 0){
+        
+        return 1;
+        
+    }else{
+        
+        id key = [self.tableViewSections objectAtIndex:section];
+        NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
+        
+        NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
+        return tableViewCellsForSection.count;
+        
     }
+    
 }
 - (NSString*) tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [self.tableViewSections objectAtIndex:section];
+
+    return [self.tableViewSections count]==0?@"":[self.tableViewSections objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

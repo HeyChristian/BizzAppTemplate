@@ -1531,27 +1531,35 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell" rowHeight="92" id="NKq-kp-azE" customClass="LocationCell">
-                                <rect key="frame" x="0.0" y="269" width="320" height="92"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell" rowHeight="122" id="NKq-kp-azE" customClass="LocationCell">
+                                <rect key="frame" x="0.0" y="269" width="320" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NKq-kp-azE" id="3vb-b4-XWz">
-                                    <rect key="frame" x="0.0" y="0.0" width="273" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="273" height="121"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4421 Park Creek CT  Fort Worth, TX  76137, blah blah blah blah blah blah blah blah" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="178" translatesAutoresizingMaskIntoConstraints="NO" id="kzE-yi-tfw">
-                                            <rect key="frame" x="39" y="31" width="178" height="53"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4421 Park Creek CT  Fort Worth, TX  76137, blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah" lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="178" translatesAutoresizingMaskIntoConstraints="NO" id="kzE-yi-tfw">
+                                            <rect key="frame" x="39" y="50" width="178" height="62"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Client Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTr-6G-OTx">
-                                            <rect key="frame" x="39" y="12" width="95" height="21"/>
+                                            <rect key="frame" x="39" y="32" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXj-9p-xKK">
+                                            <rect key="frame" x="39" y="9" width="234" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="MC8-QA-FBF">
-                                            <rect key="frame" x="15" y="38" width="16" height="16"/>
+                                            <rect key="frame" x="15" y="61" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -1560,6 +1568,7 @@
                                 <connections>
                                     <outlet property="AddressLabel" destination="kzE-yi-tfw" id="anw-PG-d5f"/>
                                     <outlet property="ClientNameLabel" destination="RTr-6G-OTx" id="lzj-xZ-YAk"/>
+                                    <outlet property="CompanyLabel" destination="gXj-9p-xKK" id="qaa-cc-GUu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

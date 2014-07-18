@@ -18,10 +18,10 @@
    
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
-    PFObject *user = [row objectForKey:@"sendUser"];
+    PFObject *user = [row objectForKey:@"user"];
     
-    NSString *name = [[PFUser currentUser] objectForKey:@"Firstname"];
-    NSString *last = [[PFUser currentUser] objectForKey:@"LastName"];
+    NSString *name = [user objectForKey:@"Firstname"];
+    NSString *last = [user objectForKey:@"LastName"];
     
     NSString *displayName;
     
@@ -31,7 +31,9 @@
         displayName = user[@"email"];
 
     
+    
     self.ClientNameLabel.text = displayName;
+    self.CompanyLabel.text = [[[NSString alloc] initWithString:[user objectForKey:@"Company"]] capitalizedString];
     
     PFGeoPoint *point = [row objectForKey:@"geoPoint"];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:point.latitude longitude:point.longitude];

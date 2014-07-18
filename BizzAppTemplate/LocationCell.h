@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *ClientNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *AddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CompanyLabel;
 
 -(void)configureCellForEntry:(NSDictionary *)row;
 @end
