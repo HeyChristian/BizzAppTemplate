@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) NSMutableDictionary  *timeCard;
 
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "MapViewController.h"
-
+#import <Parse/Parse.h>
+#import "UIViewController+KNSemiModal.h"
 
 
 @interface MapViewController ()<MKMapViewDelegate>
@@ -55,6 +56,27 @@
 
 - (IBAction)sharedLocation:(id)sender {
      [self setMyCurrentLocation];
+    
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+       
+        PFObject *sloc = [PFObject objectWithClassName:@"SharedLocation"];
+        sloc[@"geoPoint"]=geoPoint;
+        sloc[@"sendUser"]=[PFUser currentUser];
+        sloc[@"isOpen"]=@NO;
+        
+        [sloc saveEventually:^(BOOL succeeded, NSError *error) {
+           
+            if(succeeded){
+                [self showMessage:@"shared success" andMessage:@"The location is being shared with a technical."];
+                [self dismissSemiModalView];
+            }else{
+                [self showMessage:@"An Error Occur" andMessage:[error description]];
+            }
+            
+        }];
+        
+    }];
+    
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
@@ -80,6 +102,10 @@
     
 }
 
+- (IBAction)closeAction:(id)sender {
+    [self dismissSemiModalView];
+}
+
 -(void) setMyCurrentLocation{
     float spanX = 0.00725;
     float spanY = 0.00725;
@@ -90,5 +116,12 @@
     region.span.longitudeDelta = spanY;
     
     [self.MapView setRegion:region animated:YES];
+}
+
+-(void)showMessage:(NSString *)title andMessage:(NSString *)message{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 @end

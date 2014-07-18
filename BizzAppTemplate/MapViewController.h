@@ -16,4 +16,6 @@
 
 - (IBAction)sharedLocation:(id)sender;
 - (IBAction)changeMapViewType:(UISegmentedControl *)sender;
+- (IBAction)closeAction:(id)sender;
+
 @end

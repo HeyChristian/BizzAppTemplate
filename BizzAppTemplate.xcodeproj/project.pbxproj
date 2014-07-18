@@ -155,6 +155,8 @@
 		86E0FC441974D8E800D83489 /* WarningCheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC421974D8E800D83489 /* WarningCheckOutViewController.m */; };
 		86E0FC451974D8E800D83489 /* WarningCheckOutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC431974D8E800D83489 /* WarningCheckOutViewController.xib */; };
 		86E0FC4A1977736500D83489 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC491977736500D83489 /* Pin.m */; };
+		86E0FC4E1978C87000D83489 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC4D1978C87000D83489 /* LocationCell.m */; };
+		86E0FC511978C94B00D83489 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC501978C94B00D83489 /* LocationTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -415,6 +417,10 @@
 		86E0FC431974D8E800D83489 /* WarningCheckOutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WarningCheckOutViewController.xib; sourceTree = "<group>"; };
 		86E0FC481977736500D83489 /* Pin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
 		86E0FC491977736500D83489 /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pin.m; sourceTree = "<group>"; };
+		86E0FC4C1978C87000D83489 /* LocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		86E0FC4D1978C87000D83489 /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
+		86E0FC4F1978C94B00D83489 /* LocationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTableViewController.h; sourceTree = "<group>"; };
+		86E0FC501978C94B00D83489 /* LocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -884,6 +890,7 @@
 		86E0FBB5196CAD4C00D83489 /* Administrative */ = {
 			isa = PBXGroup;
 			children = (
+				86E0FC4B1978BCC200D83489 /* SharedLocations */,
 				86E0FBCD196F56B700D83489 /* TimeCard */,
 			);
 			name = Administrative;
@@ -1012,6 +1019,17 @@
 				86E0FC491977736500D83489 /* Pin.m */,
 			);
 			name = MapsLibs;
+			sourceTree = "<group>";
+		};
+		86E0FC4B1978BCC200D83489 /* SharedLocations */ = {
+			isa = PBXGroup;
+			children = (
+				86E0FC4C1978C87000D83489 /* LocationCell.h */,
+				86E0FC4D1978C87000D83489 /* LocationCell.m */,
+				86E0FC4F1978C94B00D83489 /* LocationTableViewController.h */,
+				86E0FC501978C94B00D83489 /* LocationTableViewController.m */,
+			);
+			name = SharedLocations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1166,6 +1184,7 @@
 				86E0FC071972157700D83489 /* NSMutableArray+convenience.m in Sources */,
 				868C24611968EA910028C5C9 /* MRProgressOverlayView.m in Sources */,
 				868C2336196125020028C5C9 /* AwesomeMenuItem.m in Sources */,
+				86E0FC4E1978C87000D83489 /* LocationCell.m in Sources */,
 				868C234D1961F8F00028C5C9 /* BEMMinuteHand.m in Sources */,
 				86E0FBC1196D01C400D83489 /* TCEmptyCell.m in Sources */,
 				868C24601968EA910028C5C9 /* MRNavigationBarProgressView.m in Sources */,
@@ -1177,6 +1196,7 @@
 				868C233A19612F740028C5C9 /* RNGridMenu.m in Sources */,
 				868C243819663A400028C5C9 /* MenuNavigationController.m in Sources */,
 				868C238C1962842D0028C5C9 /* CompanyViewController.m in Sources */,
+				86E0FC511978C94B00D83489 /* LocationTableViewController.m in Sources */,
 				86E0FBBB196CD2B900D83489 /* TimeCardMasterViewController.m in Sources */,
 				868C2352196212EE0028C5C9 /* UIViewController+KNSemiModal.m in Sources */,
 				86E0FC061972157700D83489 /* UIView+convenience.m in Sources */,

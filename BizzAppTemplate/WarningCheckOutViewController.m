@@ -63,7 +63,10 @@
     
     if(checkOut != nil){
         double miles = [self getMilesBetweenPoints:checkIn andPointB:checkOut];
-        NSLog(@"%f",miles);
+       // NSLog(@"%f",miles);
+        
+        self.warningLabel.text = [NSString stringWithFormat:@"The first location does not match the last location, it is located %.1fmi away.",miles];
+        
         
         /*
         CLLocationCoordinate2D coord;

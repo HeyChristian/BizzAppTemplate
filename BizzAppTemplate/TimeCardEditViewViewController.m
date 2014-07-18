@@ -238,11 +238,19 @@
     
     PFGeoPoint *firstPoint = [self.timeCard objectForKey:@"geoPoint"];
   
+
+    
+    
     if(firstPoint != nil){
         
-        CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:firstPoint.latitude longitude:firstPoint.longitude];
-        double distance = [loc1 distanceFromLocation:currentLocation];
-        if(distance <= 100){
+       // CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:firstPoint.latitude longitude:firstPoint.longitude];
+      //  double distance = [loc1 distanceFromLocation:currentLocation];
+        
+        PFGeoPoint *endPoint = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
+        
+        double milesAways = [self getMilesBetweenPoints:firstPoint andPointB:endPoint];
+        NSLog(@"miles away:  %f ",milesAways);
+        if(milesAways <= 1){
             
             locationCheckOutWarning=false;
             [self saveCheckOut];
@@ -262,7 +270,22 @@
     }
     
 }
-
+-(double)getMilesBetweenPoints:(PFGeoPoint *)pointA andPointB:(PFGeoPoint *)pointB{
+    double latA = pointA.latitude;
+    double logA = pointA.longitude;
+    
+    double latB = pointB.latitude;
+    double logB = pointB.longitude;
+    
+    CLLocation *locA = [[CLLocation alloc] initWithLatitude:latA
+                                                  longitude:logA];
+    
+    CLLocation *locB = [[CLLocation alloc] initWithLatitude:latB longitude:logB];
+    CLLocationDistance distance = [locA distanceFromLocation:locB];
+    NSLog(@"Calculated Miles %@", [NSString stringWithFormat:@"%.1fmi",(distance/1609.344)]);
+    return distance/1609.344;
+    
+}
 - (IBAction)viewWarningGeoLocationAction:(id)sender {
     
     warningView.timeCard = self.timeCard;

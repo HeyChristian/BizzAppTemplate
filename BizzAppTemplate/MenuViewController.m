@@ -16,7 +16,7 @@
 #import <Parse/Parse.h>
 #import "Tools.h"
 #import "TimeCardMasterViewController.h"
-
+#import "LocationTableViewController.h"
 @interface MenuViewController ()
 
 @end
@@ -171,9 +171,12 @@
         
     }else if (indexPath.section == 1 && indexPath.row == 1) {
         //Shared Locations
+        LocationTableViewController *location = [mystoryboard instantiateViewControllerWithIdentifier:@"LocationTableViewController"];
+        navigationController = [[MenuNavigationController alloc] initWithRootViewController:location];
         
     }else if (indexPath.section == 1 && indexPath.row == 2) {
         //Manage Tickets
+       
         
     }else {
         navigationController = [[MenuNavigationController alloc] initWithRootViewController:homeViewController];
