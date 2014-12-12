@@ -42,4 +42,6 @@
 }
 
 
+- (IBAction)closeAction:(id)sender {
+}
 @end

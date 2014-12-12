@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface InstructionsProfileViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *close;
+- (IBAction)closeAction:(id)sender;
 
 @end

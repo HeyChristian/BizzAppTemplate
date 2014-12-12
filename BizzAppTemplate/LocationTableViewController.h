@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MapSharedDetails;
 
-@interface LocationTableViewController : UITableViewController
+@interface LocationTableViewController : UITableViewController{
+    MapSharedDetails *mapView;
+}
 @property (weak, nonatomic) IBOutlet UISegmentedControl *filterSegment;
 @property (nonatomic)NSMutableArray *source;
 @property (nonatomic)bool showAll;

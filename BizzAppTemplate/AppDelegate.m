@@ -12,6 +12,8 @@
 #import "MenuViewController.h"
 #import "HomeViewController.h"
 #import "Tools.h"
+#import "Curl.h"
+
 
 @implementation AppDelegate
 
@@ -33,8 +35,28 @@
     [Tools setCurrentUserImageData];
     
     
+    if([CLLocationManager locationServicesEnabled]){
+        
+        NSLog(@"Location Services Enabled");
+        
+        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            UIAlertView  *alert = [[UIAlertView alloc] initWithTitle:@"App Permission Denied"
+                                                             message:@"To re-enable, please go to Settings and turn on Location Service for this app."
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+            [alert show];
+        }
+    }
     
-    
+    /*
+    #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    if(IS_OS_8_OR_LATER) {
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
+        [locationManager startUpdatingLocation];
+    }*/
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -63,6 +85,11 @@
     self.window.rootViewController = frostedViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    
+    [Curl SendCurlPost];
+    
     return YES;
 }
 

@@ -195,6 +195,7 @@
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
+    /*
     id key = [self.tableViewSections objectAtIndex:section];
     NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
     if(tableViewCellsForSection.count == 0){
@@ -202,11 +203,29 @@
     }else{
       //  NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
         return tableViewCellsForSection.count;
+    }*/
+    
+    
+    
+    if([self.source count] == 0){
+        
+        return 1;
+        
+    }else{
+        
+        id key = [self.tableViewSections objectAtIndex:section];
+        NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
+        
+       // NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
+        return tableViewCellsForSection.count;
+        
     }
+    
 }
 - (NSString*) tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [self.tableViewSections objectAtIndex:section];
+    //return [self.tableViewSections objectAtIndex:section];
+    return [self.tableViewSections count]==0?@"":[self.tableViewSections objectAtIndex:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -322,73 +341,75 @@
   
     if(fromDate == nil && toDate == nil){
         [self bindTimeCardTableSource];
-    }
-    
-    
-    allInCheckout=true;
-    NSObject *checkout = nil;
-    self.source = [[NSMutableArray alloc] init];
-    __block NSMutableDictionary *row = nil;
-    
-  
-    
-    PFQuery *greeterQuery = [PFQuery queryWithClassName:@"TimeCard"];
-    [greeterQuery whereKey:@"user" equalTo:[PFUser currentUser]];
-    [greeterQuery whereKey:@"checkin" greaterThanOrEqualTo:fromDate];
-    
-    
-    PFQuery *lessQuery = [PFQuery queryWithClassName:@"TimeCard"];
-    [lessQuery whereKey:@"user" equalTo:[PFUser currentUser]];
-    [lessQuery whereKey:@"checkout" greaterThanOrEqualTo:toDate];
-    
-   
-    PFQuery *query = [PFQuery orQueryWithSubqueries:@[greeterQuery,lessQuery]];
-   
-    
-    
-    NSArray *objects = [query findObjects];
-    for (PFObject *object in objects) {
-        
-        row = [[NSMutableDictionary alloc] init];
-        [row setValue:object.objectId forKey:@"objectId"];
-        [row setValue:object[@"date_in"] forKey:@"date_in"];
-        [row setValue:object[@"time_in"] forKey:@"time_in"];
-        [row setValue:object[@"date_out"] forKey:@"date_out"];
-        [row setValue:object[@"tasks"] forKey:@"description"];
-        [row setValue:object[@"client"] forKey:@"client"];
-        [row setValue:object[@"line1"] forKey:@"line1"];
-        [row setValue:object[@"line2"] forKey:@"line2"];
-        [row setValue:object[@"line3"] forKey:@"line3"];
-        [row setValue:object.createdAt forKey:@"createdAt"];
-        [row setValue:object[@"checkin"] forKey:@"checkin"];
-        [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
-        
-        [row setValue:object[@"checkout"] forKey:@"checkout"];
-        [row setValue:object[@"date_out"] forKey:@"date_out"];
-        [row setValue:object[@"time_out"] forKey:@"time_out"];
-        [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
-        [row setValue:[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]] forKey:@"working_time"];
-        
-        //NSLog(@"Working Hours: %@",[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]]);
-        
-        checkout = object[@"checkout"];
-        if(checkout==nil){
-            allInCheckout=false;
-        }
-        
-        [self.source addObject:row];
-    }
-    
-    if(allInCheckout){
-        [self.checkInButton setHidden:NO];
-        [self.tableView.tableHeaderView setHidden:NO];
-        self.automaticallyAdjustsScrollViewInsets = YES;
-        
+      
     }else{
-        [self.checkInButton setHidden:YES];
-        [self.tableView.tableHeaderView setHidden:YES];
-        self.automaticallyAdjustsScrollViewInsets = NO;
         
+            
+            allInCheckout=true;
+            NSObject *checkout = nil;
+            self.source = [[NSMutableArray alloc] init];
+            __block NSMutableDictionary *row = nil;
+            
+          
+            
+            PFQuery *greeterQuery = [PFQuery queryWithClassName:@"TimeCard"];
+            [greeterQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+            [greeterQuery whereKey:@"checkin" greaterThanOrEqualTo:fromDate];
+            
+            
+            PFQuery *lessQuery = [PFQuery queryWithClassName:@"TimeCard"];
+            [lessQuery whereKey:@"user" equalTo:[PFUser currentUser]];
+            [lessQuery whereKey:@"checkout" greaterThanOrEqualTo:toDate];
+            
+           
+            PFQuery *query = [PFQuery orQueryWithSubqueries:@[greeterQuery,lessQuery]];
+           
+            
+            
+            NSArray *objects = [query findObjects];
+            for (PFObject *object in objects) {
+                
+                row = [[NSMutableDictionary alloc] init];
+                [row setValue:object.objectId forKey:@"objectId"];
+                [row setValue:object[@"date_in"] forKey:@"date_in"];
+                [row setValue:object[@"time_in"] forKey:@"time_in"];
+                [row setValue:object[@"date_out"] forKey:@"date_out"];
+                [row setValue:object[@"tasks"] forKey:@"description"];
+                [row setValue:object[@"client"] forKey:@"client"];
+                [row setValue:object[@"line1"] forKey:@"line1"];
+                [row setValue:object[@"line2"] forKey:@"line2"];
+                [row setValue:object[@"line3"] forKey:@"line3"];
+                [row setValue:object.createdAt forKey:@"createdAt"];
+                [row setValue:object[@"checkin"] forKey:@"checkin"];
+                [row setValue:[Tools timeIntervalWithStartDate:object.createdAt] forKey:@"elapse"];
+                
+                [row setValue:object[@"checkout"] forKey:@"checkout"];
+                [row setValue:object[@"date_out"] forKey:@"date_out"];
+                [row setValue:object[@"time_out"] forKey:@"time_out"];
+                [row setValue:object[@"geoPoint"] forKey:@"geoPoint"];
+                [row setValue:[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]] forKey:@"working_time"];
+                
+                //NSLog(@"Working Hours: %@",[self getTimeBetween:object[@"checkin"] andTo:object[@"checkout"]]);
+                
+                checkout = object[@"checkout"];
+                if(checkout==nil){
+                    allInCheckout=false;
+                }
+                
+                [self.source addObject:row];
+            }
+            
+            if(allInCheckout){
+                [self.checkInButton setHidden:NO];
+                [self.tableView.tableHeaderView setHidden:NO];
+                self.automaticallyAdjustsScrollViewInsets = YES;
+                
+            }else{
+                [self.checkInButton setHidden:YES];
+                [self.tableView.tableHeaderView setHidden:YES];
+                self.automaticallyAdjustsScrollViewInsets = NO;
+                
+            }
     }
 }
 

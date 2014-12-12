@@ -64,6 +64,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    instructionView = [[InstructionsProfileViewController alloc] initWithNibName:@"InstructionsProfileViewController" bundle:nil];
+    changePasswordView = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+    
+    
     [self loadUser];
     
     updateProfileImage=false;
@@ -96,9 +101,7 @@
     self.workField.delegate=self;
     self.extensionField.delegate=self;
     
-    instructionView = [[InstructionsProfileViewController alloc] initWithNibName:@"InstructionsProfileViewController" bundle:nil];
-    changePasswordView = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
-    
+ 
 }
 
 #pragma mark - IBActions
@@ -285,6 +288,8 @@
 
     
     if([self.nameField.text length]==0 || [self.lastNameField.text length]==0 || [self.companyField.text length]==0){
+       
+        
         [self presentSemiViewController:instructionView withOptions:@{
                                                                    KNSemiModalOptionKeys.pushParentBack    : @(YES),
                                                                    KNSemiModalOptionKeys.animationDuration : @(0.5),

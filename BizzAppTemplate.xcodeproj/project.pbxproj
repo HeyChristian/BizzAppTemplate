@@ -159,6 +159,7 @@
 		86E0FC511978C94B00D83489 /* LocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC501978C94B00D83489 /* LocationTableViewController.m */; };
 		86E0FC551979E20800D83489 /* MapSharedDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC531979E20800D83489 /* MapSharedDetails.m */; };
 		86E0FC561979E20800D83489 /* MapSharedDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E0FC541979E20800D83489 /* MapSharedDetails.xib */; };
+		86E0FC59197CACFA00D83489 /* Curl.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E0FC58197CACFA00D83489 /* Curl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -426,6 +427,8 @@
 		86E0FC521979E20800D83489 /* MapSharedDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSharedDetails.h; sourceTree = "<group>"; };
 		86E0FC531979E20800D83489 /* MapSharedDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSharedDetails.m; sourceTree = "<group>"; };
 		86E0FC541979E20800D83489 /* MapSharedDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapSharedDetails.xib; sourceTree = "<group>"; };
+		86E0FC57197CACFA00D83489 /* Curl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Curl.h; sourceTree = "<group>"; };
+		86E0FC58197CACFA00D83489 /* Curl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Curl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +569,7 @@
 		868C23051960ED3D0028C5C9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				86E0FC5A197CBC2000D83489 /* JSONKit */,
 				86E0FC471977734900D83489 /* MapsLibs */,
 				86E0FC0A1972579500D83489 /* DSLCalendarView */,
 				86E0FBFA1972153E00D83489 /* VurugCalendar */,
@@ -873,6 +877,8 @@
 				868C246A196907950028C5C9 /* Tools.m */,
 				86E0FBD6196FCCBA00D83489 /* UILabel+AutoSize.h */,
 				86E0FBD7196FCCBA00D83489 /* UILabel+AutoSize.m */,
+				86E0FC57197CACFA00D83489 /* Curl.h */,
+				86E0FC58197CACFA00D83489 /* Curl.m */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -1038,6 +1044,13 @@
 				86E0FC541979E20800D83489 /* MapSharedDetails.xib */,
 			);
 			name = SharedLocations;
+			sourceTree = "<group>";
+		};
+		86E0FC5A197CBC2000D83489 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1224,6 +1237,7 @@
 				86E0FBF419720BEE00D83489 /* MNCalendarViewCell.m in Sources */,
 				868C23FC1964B1A90028C5C9 /* ALPValidatorMinimumLengthRule.m in Sources */,
 				868C22E11960DF110028C5C9 /* main.m in Sources */,
+				86E0FC59197CACFA00D83489 /* Curl.m in Sources */,
 				86E0FBC8196F480600D83489 /* TaskNotesViewController.m in Sources */,
 				868C24051964B2570028C5C9 /* UIControl+ALPValidator.m in Sources */,
 				868C246B196907950028C5C9 /* Tools.m in Sources */,
@@ -1381,6 +1395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1388,7 +1403,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BizzAppTemplate/BizzAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "BizzAppTemplate/BizzAppTemplate-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1399,6 +1416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1406,7 +1424,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BizzAppTemplate/BizzAppTemplate-Prefix.pch";
 				INFOPLIST_FILE = "BizzAppTemplate/BizzAppTemplate-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

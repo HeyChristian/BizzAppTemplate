@@ -33,7 +33,10 @@
     
     
     self.ClientNameLabel.text = displayName;
-    self.CompanyLabel.text = [[[NSString alloc] initWithString:[user objectForKey:@"Company"]] capitalizedString];
+    
+    if([[user objectForKey:@"Company"] length] >0){
+        self.CompanyLabel.text = [[[NSString alloc] initWithString:[user objectForKey:@"Company"]] capitalizedString];
+    }
     
     PFGeoPoint *point = [row objectForKey:@"geoPoint"];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:point.latitude longitude:point.longitude];

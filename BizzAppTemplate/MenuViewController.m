@@ -46,18 +46,7 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
-        /*
-        PFFile *imageFile = [[PFUser currentUser] objectForKey:@"Image"];
-        NSLog(@"Image Data URL: %@",imageFile.url);
-        if(imageFile.url != nil){
-            
-            NSURL *imageFileUrl = [[NSURL alloc] initWithString:imageFile.url];
-            NSData *imageData = [NSData dataWithContentsOfURL:imageFileUrl];
-            imageView.image = [UIImage imageWithData:imageData];
-            
-        }else{
-            imageView.image=[UIImage imageNamed:@"profile2"];
-        }*/
+       
         
         
         imageView.image =  [Tools getProfileImage]; //[UIImage imageNamed:@"profile2"];
@@ -78,15 +67,17 @@
         NSString *last = [[PFUser currentUser] objectForKey:@"LastName"];
         
         NSString *displayName;
-        
+        int fontSize = 21;
         if([name length]>0)
             displayName = [NSString stringWithFormat:@"%@ %@",name,last];
         else
             displayName = user[@"email"];
         
+        if([displayName length]>=20)
+            fontSize = 16;
         
         label.text = displayName;
-        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        label.font = [UIFont fontWithName:@"HelveticaNeue" size:fontSize];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
         [label sizeToFit];

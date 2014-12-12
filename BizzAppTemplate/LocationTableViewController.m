@@ -13,6 +13,9 @@
 #import "TCEmptyCell.h"
 #import "LocationCell.h"
 #import "Tools.h"
+#import "MapSharedDetails.h"
+#import "UIViewController+KNSemiModal.h"
+
 @interface LocationTableViewController ()
 
 @end
@@ -55,6 +58,8 @@
     [self groupByTimeAgo];
     [self.tableView reloadData];
     
+      mapView = [[MapSharedDetails alloc] initWithNibName:@"MapSharedDetails" bundle:nil];
+    
 }
 -(void) bindSource:(bool)isRead{
     
@@ -62,18 +67,15 @@
     PFQuery *query = [PFQuery queryWithClassName:@"SharedLocation"];
     if(!isRead){
        [query whereKey:@"isOpen" equalTo:@NO];
+    }else{
+        [query setLimit:10];
     }
-    [query orderByAscending:@"createdAt"];
-    //self.source = [[NSMutableArray alloc] initWithArray:[query findObjects]];
-    
-    
-  //  NSDate *createdAt;
-   // PFObject *userObjId;
+    [query orderByDescending:@"createdAt"];
+ 
     NSArray *list;
     for(PFObject *dic in [query findObjects]){
       
-        NSLog(@"************************ created At: %@",dic.createdAt);
-        
+       
         [dic setObject:[Tools timeIntervalWithStartDate:dic.createdAt] forKey:@"elapse"];
         
         NSString *uid = [[dic objectForKey:@"sendUser"] objectId];
@@ -156,7 +158,7 @@
         id key = [self.tableViewSections objectAtIndex:section];
         NSArray* tableViewCellsForSection = [self.tableViewCells objectForKey:key];
         
-        NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
+      //  NSLog(@"Rows: %lu",(unsigned long)tableViewCellsForSection.count);
         return tableViewCellsForSection.count;
         
     }
@@ -235,5 +237,26 @@
     
     [self groupByTimeAgo];
     [self.tableView reloadData];
+}
+- (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
+    
+    
+    NSInteger rowNumber = 0;
+    
+    for (NSInteger i = 0; i < indexPath.section; i++) {
+        rowNumber += [self tableView:tableView numberOfRowsInSection:i];
+    }
+    
+    rowNumber += indexPath.row;
+   
+    mapView.sharedLocation = [self.source objectAtIndex:rowNumber];
+
+    [self presentSemiViewController:mapView withOptions:@{
+                                                              KNSemiModalOptionKeys.pushParentBack    : @(YES),
+                                                              KNSemiModalOptionKeys.animationDuration : @(0.5),
+                                                              KNSemiModalOptionKeys.shadowOpacity     : @(0.9),
+                                                              }];
+    
+    
 }
 @end

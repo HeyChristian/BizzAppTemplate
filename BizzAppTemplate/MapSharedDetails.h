@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+#import <Parse/Parse.h>
+
 
 @interface MapSharedDetails : UIViewController
 
+@property (nonatomic)PFObject *sharedLocation;
+@property (weak, nonatomic) IBOutlet MKMapView *MapView;
+@property (weak, nonatomic) IBOutlet UILabel *milesLabel;
+
+- (IBAction)OpenDirection:(id)sender;
 @end
